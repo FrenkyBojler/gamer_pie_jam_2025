@@ -1,0 +1,44 @@
+# Build and publish using Ubuntu and Godot 4.3
+
+on:
+  workflow_dispatch:
+  push:
+	branches:
+	  - master
+jobs:
+  build:
+	runs-on: self-hosted
+
+	steps:
+	  - name: Checkout code
+		uses: actions/checkout@v4
+
+	  - name: Download Godot
+		run: |
+		  curl -o godot.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -L
+
+	  - name: Unzip Godot
+		run: |
+		  unzip godot.zip -d godot
+		  chmod +x godot/Godot_v4.3-stable_linux.x86_64
+
+	  - name: Export game
+		run: |
+		  mkdir -p build
+		  godot/Godot_v4.3-stable_linux.x86_64 project.godot --quiet --headless --export-debug "Web" build
+
+	  - name: List build output
+		run: ls -l build
+
+	  - name: Setup Pages
+		uses: actions/configure-pages@v5
+		
+	  - name: Upload artifact
+		id: deployment
+		uses: actions/upload-pages-artifact@v3
+		with:
+		  path: 'build'
+		
+	  - name: Deploy to GitHub Pages
+		id: deployment
+		uses: actions/deploy-pages@v4
