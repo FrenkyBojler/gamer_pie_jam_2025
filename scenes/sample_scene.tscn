@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca3rirahl1gne"]
+
+[ext_resource type="PackedScene" uid="uid://d0vkltbsrp1x6" path="res://assets/meshes/KayKit_Prototype_Bits_1.0_EXTRA/Character/Dummy.glb" id="1_f6tve"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ngk1d"]
+sky_material = SubResource("ProceduralSkyMaterial_k2s3c")
+
+[sub_resource type="Environment" id="Environment_sj3r8"]
+background_mode = 1
+background_color = Color(0.288518, 0.288518, 0.288518, 1)
+sky = SubResource("Sky_ngk1d")
+ambient_light_color = Color(0.877616, 0.877616, 0.877616, 1)
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4bfb"]
+albedo_color = Color(0.319873, 0.319873, 0.319873, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ueedf"]
+material = SubResource("StandardMaterial3D_a4bfb")
+
+[node name="SampleScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sj3r8")
+
+[node name="Dummy" parent="." instance=ExtResource("1_f6tve")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.959781, 0.280751, 0, -0.280751, 0.959781, 0, 2.22344, 4.86617)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ueedf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.523555, -0.684056, 0.507895, 0, 0.596127, 0.80289, -0.851992, -0.420357, 0.312105, 0, 6.38955, 5.90623)
+shadow_enabled = true
