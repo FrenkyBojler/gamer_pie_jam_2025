@@ -3,8 +3,8 @@
 on:
   workflow_dispatch:
   push:
-	branches:
-	  - main
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -13,93 +13,39 @@ permissions:
 
 jobs:
   build:
-	runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-	steps:
-	  - name: Checkout code
-		uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Download Godot
+        run: |
+          curl -o godot.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -L
+          curl -o godot_export_templates.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -L
 
-	  - name: Download Godot
-		run: |
-		  curl -o godot.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -L
-		  curl -o godot_export_templates.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -L
+      - name: Unzip Godot
+        run: |
+          unzip godot.zip -d godot
+          chmod +x godot/Godot_v4.3-stable_linux.x86_64
+          mkdir -p /home/runner/.local/share/godot/export_templates/4.3.stable/
+          unzip godot_export_templates.zip -d /home/runner/.local/share/godot/
+          mv /home/runner/.local/share/godot/templates/* /home/runner/.local/share/godot/export_templates/4.3.stable/
 
-	  - name: Unzip Godot
-		run: |
-		  unzip godot.zip -d godot
-		  chmod +x godot/Godot_v4.3-stable_linux.x86_64
-		  mkdir -p /home/runner/.local/share/godot/export_templates/4.3.stable/
-		  unzip godot_export_templates.zip -d /home/runner/.local/share/godot/
-		  mv /home/runner/.local/share/godot/templates/* /home/runner/.local/share/godot/export_templates/4.3.stable/
+      - name: Export game
+        run: |
+          mkdir -p build
+          godot/Godot_v4.3-stable_linux.x86_64 project.godot --quiet --headless --export-debug "Web" build/index.html
 
-	  - name: Export game
-		run: |
-		  mkdir -p build
-		  godot/Godot_v4.3-stable_linux.x86_64 project.godot --quiet --headless --export-debug "Web" build/index.html
+      - name: List build output
+        run: ls -l build
 
-	  - name: List build output
-		run: ls -l build
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-	  - name: Setup Pages
-		uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "build"
 
-	  - name: Upload artifact
-		uses: actions/upload-pages-artifact@v3
-		with:
-		  path: "build"
-
-	  - name: Deploy to GitHub Pages
-		uses: actions/deploy-pages@v4
-# Build and publish using Ubuntu and Godot 4.3
-
-on:
-    workflow_dispatch:
-    push:
-      branches:
-		- main
-  
-  permissions:
-	contents: read
-	pages: write
-	id-token: write
-  
-  jobs:
-	build:
-	  runs-on: ubuntu-latest
-  
-	  steps:
-		- name: Checkout code
-		  uses: actions/checkout@v4
-  
-		- name: Download Godot
-		  run: |
-			curl -o godot.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -L
-			curl -o godot_export_templates.zip https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -L
-  
-		- name: Unzip Godot
-		  run: |
-			unzip godot.zip -d godot
-			chmod +x godot/Godot_v4.3-stable_linux.x86_64
-			mkdir -p /home/runner/.local/share/godot/export_templates/4.3.stable/
-			unzip godot_export_templates.zip -d /home/runner/.local/share/godot/
-			mv /home/runner/.local/share/godot/templates/* /home/runner/.local/share/godot/export_templates/4.3.stable/
-  
-		- name: Export game
-		  run: |
-			mkdir -p build
-			godot/Godot_v4.3-stable_linux.x86_64 project.godot --quiet --headless --export-debug "Web" build/index.html
-  
-		- name: List build output
-		  run: ls -l build
-  
-		- name: Setup Pages
-		  uses: actions/configure-pages@v5
-  
-		- name: Upload artifact
-		  uses: actions/upload-pages-artifact@v3
-		  with:
-			path: "build"
-  
-		- name: Deploy to GitHub Pages
-		  uses: actions/deploy-pages@v4
-  
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
