@@ -1,5 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=11 format=3 uid="uid://ca3rirahl1gne"]
 
+[ext_resource type="Material" uid="uid://dqrhcceq5g2sl" path="res://assets/materials/plaster_wall_mat.tres" id="1_2xjvt"]
+[ext_resource type="Material" uid="uid://tqsgkrmc8s7p" path="res://assets/materials/floor_mat.tres" id="1_43ddj"]
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="PackedScene" uid="uid://cj3o4gmo2nlnc" path="res://prefabs/test_interactable.tscn" id="2_jovnn"]
 
@@ -18,15 +20,16 @@ ambient_light_color = Color(0.877616, 0.877616, 0.877616, 1)
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4bfb"]
-albedo_color = Color(0.319873, 0.319873, 0.319873, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ueedf"]
-material = SubResource("StandardMaterial3D_a4bfb")
+[sub_resource type="PlaneMesh" id="PlaneMesh_0yrsp"]
+material = ExtResource("1_43ddj")
 size = Vector2(3, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xkwl2"]
 size = Vector3(3.0025, 0.520386, 2.92224)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ueedf"]
+material = ExtResource("1_2xjvt")
+size = Vector2(3, 3)
 
 [node name="SampleScene" type="Node3D"]
 
@@ -37,7 +40,7 @@ environment = SubResource("Environment_sj3r8")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="Floor" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_ueedf")
+mesh = SubResource("PlaneMesh_0yrsp")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
