@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 	handle_look()
 	check_interaction()
 	handle_interaction()
+	handle_animations()
 
 # Handle player movement
 func handle_movement(delta: float) -> void:
@@ -72,3 +73,9 @@ func handle_interaction() -> void:
 			interactable_object.interact()
 		else:
 			print_debug("missing interact method")
+
+func handle_animations() -> void:
+	if velocity.length() > 0:
+		$AnimationPlayer.play("walk")
+	else:
+		$AnimationPlayer.play("idle")
