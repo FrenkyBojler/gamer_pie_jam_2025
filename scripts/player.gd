@@ -10,9 +10,9 @@ var interactable_object: PhysicsBody3D = null
 # Internal variables
 var pitch: float = 0.0
 
-# Capture mouse on startup
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 # Called every frame
 func _process(delta: float) -> void:
