@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj3o4gmo2nlnc"]
+
+[ext_resource type="PackedScene" uid="uid://k2pjboupxvi1" path="res://assets/meshes/KayKit_Prototype_Bits_1.0_EXTRA/Assets/gltf/Barrel_B.gltf" id="1_w0lky"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u7yba"]
+height = 0.965258
+
+[node name="TestInteractable" type="StaticBody3D" groups=["interactable"]]
+
+[node name="Barrel_B2" parent="." instance=ExtResource("1_w0lky")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["interactable"]]
+shape = SubResource("CylinderShape3D_u7yba")
+
+[editable path="Barrel_B2"]
