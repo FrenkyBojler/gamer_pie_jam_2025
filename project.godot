@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gamer_pie_jam_2025"
-run/main_scene="res://scenes/sample_scene.tscn"
+run/main_scene="res://scenes/postprocessed_scene.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.svg"
 
