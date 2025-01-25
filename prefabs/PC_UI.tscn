@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://coiuitr25vqrd"]
+[gd_scene load_steps=12 format=3 uid="uid://coiuitr25vqrd"]
 
 [ext_resource type="Script" path="res://scripts/pc_ui.gd" id="1_43wlc"]
 [ext_resource type="Texture2D" uid="uid://vpa41arh6j72" path="res://assets/textures/ui/logo_big.png" id="2_2u6rs"]
 [ext_resource type="Texture2D" uid="uid://dfqt4rrbalvsb" path="res://assets/textures/ui/screen_feed.png" id="2_k18gq"]
+[ext_resource type="Texture2D" uid="uid://15rkwe8t13ut" path="res://assets/textures/ui/online.PNG" id="2_ybj6f"]
 [ext_resource type="PackedScene" uid="uid://ddjrbsehklcwm" path="res://prefabs/pc/text_bubble.tscn" id="3_8qash"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4067p"]
@@ -20,6 +21,10 @@ font_color = Color(0.431373, 0.431373, 0.431373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32y1d"]
 bg_color = Color(0.980392, 0.603922, 0.227451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ejed"]
+font_size = 30
+font_color = Color(0.988235, 0.776471, 0.560784, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -73,13 +78,27 @@ text = "@Daniel Vávra"
 label_settings = SubResource("LabelSettings_jcl7t")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="Container" type="Container" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ybj6f")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Online"
 label_settings = SubResource("LabelSettings_7i68i")
-horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header"]
 layout_mode = 2
@@ -93,10 +112,29 @@ size_flags_vertical = 8
 texture = ExtResource("2_2u6rs")
 expand_mode = 5
 
-[node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+[node name="Separator" type="Panel" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_32y1d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="LatestFeed" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "       Latest Feed"
+label_settings = SubResource("LabelSettings_8ejed")
+
+[node name="Container" type="Container" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(789.79, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Trending Now"
+label_settings = SubResource("LabelSettings_8ejed")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(910, 955)
