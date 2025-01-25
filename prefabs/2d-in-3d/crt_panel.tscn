@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7pnqjg6vnhk4"]
+
+[ext_resource type="Script" path="res://prefabs/2d-in-3d/gui_3d.gd" id="1_uedr4"]
+[ext_resource type="Material" uid="uid://ur8vfj6oalrk" path="res://resources/crt_mat.tres" id="2_1ahg5"]
+[ext_resource type="PackedScene" uid="uid://coiuitr25vqrd" path="res://prefabs/PC_UI.tscn" id="3_nnbk0"]
+[ext_resource type="Material" uid="uid://sxgd0caw3514" path="res://prefabs/pc_panel.tres" id="4_ocrit"]
+
+[sub_resource type="QuadMesh" id="1"]
+size = Vector2(3, 2)
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(3, 2, 0.1)
+
+[node name="CRT2Din3D" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_uedr4")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+gui_embed_subwindows = true
+size = Vector2i(1600, 1200)
+render_target_update_mode = 4
+
+[node name="GUI" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/GUI"]
+z_index = 1
+material = ExtResource("2_1ahg5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.345098)
+
+[node name="Control" parent="SubViewport/GUI" instance=ExtResource("3_nnbk0")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Quad" type="MeshInstance3D" parent="."]
+mesh = SubResource("1")
+surface_material_override/0 = ExtResource("4_ocrit")
+
+[node name="Area3D" type="Area3D" parent="Quad"]
+collision_layer = 2
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D"]
+shape = SubResource("4")

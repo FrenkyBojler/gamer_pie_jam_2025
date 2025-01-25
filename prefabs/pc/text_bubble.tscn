@@ -18,6 +18,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_wumbb"]
 font_size = 18
+outline_size = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_jshd4"]
 font_size = 20

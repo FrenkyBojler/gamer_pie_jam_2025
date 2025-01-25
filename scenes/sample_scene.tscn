@@ -123,4 +123,8 @@ player = NodePath("../../Player")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.72418, 0, 0)
 player = NodePath("../../Player")
 
+[node name="PC" parent="." node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("6_hoofi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6915, 1.02569, 3.08942)
+player = NodePath("../Player")
+
 [connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]

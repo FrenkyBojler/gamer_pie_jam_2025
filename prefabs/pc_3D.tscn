@@ -1,19 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvl383ispakmn"]
+[gd_scene load_steps=8 format=3 uid="uid://cxwvs01ywmdmu"]
 
-[ext_resource type="Script" path="res://prefabs/2d-in-3d/gui_3d.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dwk7hg8o5h5ub" path="res://icon.svg" id="2"]
-[ext_resource type="PackedScene" uid="uid://coiuitr25vqrd" path="res://prefabs/PC_UI.tscn" id="3_gll2c"]
-[ext_resource type="Material" uid="uid://sxgd0caw3514" path="res://prefabs/pc_panel.tres" id="4_uwhoe"]
+[ext_resource type="Script" path="res://prefabs/2d-in-3d/gui_3d.gd" id="1_kwkkm"]
+[ext_resource type="Texture2D" uid="uid://dwk7hg8o5h5ub" path="res://icon.svg" id="2_7uo0i"]
+[ext_resource type="PackedScene" uid="uid://coiuitr25vqrd" path="res://prefabs/PC_UI.tscn" id="3_la62j"]
 
 [sub_resource type="QuadMesh" id="1"]
 size = Vector2(3, 2)
 
+[sub_resource type="ViewportTexture" id="2"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="3"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("2")
+
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(3, 2, 0.1)
 
-[node name="GUIPanel3D" type="Node3D"]
+[node name="PC3D" type="Node3D"]
 process_mode = 3
-script = ExtResource("1")
+script = ExtResource("1_kwkkm")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_embed_subwindows = true
@@ -88,7 +96,7 @@ offset_top = 32.0
 offset_right = -70.0
 offset_bottom = 128.0
 grow_horizontal = 0
-texture = ExtResource("2")
+texture = ExtResource("2_7uo0i")
 expand_mode = 1
 
 [node name="VSlider" type="VSlider" parent="SubViewport/GUI/Panel"]
@@ -125,14 +133,14 @@ popup/item_1/id = 1
 popup/item_2/text = "Item 2"
 popup/item_2/id = 2
 
-[node name="Control" parent="SubViewport/GUI" instance=ExtResource("3_gll2c")]
+[node name="Control" parent="SubViewport/GUI" instance=ExtResource("3_la62j")]
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="Quad" type="MeshInstance3D" parent="."]
 mesh = SubResource("1")
-surface_material_override/0 = ExtResource("4_uwhoe")
+surface_material_override/0 = SubResource("3")
 
 [node name="Area3D" type="Area3D" parent="Quad"]
 collision_layer = 2
