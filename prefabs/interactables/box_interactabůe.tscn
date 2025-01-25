@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0f8gqtb2ht2j"]
+
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="1_cim5x"]
+[ext_resource type="PackedScene" uid="uid://b04rqgifs6gni" path="res://assets/meshes/KayKit_Prototype_Bits_1.0_EXTRA/Assets/gltf/Box_A.gltf" id="2_p7eqv"]
+[ext_resource type="PackedScene" uid="uid://cm4rr7nu7qmqh" path="res://prefabs/interactables/gun.tscn" id="3_us14e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhadl"]
+size = Vector3(1, 0.703613, 1)
+
+[node name="BoxInteractable" type="StaticBody3D" node_paths=PackedStringArray("static_camera", "collider", "pickable_objects")]
+script = ExtResource("1_cim5x")
+static_camera = NodePath("Camera3D")
+collider = NodePath("CollisionShape3D")
+pickable_objects = [NodePath("Gun")]
+
+[node name="Box_A2" parent="." instance=ExtResource("2_p7eqv")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00584412, 0.37645, -0.00317383)
+shape = SubResource("BoxShape3D_vhadl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.879017, 0.476791, 0, -0.476791, 0.879017, 0, 1.72236, 1.28834)
+
+[node name="Gun" parent="." instance=ExtResource("3_us14e")]
+transform = Transform3D(0.333363, 0, -0.942799, 0, 1, 0, 0.942799, 0, 0.333363, 0.216707, 1.0156, -0.0193839)
+is_placeholder = false
