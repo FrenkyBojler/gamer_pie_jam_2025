@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=11 format=3 uid="uid://ca3rirahl1gne"]
 
-[ext_resource type="Material" uid="uid://dqrhcceq5g2sl" path="res://assets/materials/plaster_wall_mat.tres" id="1_2xjvt"]
-[ext_resource type="Material" uid="uid://tqsgkrmc8s7p" path="res://assets/materials/floor_mat.tres" id="1_43ddj"]
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
+[ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
 [ext_resource type="PackedScene" uid="uid://c0f8gqtb2ht2j" path="res://prefabs/interactables/box_interactabůe.tscn" id="5_gg03l"]
 [ext_resource type="PackedScene" uid="uid://xabnfm38hkjr" path="res://prefabs/interactables/workbench_interactable.tscn" id="5_tf4ej"]
 [ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
@@ -16,23 +15,17 @@ ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_material = SubResource("ProceduralSkyMaterial_k2s3c")
 
 [sub_resource type="Environment" id="Environment_sj3r8"]
-background_mode = 2
 background_color = Color(0.288518, 0.288518, 0.288518, 1)
+background_energy_multiplier = 0.0
 sky = SubResource("Sky_ngk1d")
-ambient_light_color = Color(0.877616, 0.877616, 0.877616, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.909804, 0.760784, 0.219608, 1)
+ambient_light_energy = 0.02
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0yrsp"]
-material = ExtResource("1_43ddj")
-size = Vector2(3, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xkwl2"]
-size = Vector3(3.0025, 0.520386, 2.92224)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ueedf"]
-material = ExtResource("1_2xjvt")
-size = Vector2(3, 3)
+[sub_resource type="BoxShape3D" id="BoxShape3D_krdbf"]
+size = Vector3(7.16357, 0.498535, 5.71283)
 
 [node name="SampleScene" type="Node3D" node_paths=PackedStringArray("interactables")]
 script = ExtResource("1_ogcw3")
@@ -41,45 +34,71 @@ interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/Bo
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.523555, -0.684056, 0.507895, 0, 0.596127, 0.80289, -0.851992, -0.420357, 0.312105, 0, 6.38955, 5.90623)
-shadow_enabled = true
-
 [node name="Player" parent="." instance=ExtResource("1_au5jj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03884, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.03884, 0)
 
 [node name="WallsAndFloor" type="Node" parent="."]
 
-[node name="Floor" type="StaticBody3D" parent="WallsAndFloor"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+[node name="Map2" parent="WallsAndFloor" instance=ExtResource("3_pcqem")]
 
-[node name="Floor" type="MeshInstance3D" parent="WallsAndFloor/Floor"]
-mesh = SubResource("PlaneMesh_0yrsp")
-skeleton = NodePath("../../..")
+[node name="LivingRoomLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.64995, 2.39672, 0.728348)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 2.012
+spot_range = 3.646
+spot_attenuation = 0.11
+spot_angle = 76.56
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallsAndFloor/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392151, -0.239807, -0.00665283)
-shape = SubResource("BoxShape3D_xkwl2")
+[node name="LivingRoomBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, -1.64995, 1.36125, 0.728348)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 5.81
+spot_range = 0.924
+spot_attenuation = 0.11
+spot_angle = 22.35
 
-[node name="Wall1" type="MeshInstance3D" parent="WallsAndFloor"]
-transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 7.21513, 0, 0)
-mesh = SubResource("PlaneMesh_ueedf")
-skeleton = NodePath("../..")
+[node name="BedroomLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.72799, 2.39672, 2.3506)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 1.253
+spot_range = 3.646
+spot_attenuation = 0.11
+spot_angle = 76.56
 
-[node name="Wall2" type="MeshInstance3D" parent="WallsAndFloor"]
-transform = Transform3D(2.18557e-07, 5, -4.37114e-07, 5, -2.18557e-07, 0, -1.91069e-14, -4.37114e-07, -5, -7.50678, 0, 0)
-mesh = SubResource("PlaneMesh_ueedf")
-skeleton = NodePath("../..")
+[node name="BedroomBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.72799, 1.36125, 2.3506)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 5.81
+spot_range = 0.924
+spot_attenuation = 0.11
+spot_angle = 22.35
 
-[node name="Wall3" type="MeshInstance3D" parent="WallsAndFloor"]
-transform = Transform3D(9.55343e-15, 2.18557e-07, 5, 5, -2.18557e-07, 0, 2.18557e-07, 5, -2.18557e-07, -0.160822, 0, -7.32516)
-mesh = SubResource("PlaneMesh_ueedf")
-skeleton = NodePath("../..")
+[node name="BedroomLight2" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.58787, 2.39672, -0.955539)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 1.253
+spot_range = 3.646
+spot_attenuation = 0.11
+spot_angle = 76.56
 
-[node name="Wall4" type="MeshInstance3D" parent="WallsAndFloor"]
-transform = Transform3D(9.55343e-15, 2.18557e-07, -5, 5, -2.18557e-07, 0, -2.18557e-07, -5, -2.18557e-07, -0.160822, 0, 7.40045)
-mesh = SubResource("PlaneMesh_ueedf")
-skeleton = NodePath("../..")
+[node name="BedroomBackLight2" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.58787, 1.36125, -0.955539)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 5.81
+spot_range = 0.924
+spot_attenuation = 0.11
+spot_angle = 22.35
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64488, 1.97696, 0.659642)
+visible = false
+light_color = Color(0.91, 0.760153, 0.2184, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallsAndFloor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallsAndFloor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00561523, -0.248038, 0.707001)
+shape = SubResource("BoxShape3D_krdbf")
 
 [node name="Interactables" type="Node" parent="."]
 
