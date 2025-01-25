@@ -104,7 +104,7 @@ func start_interaction() -> void:
 		$Control/Crosshair.visible = false
 		$Control/InteractLabel.visible = false
 
-		Input.set_custom_mouse_cursor(interaction_cursor_non_active, Input.CURSOR_ARROW)
+		Input.set_custom_mouse_cursor(interaction_cursor_active, Input.CURSOR_ARROW)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		print_debug("missing interact method")
