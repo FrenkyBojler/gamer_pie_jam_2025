@@ -5,5 +5,5 @@
 [node name="MissingObjectLabel" type="Label"]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "You don't carry correct object"
+text = "You don't carry the correct object."
 label_settings = ExtResource("1_nj0pv")

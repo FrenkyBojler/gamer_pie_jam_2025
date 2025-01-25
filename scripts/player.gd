@@ -33,7 +33,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not in_interaction:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+		pass
 func _process(delta: float) -> void:
 	handle_interaction()
 	
@@ -61,11 +61,8 @@ func handle_movement(delta: float) -> void:
 	var rotated_direction = (global_transform.basis * input_direction).normalized()
 
 	# Apply movement
-	if is_on_floor():
-		velocity.x = rotated_direction.x * move_speed
-		velocity.z = rotated_direction.z * move_speed
-	else:
-		velocity.y += gravity * delta
+	velocity.x = rotated_direction.x * move_speed
+	velocity.z = rotated_direction.z * move_speed
 
 	move_and_slide()
 

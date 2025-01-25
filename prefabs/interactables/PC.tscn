@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs21iur2g2inp"]
+
+[ext_resource type="Script" path="res://scripts/pc.gd" id="1_0bp2d"]
+[ext_resource type="PackedScene" uid="uid://bcpm7fvra5jwp" path="res://assets/meshes/KayKit_Prototype_Bits_1.0_EXTRA/Assets/gltf/Workbench.gltf" id="2_yanvq"]
+[ext_resource type="PackedScene" uid="uid://dvl383ispakmn" path="res://prefabs/2d-in-3d/gui_panel_3d.tscn" id="3_f7kn0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1oax"]
+size = Vector3(2.94739, 1.05243, 1.41553)
+
+[node name="PC" type="StaticBody3D" node_paths=PackedStringArray("static_camera", "collider")]
+script = ExtResource("1_0bp2d")
+static_camera = NodePath("Camera3D")
+collider = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00640869, 0.52898, -0.00926447)
+shape = SubResource("BoxShape3D_w1oax")
+
+[node name="Workbench2" parent="." instance=ExtResource("2_yanvq")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88452, 0.808515)
+
+[node name="GUIPanel3D" parent="." instance=ExtResource("3_f7kn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0680881, 1.49537, -0.548998)
