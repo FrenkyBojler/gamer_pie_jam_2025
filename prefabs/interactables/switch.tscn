@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1n6jlwc6v0hs"]
+
+[ext_resource type="PackedScene" uid="uid://cptnyq7527rww" path="res://assets/meshes/MaroKit/Switch.gltf" id="1_nb2at"]
+
+[node name="Switch" instance=ExtResource("1_nb2at")]

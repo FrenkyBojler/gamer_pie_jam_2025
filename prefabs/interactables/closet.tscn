@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqnkdsb4oqp3p"]
+
+[ext_resource type="PackedScene" uid="uid://ch6hmybqesun7" path="res://assets/meshes/MaroKit/Closet.gltf" id="1_hj43t"]
+
+[node name="Closet" instance=ExtResource("1_hj43t")]

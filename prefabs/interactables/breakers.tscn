@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c01yq401xn42m"]
+
+[ext_resource type="PackedScene" uid="uid://cin38ndghugcy" path="res://assets/meshes/MaroKit/Breakers.gltf" id="1_3hkrh"]
+
+[node name="Breakers" instance=ExtResource("1_3hkrh")]
