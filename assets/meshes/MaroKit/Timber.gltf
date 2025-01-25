@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Timber"
+			"name":"Timber-convcol"
 		}
 	],
 	"materials":[

@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Switch",
+			"name":"Switch-convcol",
 			"rotation":[
 				-0.04187564551830292,
 				0,

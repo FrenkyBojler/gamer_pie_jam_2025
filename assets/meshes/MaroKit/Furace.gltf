@@ -15,11 +15,11 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"FuraceDoor",
+			"name":"FuraceDoor-convcol",
 			"translation":[
-				0.1779789924621582,
-				0.5627676248550415,
-				0.3374030590057373
+				-0.1779797077178955,
+				0.665399968624115,
+				0.3374027609825134
 			]
 		},
 		{
@@ -27,7 +27,7 @@
 				0
 			],
 			"mesh":1,
-			"name":"FuraceBase"
+			"name":"FuraceBase-col"
 		}
 	],
 	"materials":[
@@ -89,41 +89,41 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":104,
+			"count":222,
 			"max":[
-				6.789385338379361e-07,
-				0.17797966301441193,
-				0.06835250556468964
+				0.35595935583114624,
+				0.17797964811325073,
+				0.06835255026817322
 			],
 			"min":[
-				-0.35595864057540894,
-				-0.17797966301441193,
-				-1.3787486352612177e-07
+				5.960464477539063e-08,
+				-0.17797964811325073,
+				-8.940696716308594e-08
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":104,
+			"count":222,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":104,
+			"count":222,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":258,
+			"count":366,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":280,
+			"count":336,
 			"max":[
 				0.29090389609336853,
 				2.3913915157318115,
@@ -139,13 +139,13 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":280,
+			"count":336,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":280,
+			"count":336,
 			"type":"VEC2"
 		},
 		{
@@ -158,50 +158,50 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1248,
+			"byteLength":2664,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1248,
-			"byteOffset":1248,
+			"byteLength":2664,
+			"byteOffset":2664,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":832,
-			"byteOffset":2496,
+			"byteLength":1776,
+			"byteOffset":5328,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":516,
-			"byteOffset":3328,
+			"byteLength":732,
+			"byteOffset":7104,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":3360,
-			"byteOffset":3844,
+			"byteLength":4032,
+			"byteOffset":7836,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3360,
-			"byteOffset":7204,
+			"byteLength":4032,
+			"byteOffset":11868,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2240,
-			"byteOffset":10564,
+			"byteLength":2688,
+			"byteOffset":15900,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1428,
-			"byteOffset":12804,
+			"byteOffset":18588,
 			"target":34963
 		}
 	],
@@ -213,7 +213,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":14232,
+			"byteLength":20016,
 			"uri":"Furace.bin"
 		}
 	]

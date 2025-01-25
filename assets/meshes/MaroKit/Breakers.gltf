@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Door",
+			"name":"Door-convcol",
 			"translation":[
 				0.23930954933166504,
 				0.08965420722961426,
@@ -24,7 +24,7 @@
 		},
 		{
 			"mesh":1,
-			"name":"Switch1",
+			"name":"Switch1-convcol",
 			"translation":[
 				-0.15670061111450195,
 				0.0016411542892456055,
@@ -33,7 +33,7 @@
 		},
 		{
 			"mesh":2,
-			"name":"Switch2",
+			"name":"Switch2-convcol",
 			"translation":[
 				-0.05087780952453613,
 				0.0016411542892456055,
@@ -42,7 +42,7 @@
 		},
 		{
 			"mesh":3,
-			"name":"Switch3",
+			"name":"Switch3-convcol",
 			"translation":[
 				0.05494546890258789,
 				0.0016411542892456055,
@@ -51,7 +51,7 @@
 		},
 		{
 			"mesh":4,
-			"name":"Switch4",
+			"name":"Switch4-convcol",
 			"translation":[
 				0.16076898574829102,
 				0.0016411542892456055,
@@ -67,7 +67,7 @@
 				4
 			],
 			"mesh":5,
-			"name":"BreakerBase"
+			"name":"BreakerBase-convcol"
 		}
 	],
 	"materials":[

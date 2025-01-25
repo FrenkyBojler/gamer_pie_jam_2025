@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Map"
+			"name":"Map-col"
 		}
 	],
 	"materials":[
@@ -154,7 +154,7 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":10539,
+			"count":10599,
 			"max":[
 				3.5946130752563477,
 				2.922508716583252,
@@ -170,19 +170,19 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":10539,
+			"count":10599,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":10539,
+			"count":10599,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":7,
 			"componentType":5123,
-			"count":18450,
+			"count":18552,
 			"type":"SCALAR"
 		},
 		{
@@ -247,50 +247,50 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":126468,
+			"byteLength":127188,
 			"byteOffset":31476,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":126468,
-			"byteOffset":157944,
+			"byteLength":127188,
+			"byteOffset":158664,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":84312,
-			"byteOffset":284412,
+			"byteLength":84792,
+			"byteOffset":285852,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":36900,
-			"byteOffset":368724,
+			"byteLength":37104,
+			"byteOffset":370644,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":168,
-			"byteOffset":405624,
+			"byteOffset":407748,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":168,
-			"byteOffset":405792,
+			"byteOffset":407916,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":112,
-			"byteOffset":405960,
+			"byteOffset":408084,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":60,
-			"byteOffset":406072,
+			"byteOffset":408196,
 			"target":34963
 		}
 	],
@@ -306,7 +306,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":406132,
+			"byteLength":408256,
 			"uri":"Map.bin"
 		}
 	]

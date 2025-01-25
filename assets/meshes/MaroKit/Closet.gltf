@@ -43,7 +43,7 @@
 				1
 			],
 			"mesh":2,
-			"name":"Closet"
+			"name":"Closet-col"
 		}
 	],
 	"materials":[
@@ -119,7 +119,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":78,
+			"count":80,
 			"max":[
 				0.0027894973754882812,
 				0.9507205486297607,
@@ -128,20 +128,20 @@
 			"min":[
 				-0.7274438738822937,
 				-0.9313510656356812,
-				-0.14846117794513702
+				-0.11971192806959152
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":78,
+			"count":80,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":78,
+			"count":80,
 			"type":"VEC2"
 		},
 		{
@@ -162,7 +162,7 @@
 			"min":[
 				-0.006169319152832031,
 				-0.9179484844207764,
-				-0.14846090972423553
+				-0.11371849477291107
 			],
 			"type":"VEC3"
 		},
@@ -222,74 +222,74 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":936,
+			"byteLength":960,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":936,
-			"byteOffset":936,
+			"byteLength":960,
+			"byteOffset":960,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":624,
-			"byteOffset":1872,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":240,
-			"byteOffset":2496,
-			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":936,
-			"byteOffset":2736,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":936,
-			"byteOffset":3672,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":624,
-			"byteOffset":4608,
+			"byteLength":640,
+			"byteOffset":1920,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":240,
-			"byteOffset":5232,
+			"byteOffset":2560,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":936,
+			"byteOffset":2800,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":936,
+			"byteOffset":3736,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":624,
+			"byteOffset":4672,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":240,
+			"byteOffset":5296,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1248,
-			"byteOffset":5472,
+			"byteOffset":5536,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1248,
-			"byteOffset":6720,
+			"byteOffset":6784,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":832,
-			"byteOffset":7968,
+			"byteOffset":8032,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":336,
-			"byteOffset":8800,
+			"byteOffset":8864,
 			"target":34963
 		}
 	],
@@ -301,7 +301,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":9136,
+			"byteLength":9200,
 			"uri":"Closet.bin"
 		}
 	]
