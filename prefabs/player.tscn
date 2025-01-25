@@ -52,8 +52,9 @@ _data = {
 "walk": SubResource("Animation_jl40g")
 }
 
-[node name="Player" type="CharacterBody3D" groups=["interactable"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera") groups=["interactable"]]
 script = ExtResource("1_l5anj")
+camera = NodePath("Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_nymyg")
@@ -70,7 +71,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="Crosshair" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

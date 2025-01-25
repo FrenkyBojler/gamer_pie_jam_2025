@@ -21,7 +21,9 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
 size = Vector2i(1920, 1080)
+render_target_update_mode = 4
 
 [node name="SampleScene" parent="SubViewport" instance=ExtResource("2_w1pdd")]
 

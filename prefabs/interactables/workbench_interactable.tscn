@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://xabnfm38hkjr"]
+
+[ext_resource type="PackedScene" uid="uid://xhncks0dqdaf" path="res://assets/meshes/KayKit_Prototype_Bits_1.0_EXTRA/Assets/gltf/Workbench_Decorated.gltf" id="1_dyvto"]
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="1_gq2qp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vmv6i"]
+size = Vector3(2.90051, 2.64563, 1.43384)
+
+[node name="Workbench" type="StaticBody3D" node_paths=PackedStringArray("static_camera", "collider") groups=["interactable"]]
+script = ExtResource("1_gq2qp")
+static_camera = NodePath("Camera3D")
+collider = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0108032, 1.28712, 0.0423584)
+shape = SubResource("BoxShape3D_vmv6i")
+
+[node name="Workbench_Decorated2" parent="." instance=ExtResource("1_dyvto")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.901138, 0.433533, 0, -0.433533, 0.901138, 0, 2.30928, 1.23386)

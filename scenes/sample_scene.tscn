@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=12 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="Material" uid="uid://dqrhcceq5g2sl" path="res://assets/materials/plaster_wall_mat.tres" id="1_2xjvt"]
 [ext_resource type="Material" uid="uid://tqsgkrmc8s7p" path="res://assets/materials/floor_mat.tres" id="1_43ddj"]
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="PackedScene" uid="uid://cj3o4gmo2nlnc" path="res://prefabs/test_interactable.tscn" id="2_jovnn"]
+[ext_resource type="PackedScene" uid="uid://xabnfm38hkjr" path="res://prefabs/interactables/workbench_interactable.tscn" id="5_tf4ej"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,33 +37,6 @@ size = Vector2(3, 3)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
 
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-
-[node name="Floor" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_0yrsp")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392151, -0.239807, -0.00665283)
-shape = SubResource("BoxShape3D_xkwl2")
-
-[node name="Wall1" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 7.21513, 0, 0)
-mesh = SubResource("PlaneMesh_ueedf")
-
-[node name="Wall2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.18557e-07, 5, -4.37114e-07, 5, -2.18557e-07, 0, -1.91069e-14, -4.37114e-07, -5, -7.50678, 0, 0)
-mesh = SubResource("PlaneMesh_ueedf")
-
-[node name="Wall3" type="MeshInstance3D" parent="."]
-transform = Transform3D(9.55343e-15, 2.18557e-07, 5, 5, -2.18557e-07, 0, 2.18557e-07, 5, -2.18557e-07, -0.160822, 0, -7.32516)
-mesh = SubResource("PlaneMesh_ueedf")
-
-[node name="Wall4" type="MeshInstance3D" parent="."]
-transform = Transform3D(9.55343e-15, 2.18557e-07, -5, 5, -2.18557e-07, 0, -2.18557e-07, -5, -2.18557e-07, -0.160822, 0, 7.40045)
-mesh = SubResource("PlaneMesh_ueedf")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.523555, -0.684056, 0.507895, 0, 0.596127, 0.80289, -0.851992, -0.420357, 0.312105, 0, 6.38955, 5.90623)
 shadow_enabled = true
@@ -70,5 +44,43 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_au5jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01508, 0)
 
-[node name="TestInteractable" parent="." instance=ExtResource("2_jovnn")]
+[node name="WallsAndFloor" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="WallsAndFloor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="WallsAndFloor/Floor"]
+mesh = SubResource("PlaneMesh_0yrsp")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallsAndFloor/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392151, -0.239807, -0.00665283)
+shape = SubResource("BoxShape3D_xkwl2")
+
+[node name="Wall1" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 7.21513, 0, 0)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="Wall2" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(2.18557e-07, 5, -4.37114e-07, 5, -2.18557e-07, 0, -1.91069e-14, -4.37114e-07, -5, -7.50678, 0, 0)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="Wall3" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(9.55343e-15, 2.18557e-07, 5, 5, -2.18557e-07, 0, 2.18557e-07, 5, -2.18557e-07, -0.160822, 0, -7.32516)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="Wall4" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(9.55343e-15, 2.18557e-07, -5, 5, -2.18557e-07, 0, -2.18557e-07, -5, -2.18557e-07, -0.160822, 0, 7.40045)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="Interactables" type="Node" parent="."]
+
+[node name="TestInteractable" parent="Interactables" instance=ExtResource("2_jovnn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8509, 0.463546, 0)
+
+[node name="Workbench" parent="Interactables" instance=ExtResource("5_tf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.55784)
