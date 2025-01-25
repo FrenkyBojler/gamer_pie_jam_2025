@@ -1,0 +1,215 @@
+[gd_scene load_steps=19 format=3 uid="uid://crlpv0gr67oln"]
+
+[ext_resource type="Texture2D" uid="uid://rxhdnup0btn1" path="res://assets/textures/ui/login_logo.png" id="1_sc2w3"]
+[ext_resource type="Script" path="res://scripts/login_screen.gd" id="1_vpnaq"]
+[ext_resource type="Texture2D" uid="uid://bbrasw1la7uli" path="res://assets/textures/ui/Dudette.PNG" id="2_ol1it"]
+[ext_resource type="Texture2D" uid="uid://i1wa8npikknr" path="res://assets/textures/ui/Grumpster.PNG" id="3_n8ddq"]
+[ext_resource type="Texture2D" uid="uid://mu25tcdmd7p3" path="res://assets/textures/ui/Havin.PNG" id="4_hcejv"]
+[ext_resource type="Texture2D" uid="uid://buuvtaiwlle41" path="res://assets/textures/ui/OutdoorBoi.PNG" id="5_i7am4"]
+[ext_resource type="Texture2D" uid="uid://bcq1wnfjh5ldy" path="res://assets/textures/ui/Randall.PNG" id="6_eexma"]
+[ext_resource type="Texture2D" uid="uid://jwjaj78g2t1n" path="res://assets/textures/ui/Rando.PNG" id="7_iqng1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohs64"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.980392, 0.603922, 0.227451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.98, 0.6027, 0.2254, 0.466667)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf4iy"]
+bg_color = Color(0.980392, 0.603922, 0.227451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8ka7"]
+font_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_swm8o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbixn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.43, 0.43, 0.43, 0.690196)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxat6"]
+font_size = 12
+font_color = Color(0.988235, 0.776471, 0.560784, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ln7v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gp6nv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkymy"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csdrq"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="LoginScreen" type="PanelContainer" node_paths=PackedStringArray("nickname", "profile_pics_list")]
+custom_minimum_size = Vector2(400, 200)
+anchors_preset = -1
+anchor_left = 0.395833
+anchor_top = 0.337037
+anchor_right = 0.604167
+anchor_bottom = 0.592593
+offset_right = 100.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ohs64")
+script = ExtResource("1_vpnaq")
+nickname = NodePath("VBoxContainer/LineEdit")
+profile_pics_list = NodePath("VBoxContainer/HBoxContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uf4iy")
+
+[node name="Label" type="Label" parent="VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "WELCOME TO"
+label_settings = SubResource("LabelSettings_y8ka7")
+
+[node name="Spacer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_swm8o")
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_sc2w3")
+stretch_mode = 4
+
+[node name="Spacer2" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_swm8o")
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_placeholder_color = Color(0.856067, 0.856067, 0.856067, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_vbixn")
+placeholder_text = "Enter your nickname"
+alignment = 1
+
+[node name="Spacer3" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_swm8o")
+
+[node name="ProfilePicLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Choose a profile picture"
+label_settings = SubResource("LabelSettings_bxat6")
+horizontal_alignment = 1
+
+[node name="Spacer4" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_swm8o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ln7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gp6nv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dkymy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_csdrq")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("2_ol1it")
+
+[node name="TextureRect2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ln7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gp6nv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dkymy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_csdrq")
+toggle_mode = true
+icon = ExtResource("3_n8ddq")
+
+[node name="TextureRect3" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ln7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gp6nv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dkymy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_csdrq")
+toggle_mode = true
+icon = ExtResource("4_hcejv")
+
+[node name="TextureRect4" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ln7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gp6nv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dkymy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_csdrq")
+toggle_mode = true
+icon = ExtResource("5_i7am4")
+
+[node name="TextureRect5" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ln7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gp6nv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dkymy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_csdrq")
+toggle_mode = true
+icon = ExtResource("6_eexma")
+
+[node name="TextureRect6" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ln7v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gp6nv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dkymy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_csdrq")
+toggle_mode = true
+icon = ExtResource("7_iqng1")
+
+[node name="Spacer5" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_swm8o")
+
+[node name="Login Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.980392, 0.603922, 0.227451, 1)
+text = "Login"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Login Button" to="." method="_on_login_button_pressed"]

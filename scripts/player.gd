@@ -13,6 +13,8 @@ const interaction_cursor_active = preload("res://assets/textures/kenney_cursor-p
 @export var camera: Camera3D = null
 @export var carry_spot: Node3D = null
 
+@export var pc_interactable: Interactable
+
 var interactable_object: Interactable = null
 var in_interaction := false
 var canceled_interaction := false
@@ -29,12 +31,28 @@ var pitch: float = 0.0
 func _ready() -> void:
 	assert(camera != null, "Player needs a camera to work properly.")
 	assert(carry_spot != null, "Player needs a carry spot to work properly.")
+	
+	$Control/Crosshair.visible = false
+	hide_all_labels()
+	Input.set_custom_mouse_cursor(interaction_cursor_active, Input.CURSOR_ARROW)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	GameState.game_start.connect(func(): 
+		visible = true
+		$Control/Crosshair.visible = true
+		GameState.can_interact = true
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		camera.current = true
+	)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and not in_interaction:
+	if GameState.can_interact and event is InputEventMouseButton and not in_interaction:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		pass
+
 func _process(delta: float) -> void:
+	if not GameState.can_interact:
+		return
+
 	handle_interaction()
 	
 	if Input.is_action_pressed("place_or_pickup"):

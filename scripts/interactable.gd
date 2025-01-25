@@ -21,7 +21,7 @@ var camera_target_transform: Transform3D = Transform3D.IDENTITY
 
 var switch_cam_timer := Timer.new()
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	assert(player != null, "Interactable need a player to work properly.")
 	assert(static_camera != null, "Interactable needs a camera to work properly.")
 	assert(collider != null, "Interactable needs a collider to work properly.")
@@ -50,6 +50,8 @@ func _hide_pickables_placeholder() -> void:
 			pickable.visible = false
 
 func _process(delta: float) -> void:
+	if not GameState.can_interact:
+		return
 	static_camera.global_transform = static_camera.global_transform.interpolate_with(camera_target_transform, delta * 10)
 
 func interact(current_camera_transform: Transform3D) -> void:
@@ -71,15 +73,3 @@ func cancel_interaction() -> void:
 func switch_cam_timer_timeout() -> void:
 	in_interaction = false
 	static_camera.current = false
-	
-func push_events(event: InputEventMouse) -> void:
-	for child in get_children():
-		if child is SubViewport:
-			var event_adjusted = event.duplicate() as InputEventMouse
-			var mesh_position = static_camera.unproject_position((child as SubViewport).mesh.global_position)
-			mesh_position /= 4
-			event_adjusted.global_position -= mesh_position
-			if event is InputEventMouseButton:
-				print(mesh_position)
-				print(event_adjusted.global_position)
-			#(child as SubViewport2D3D).push_input(event)

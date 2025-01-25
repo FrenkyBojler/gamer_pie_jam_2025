@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://coiuitr25vqrd"]
+[gd_scene load_steps=31 format=3 uid="uid://coiuitr25vqrd"]
 
 [ext_resource type="Script" path="res://scripts/pc_ui.gd" id="1_43wlc"]
 [ext_resource type="Texture2D" uid="uid://vpa41arh6j72" path="res://assets/textures/ui/logo_big.png" id="2_2u6rs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dfqt4rrbalvsb" path="res://assets/textures/ui/screen_feed.png" id="2_k18gq"]
 [ext_resource type="Texture2D" uid="uid://15rkwe8t13ut" path="res://assets/textures/ui/online.PNG" id="2_ybj6f"]
 [ext_resource type="PackedScene" uid="uid://bfjqxkyd0sk4d" path="res://prefabs/pc/post.tscn" id="4_8wrbd"]
+[ext_resource type="PackedScene" uid="uid://crlpv0gr67oln" path="res://prefabs/pc/login_screen.tscn" id="7_rlwnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4067p"]
 bg_color = Color(1, 1, 1, 1)
@@ -76,7 +77,10 @@ bg_color = Color(0.839216, 0.027451, 0.027451, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvusn"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("user_name", "user_picture", "points_label_1", "progress_bar_1", "points_label_2", "progress_bar_2", "posts_list")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pcb5"]
+bg_color = Color(0.691357, 0.691357, 0.691357, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("user_name", "user_picture", "points_label_1", "progress_bar_1", "points_label_2", "progress_bar_2", "posts_list", "login_screen", "twitter_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,8 +98,11 @@ progress_bar_1 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/Prog
 points_label_2 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/HBoxContainer/Points")
 progress_bar_2 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/ProgressBar")
 posts_list = NodePath("Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts")
+login_screen = NodePath("PanelContainer")
+twitter_screen = NodePath("Panel")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -460,3 +467,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_k18gq")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7pcb5")
+
+[node name="LoginScreen" parent="PanelContainer" instance=ExtResource("7_rlwnq")]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="login" from="PanelContainer/LoginScreen" to="." method="_on_login_screen_login"]

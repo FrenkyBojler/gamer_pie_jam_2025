@@ -2,10 +2,21 @@ extends Control
 
 const post_prefab = preload("res://prefabs/pc/post.tscn")
 
+const user_profile_pic_1 = preload("res://assets/textures/ui/Dudette.PNG")
+const user_profile_pic_2 = preload("res://assets/textures/ui/Grumpster.PNG")
+const user_profile_pic_3 = preload("res://assets/textures/ui/Havin.PNG")
+const user_profile_pic_4 = preload("res://assets/textures/ui/OutdoorBoi.PNG")
+const user_profile_pic_5 = preload("res://assets/textures/ui/Randall.PNG")
+const user_profile_pic_6 = preload("res://assets/textures/ui/Rando.PNG")
+
+var profile_pics = [user_profile_pic_1, user_profile_pic_2, user_profile_pic_3, user_profile_pic_4, user_profile_pic_5, user_profile_pic_6]
+
 @export
 var user_name: Label
 @export
 var user_picture: TextureRect
+
+var user_profile_pic_index := 0
 
 @export
 var points_label_1: Label
@@ -20,11 +31,15 @@ var progress_bar_2: ProgressBar
 @export
 var posts_list: VBoxContainer
 
+@export
+var login_screen: PanelContainer
+@export
+var twitter_screen: Panel
+
 # Game data
 var positive_score := 0
 var negative_score := 0
 
-var user_profile_pic_index := 0
 
 var new_post_wait_time_min = 4.0
 var new_post_wait_time_max = 10.0
@@ -89,6 +104,9 @@ var negative_posts = [
 		alignment = "negative"
 	}
 ]
+
+func _ready() -> void:
+	update_score_texts()
 
 func start_game() -> void:
 	progress_bar_1.max_value = FINISH_SCORE
@@ -157,5 +175,10 @@ func update_score_texts() -> void:
 	points_label_1.text = str(positive_score) + " posts"
 	points_label_2.text = str(negative_score) + " posts"
 
-func _ready() -> void:
-	start_game()
+func _on_login_screen_login(nick: String, pic_index: int) -> void:
+	user_name.text = nick
+	user_profile_pic_index = pic_index
+	user_picture.texture = profile_pics[pic_index]
+	
+	login_screen.visible = false
+	twitter_screen.visible = true

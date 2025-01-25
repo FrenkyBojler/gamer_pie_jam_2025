@@ -34,8 +34,14 @@ interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/Bo
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
 
-[node name="Player" parent="." instance=ExtResource("1_au5jj")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.03884, 0)
+[node name="Player" parent="." node_paths=PackedStringArray("pc_interactable") instance=ExtResource("1_au5jj")]
+transform = Transform3D(-0.432444, 0, 0.250982, 0, 0.5, 0, -0.250982, 0, -0.432444, -2.23947, 1.07977, 1.91756)
+visible = false
+pc_interactable = NodePath("../PC")
+
+[node name="Camera3D" parent="Player" index="1"]
+transform = Transform3D(1.99929, -0.0463703, 0.0263484, 0.0335455, 1.86148, 0.730596, -0.0414624, -0.729895, 1.86159, 0, 0.904988, 0)
+current = false
 
 [node name="WallsAndFloor" type="Node" parent="."]
 
@@ -127,4 +133,10 @@ player = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6915, 1.02569, 3.08942)
 player = NodePath("../Player")
 
+[node name="Camera3D" parent="PC" index="1"]
+current = true
+
 [connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]
+
+[editable path="Player"]
+[editable path="PC"]
