@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvl383ispakmn"]
+[gd_scene load_steps=8 format=3 uid="uid://dvl383ispakmn"]
 
 [ext_resource type="Script" path="res://prefabs/2d-in-3d/gui_3d.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dwk7hg8o5h5ub" path="res://icon.svg" id="2"]
+[ext_resource type="PackedScene" uid="uid://coiuitr25vqrd" path="res://prefabs/PC_UI.tscn" id="3_gll2c"]
 
 [sub_resource type="QuadMesh" id="1"]
 size = Vector2(3, 2)
@@ -24,20 +25,26 @@ script = ExtResource("1")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_embed_subwindows = true
-size = Vector2i(560, 360)
+size = Vector2i(1600, 1200)
 render_target_update_mode = 4
 
 [node name="GUI" type="Control" parent="SubViewport"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 560.0
-offset_bottom = 360.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="SubViewport/GUI"]
-layout_mode = 0
+visible = false
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/GUI/Panel"]
 layout_mode = 1
@@ -125,6 +132,11 @@ popup/item_1/text = "Item 1"
 popup/item_1/id = 1
 popup/item_2/text = "Item 2"
 popup/item_2/id = 2
+
+[node name="Control" parent="SubViewport/GUI" instance=ExtResource("3_gll2c")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="Quad" type="MeshInstance3D" parent="."]
 mesh = SubResource("1")

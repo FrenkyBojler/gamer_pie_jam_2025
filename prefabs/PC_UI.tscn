@@ -1,21 +1,154 @@
-[gd_scene load_steps=2 format=3 uid="uid://coiuitr25vqrd"]
+[gd_scene load_steps=10 format=3 uid="uid://coiuitr25vqrd"]
 
 [ext_resource type="Script" path="res://scripts/pc_ui.gd" id="1_43wlc"]
+[ext_resource type="Texture2D" uid="uid://vpa41arh6j72" path="res://assets/textures/ui/logo_big.png" id="2_2u6rs"]
+[ext_resource type="Texture2D" uid="uid://dfqt4rrbalvsb" path="res://assets/textures/ui/screen_feed.png" id="2_k18gq"]
+[ext_resource type="PackedScene" uid="uid://ddjrbsehklcwm" path="res://prefabs/pc/text_bubble.tscn" id="3_8qash"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4067p"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgfyo"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jcl7t"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7i68i"]
+font_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32y1d"]
+bg_color = Color(0.980392, 0.603922, 0.227451, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_43wlc")
 
-[node name="Button" type="Button" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-offset_right = 41.0
-offset_bottom = 31.0
-text = "Test"
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4067p")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Header" type="PanelContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgfyo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header"]
+layout_mode = 2
+alignment = 1
+
+[node name="UserLabel" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer"]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "@Daniel Vávra"
+label_settings = SubResource("LabelSettings_jcl7t")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer"]
+custom_minimum_size = Vector2(155, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Online"
+label_settings = SubResource("LabelSettings_7i68i")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header"]
+layout_mode = 2
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("2_2u6rs")
+expand_mode = 5
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_32y1d")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(910, 955)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+follow_focus = true
+horizontal_scroll_mode = 3
+
+[node name="Posts" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="TextBubble" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble2" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble3" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble4" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble5" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble6" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble7" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble8" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble9" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextBubble10" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k18gq")
