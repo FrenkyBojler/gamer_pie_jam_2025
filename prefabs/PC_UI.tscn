@@ -1,9 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://coiuitr25vqrd"]
+[gd_scene load_steps=33 format=3 uid="uid://coiuitr25vqrd"]
 
 [ext_resource type="Script" path="res://scripts/pc_ui.gd" id="1_43wlc"]
 [ext_resource type="Texture2D" uid="uid://vpa41arh6j72" path="res://assets/textures/ui/logo_big.png" id="2_2u6rs"]
 [ext_resource type="Texture2D" uid="uid://dl0oaei5apldc" path="res://assets/textures/ui/Boss.PNG" id="2_djct2"]
-[ext_resource type="Texture2D" uid="uid://dfqt4rrbalvsb" path="res://assets/textures/ui/screen_feed.png" id="2_k18gq"]
 [ext_resource type="Texture2D" uid="uid://15rkwe8t13ut" path="res://assets/textures/ui/online.PNG" id="2_ybj6f"]
 [ext_resource type="PackedScene" uid="uid://bfjqxkyd0sk4d" path="res://prefabs/pc/post.tscn" id="4_8wrbd"]
 [ext_resource type="PackedScene" uid="uid://crlpv0gr67oln" path="res://prefabs/pc/login_screen.tscn" id="7_rlwnq"]
@@ -59,6 +58,44 @@ bg_color = Color(0.431373, 0.431373, 0.431373, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unedr"]
 bg_color = Color(0.447059, 0.701961, 0.0901961, 1)
 
+[sub_resource type="Animation" id="Animation_tj5ws"]
+resource_name = "score_up"
+length = 0.80002
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 20), Vector2(0, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_cbjw2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6y7u"]
+_data = {
+"RESET": SubResource("Animation_cbjw2"),
+"score_up": SubResource("Animation_tj5ws")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_2uly1"]
 font_size = 30
 font_color = Color(0.431373, 0.431373, 0.431373, 1)
@@ -80,7 +117,7 @@ bg_color = Color(0.839216, 0.027451, 0.027451, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pcb5"]
 bg_color = Color(0.691357, 0.691357, 0.691357, 1)
 
-[node name="Control" type="Control" node_paths=PackedStringArray("user_name", "user_picture", "points_label_1", "progress_bar_1", "points_label_2", "progress_bar_2", "posts_list", "login_screen", "twitter_screen")]
+[node name="Control" type="Control" node_paths=PackedStringArray("user_name", "user_picture", "points_label_1", "progress_bar_1", "progress_bar_animation_player_1", "points_label_2", "progress_bar_2", "progress_bar_animation_player_2", "posts_list", "login_screen", "twitter_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,8 +132,10 @@ user_name = NodePath("Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HB
 user_picture = NodePath("Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer/ProfilePic")
 points_label_1 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/HBoxContainer/Points")
 progress_bar_1 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/ProgressBar")
+progress_bar_animation_player_1 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/AnimationPlayer1")
 points_label_2 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/HBoxContainer/Points")
 progress_bar_2 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/ProgressBar")
+progress_bar_animation_player_2 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/AnimationPlayer2")
 posts_list = NodePath("Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts")
 login_screen = NodePath("PanelContainer")
 twitter_screen = NodePath("Panel")
@@ -340,6 +379,12 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_unedr")
 value = 60.59
 show_percentage = false
 
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar"]
+libraries = {
+"": SubResource("AnimationLibrary_j6y7u")
+}
+speed_scale = 2.0
+
 [node name="ProgressBar2" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
@@ -374,6 +419,12 @@ theme_override_styles/background = SubResource("StyleBoxFlat_x4yvo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7rhdh")
 value = 30.0
 show_percentage = false
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2"]
+libraries = {
+"": SubResource("AnimationLibrary_j6y7u")
+}
+speed_scale = 2.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
@@ -457,16 +508,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_x4yvo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7rhdh")
 value = 2.0
 show_percentage = false
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_k18gq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

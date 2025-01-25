@@ -1,0 +1,212 @@
+var postsCats = [
+	{
+		profile_pic_index = 0,
+		name = "User4512",
+		text = "Cats are the best! Love how fluffy and adorable they are 😻",
+		date = "12 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "Milo237",
+		text = "Cats are so annoying. Always scratching and ruining things!",
+		date = "18 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "KittyFan923",
+		text = "Spent the whole day with my cat, and it was perfect. They're so calming 🐾",
+		date = "4 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "HaterX341",
+		text = "Why do people like cats? They don't even do anything except laze around.",
+		date = "27 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CoolCat411",
+		text = "Honestly, life is better with cats. Can't imagine not having a feline friend!",
+		date = "9 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CatCritic756",
+		text = "Cats are overrated. They don't even care about their owners.",
+		date = "23 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "PawsLover123",
+		text = "Cats are hilarious! My kitty knocked over a glass, and I couldn't stop laughing 😹",
+		date = "3 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "LameCats403",
+		text = "Just saw a cat video, and I still don't get the hype. They're not that cute.",
+		date = "21 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "FelineFan887",
+		text = "If you don't love cats, you're missing out. They're pure joy!",
+		date = "5 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "AntiCatLover234",
+		text = "Cats are too sneaky. Can't trust them at all!",
+		date = "17 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "FluffyDreams719",
+		text = "Adopted a stray today. Cats are angels in fur 😇",
+		date = "11 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CatsSuck887",
+		text = "Another day, another hairball from the neighbor's cat. So gross!",
+		date = "20 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "MeowLover532",
+		text = "Cats make everything better. Love watching them nap in the sun 🌞",
+		date = "7 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "TooCoolForCats101",
+		text = "Cats just feel like a waste of time. Dogs are way better.",
+		date = "15 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CatEnthusiast246",
+		text = "Playing with my cat is the highlight of my day. They're so clever!",
+		date = "10 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "DogFanatic913",
+		text = "Don't understand why people are obsessed with cats. They're so unfriendly.",
+		date = "19 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "PurringPal828",
+		text = "Who else thinks cats are smarter than we give them credit for?",
+		date = "6 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "FedUpWithCats768",
+		text = "Cats are not as special as people make them out to be.",
+		date = "14 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "HappyCatMom246",
+		text = "My life changed for the better since I got a cat. Highly recommend!",
+		date = "8 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CatLitterHater512",
+		text = "Stepped in cat litter again. I can't stand these animals.",
+		date = "16 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "LuvCats4Life322",
+		text = "Just adopted a kitten, and I'm in love already. They're so playful!",
+		date = "2 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "NoCatsPls781",
+		text = "Why do cats even exist? They do nothing but destroy furniture.",
+		date = "13 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "FurBallFan213",
+		text = "My cat's purring is the best sound in the world. Instant stress relief!",
+		date = "9 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "AntiFluffy101",
+		text = "Cats are so moody and selfish. Dogs are so much better companions.",
+		date = "22 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "Purrfection897",
+		text = "Cats bring so much joy to my life. They're little bundles of happiness!",
+		date = "5 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "NotACatFan331",
+		text = "Tired of people posting cat pics all the time. Enough is enough.",
+		date = "25 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "WhiskerLover456",
+		text = "Whiskers are the cutest thing ever. My cat's got the most perfect ones!",
+		date = "12 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "DogsRule899",
+		text = "Cats are just plain weird. I don't get their appeal at all.",
+		date = "28 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CatCuddleFan322",
+		text = "Snuggling with my cat is the best therapy. They're so warm and soft!",
+		date = "8 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "HatesCats872",
+		text = "Cats are so useless. They just eat and sleep all day. Not a fan.",
+		date = "18 minutes ago",
+		alignment = "negative"
+	}
+]

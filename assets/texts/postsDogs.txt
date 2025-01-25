@@ -1,0 +1,205 @@
+var postsDogs = [
+	{
+		profile_pic_index = 0,
+		name = "DogLover567",
+		text = "Dogs are the best companions. Nothing beats their loyalty 🐕",
+		date = "7 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CatFan123",
+		text = "Dogs are so loud and messy. Definitely not for me.",
+		date = "16 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "BarkBuddy321",
+		text = "Had a long day, but my dog greeted me like a hero. They're amazing!",
+		date = "5 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "QuietLife905",
+		text = "Dogs are too noisy. I can't stand their constant barking.",
+		date = "14 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "HappyDogMom",
+		text = "My dog is my everything. Their love is so pure 💕",
+		date = "3 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "DogHater421",
+		text = "Dogs are so much work. Cleaning up after them is a nightmare.",
+		date = "20 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "FurryFriendFan",
+		text = "Walked my dog in the park today, and it was the highlight of my week!",
+		date = "8 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "NoDogsPlease",
+		text = "Dogs smell so bad. I don't understand why people love them.",
+		date = "22 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "GoldenRetrieverLover",
+		text = "My golden retriever is the sweetest. She always knows how to cheer me up!",
+		date = "10 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "DogAllergy101",
+		text = "Being around dogs is torture. My allergies go crazy every time.",
+		date = "18 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "WoofLife88",
+		text = "Dogs just make life better. They're always there when you need them 🐾",
+		date = "6 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "DogCritic456",
+		text = "Why would anyone get a dog? They're so much trouble to take care of.",
+		date = "25 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "TailWaggerFan",
+		text = "The way dogs wag their tails when they're happy is just so heartwarming!",
+		date = "9 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "AntiDogClub",
+		text = "I don't trust dogs. They bite and make me nervous.",
+		date = "17 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "RescueDogMom",
+		text = "Adopted a rescue dog, and I couldn't be happier. They're so loving!",
+		date = "4 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "NoPetsAllowed",
+		text = "Dogs ruin houses. I don't want animals shedding everywhere.",
+		date = "19 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "LoveMyPup",
+		text = "My dog is my workout buddy. We go on runs every day together!",
+		date = "11 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "MessyDogs23",
+		text = "Dogs destroy everything. My friend's dog ruined my couch.",
+		date = "21 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "PuppyParadise",
+		text = "Got a new puppy, and I can't stop smiling. They're so playful!",
+		date = "2 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "TooMuchBarking",
+		text = "Dogs barking all night is the worst. I can't sleep with them around.",
+		date = "15 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "BestFriendDog",
+		text = "Dogs truly are a person's best friend. Mine always makes my day better.",
+		date = "7 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "NotADogPerson",
+		text = "I can't stand dogs jumping on me. They're so rude.",
+		date = "20 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "FluffyPaws",
+		text = "Dogs are pure joy in fur. Couldn't imagine life without my fluffy friend!",
+		date = "5 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CleanHouseOnly",
+		text = "Dogs are so dirty. Always tracking mud everywhere. Gross!",
+		date = "12 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "CuddlePupFan",
+		text = "Cuddling with my dog after a long day is the best feeling ever.",
+		date = "4 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "LoudDogs101",
+		text = "The constant barking from dogs drives me insane. So irritating!",
+		date = "14 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "GoodBoyFan",
+		text = "Every dog is a good boy. They're all so amazing in their own way!",
+		date = "6 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "HateDogNoise",
+		text = "Dogs barking at everything is so pointless. Can't they be quiet?",
+		date = "22 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "DogJoyfulHeart",
+		text = "Dogs bring so much happiness and positivity. I'm grateful for mine 🐶",
+		date = "9 minutes ago",
+		alignment = "positive"
+	}
+]

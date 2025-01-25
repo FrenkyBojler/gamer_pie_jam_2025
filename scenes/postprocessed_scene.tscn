@@ -30,7 +30,8 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 script = ExtResource("3_lri2b")
 
-[node name="SampleScene" parent="SubViewport" instance=ExtResource("2_w1pdd")]
+[node name="SampleScene" parent="SubViewport" node_paths=PackedStringArray("interactables") instance=ExtResource("2_w1pdd")]
+interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/BoxInteractable"), null]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

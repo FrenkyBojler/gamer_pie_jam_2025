@@ -38,7 +38,7 @@ size = Vector3(7.16357, 0.498535, 5.71283)
 
 [node name="SampleScene" type="Node3D" node_paths=PackedStringArray("interactables")]
 script = ExtResource("1_ogcw3")
-interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/BoxInteractable"), NodePath("Interactables/PC")]
+interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/BoxInteractable"), NodePath("")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
@@ -149,10 +149,6 @@ player = NodePath("../../Player")
 
 [node name="BoxInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("5_gg03l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27827, 0, -6.85413)
-player = NodePath("../../Player")
-
-[node name="PC" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("6_hoofi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.72418, 0, 0)
 player = NodePath("../../Player")
 
 [node name="PC" parent="." node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("6_hoofi")]

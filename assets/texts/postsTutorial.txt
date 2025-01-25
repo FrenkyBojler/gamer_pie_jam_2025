@@ -1,0 +1,23 @@
+var postsTutorial = [
+	{
+		profile_pic_index = 0,
+		name = "DogLover567",
+		text = "Dogs are the best companions. Nothing beats their loyalty 🐕\nWe like dogs, so give this post some praise",
+		date = "7 minutes ago",
+		alignment = "positive"
+	},
+	{
+		profile_pic_index = 0,
+		name = "MeowLover532",
+		text = "Cats make everything better. Love watching them nap in the sun 🌞\nCats are cool but dogs are better - this post deserves to be banned",
+		date = "7 minutes ago",
+		alignment = "negative"
+	},
+	{
+		profile_pic_index = 0,
+		name = "PurringPal828",
+		text = "Who else thinks cats are smarter than we give them credit for?\nYou should be able to tackle this one by yourself, try it.",
+		date = "6 minutes ago",
+		alignment = "negative"
+	},
+]
