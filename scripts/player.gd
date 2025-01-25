@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Player
+
 const interaction_cursor_non_active = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0135.png")
 const interaction_cursor_active = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0134.png")
 
@@ -9,12 +11,24 @@ const interaction_cursor_active = preload("res://assets/textures/kenney_cursor-p
 @export var gravity: float = -20.0
 
 @export var camera: Camera3D = null
+@export var carry_spot: Node3D = null
 
 var interactable_object: Interactable = null
 var in_interaction := false
 var canceled_interaction := false
 
+var picked_object: Pickable = null
+var pickable_object: Pickable = null
+var placeable_object: Pickable = null
+
+var can_pickup := false
+var can_place := false
+
 var pitch: float = 0.0
+
+func _ready() -> void:
+	assert(camera != null, "Player needs a camera to work properly.")
+	assert(carry_spot != null, "Player needs a carry spot to work properly.")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not in_interaction:
@@ -22,6 +36,12 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	handle_interaction()
+	
+	if Input.is_action_pressed("place_or_pickup"):
+		if can_pickup:
+			_pickup()
+		elif can_place:
+			_place()
 
 	if not in_interaction:
 		check_interaction()
@@ -107,3 +127,48 @@ func handle_animations() -> void:
 		$AnimationPlayer.play("walk")
 	else:
 		$AnimationPlayer.play("idle")
+		
+func _pickup() -> void:
+	picked_object = pickable_object.duplicate()
+	$Camera3D.add_child(picked_object)
+	picked_object.global_position = $Camera3D/CarrySpot.global_position
+	hide_pickup_object_label()
+	pickable_object.pickup()
+
+func _place() -> void:
+	placeable_object.place()
+	picked_object.queue_free()
+	picked_object = null
+	hide_place_object_label()
+	
+func hide_all_labels() -> void:
+	hide_place_object_label()
+	hide_missing_object_label()
+	hide_pickup_object_label()
+
+func show_place_object_label(pos: Vector2, placeable: Pickable) -> void:
+	can_place = true
+	placeable_object = placeable
+	$Control/ClickToPlaceLabel.global_position = pos
+	$Control/ClickToPlaceLabel.visible = true
+
+func hide_place_object_label() -> void:
+	can_place = false
+	$Control/ClickToPlaceLabel.visible = false
+
+func show_missing_object_label(pos: Vector2) -> void:
+	$Control/MissingObjectLabel.global_position = pos
+	$Control/MissingObjectLabel.visible = true
+
+func hide_missing_object_label() -> void:
+	$Control/MissingObjectLabel.visible = false
+
+func show_pickup_object_label(pos: Vector2, pickable: Pickable) -> void:
+	can_pickup = true
+	pickable_object = pickable
+	$Control/PickupObjectLabel.global_position = pos
+	$Control/PickupObjectLabel.visible = true
+
+func hide_pickup_object_label() -> void:
+	can_pickup = false
+	$Control/PickupObjectLabel.visible = false

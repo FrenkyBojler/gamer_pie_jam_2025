@@ -1,15 +1,19 @@
 extends StaticBody3D
 
 class_name Interactable
-
+@export
+var player: Player = null
 @export
 var static_camera: Camera3D = null
 @export
 var collider: CollisionShape3D = null
+@export
+var pickable_objects: Array[Pickable] = []
 
 @onready
 var static_camera_orignal_transform: Transform3D = static_camera.global_transform
 var camera_transform_from: Transform3D = Transform3D.IDENTITY
+
 var in_interaction := false
 
 var camera_target_transform: Transform3D = Transform3D.IDENTITY
@@ -17,13 +21,32 @@ var camera_target_transform: Transform3D = Transform3D.IDENTITY
 var switch_cam_timer := Timer.new()
 
 func _ready() -> void:
+	assert(player != null, "Interactable need a player to work properly.")
 	assert(static_camera != null, "Interactable needs a camera to work properly.")
 	assert(collider != null, "Interactable needs a collider to work properly.")
 
+	_setup_switch_cam_timer()
+	_setup_pickables()
+
+func _setup_switch_cam_timer() -> void:
 	switch_cam_timer.timeout.connect(switch_cam_timer_timeout)
 	switch_cam_timer.one_shot = true
 	switch_cam_timer.wait_time = 0.1
 	add_child(switch_cam_timer)
+
+func _setup_pickables() -> void:
+	for pickable in pickable_objects:
+		pickable.setup(player)
+
+func _show_pickables_placeholder() -> void:
+	for pickable in pickable_objects:
+		if pickable.is_placeholder:
+			pickable.visible = true
+
+func _hide_pickables_placeholder() -> void:
+	for pickable in pickable_objects:
+		if pickable.is_placeholder:
+			pickable.visible = false
 
 func _process(delta: float) -> void:
 	static_camera.global_transform = static_camera.global_transform.interpolate_with(camera_target_transform, delta * 10)
@@ -35,11 +58,14 @@ func interact(current_camera_transform: Transform3D) -> void:
 	static_camera.global_transform = current_camera_transform
 	static_camera.current = true
 	in_interaction = true
+	_show_pickables_placeholder()
 
 func cancel_interaction() -> void:
 	collider.disabled = false
 	camera_target_transform = camera_transform_from
 	switch_cam_timer.start()
+	_hide_pickables_placeholder()
+	player.hide_all_labels()
 
 func switch_cam_timer_timeout() -> void:
 	in_interaction = false

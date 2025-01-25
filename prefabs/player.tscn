@@ -1,14 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://klp0vv2sj7ne"]
+[gd_scene load_steps=12 format=3 uid="uid://klp0vv2sj7ne"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l5anj"]
 [ext_resource type="Texture2D" uid="uid://c1vjk68s0txmm" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png" id="2_vyetp"]
+[ext_resource type="LabelSettings" uid="uid://c2mshiytlfvim" path="res://resources/label_settings.tres" id="3_25v0u"]
+[ext_resource type="PackedScene" uid="uid://ds0qfkjv7mh0s" path="res://prefabs/ui/click_to_place_label.tscn" id="4_7f4hp"]
+[ext_resource type="PackedScene" uid="uid://sjd04rc5odjd" path="res://prefabs/ui/missing_object_label.tscn" id="5_5sq66"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nymyg"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ykht6"]
-font_size = 30
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s1705"]
 
 [sub_resource type="Animation" id="Animation_rgd1u"]
 length = 0.001
@@ -52,9 +52,10 @@ _data = {
 "walk": SubResource("Animation_jl40g")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera") groups=["interactable"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "carry_spot") groups=["interactable"]]
 script = ExtResource("1_l5anj")
 camera = NodePath("Camera3D")
+carry_spot = NodePath("Camera3D/CarrySpot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_nymyg")
@@ -63,6 +64,12 @@ shape = SubResource("CapsuleShape3D_nymyg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.904988, 0)
 current = true
 
+[node name="CarrySpot" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.0812557, 0.288786, 0, -0.288786, 0.0812557, 0.393658, -0.904988, -1.07825)
+visible = false
+mesh = SubResource("CapsuleMesh_s1705")
+skeleton = NodePath("../..")
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -70,6 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Crosshair" type="TextureRect" parent="Control"]
 layout_mode = 1
@@ -100,8 +108,57 @@ offset_right = 135.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 text = "Interact"
-label_settings = SubResource("LabelSettings_ykht6")
+label_settings = ExtResource("3_25v0u")
+
+[node name="PickupObjectLabel" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -22.0
+offset_right = 135.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Pickup"
+label_settings = ExtResource("3_25v0u")
+
+[node name="ClickToPlaceLabel" parent="Control" instance=ExtResource("4_7f4hp")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -21.0
+offset_right = 208.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MissingObjectLabel" parent="Control" instance=ExtResource("5_5sq66")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -21.0
+offset_right = 444.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

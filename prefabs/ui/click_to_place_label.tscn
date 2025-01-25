@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds0qfkjv7mh0s"]
+
+[ext_resource type="LabelSettings" uid="uid://c2mshiytlfvim" path="res://resources/label_settings.tres" id="1_kqe12"]
+
+[node name="ClickToPlaceLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Click to place"
+label_settings = ExtResource("1_kqe12")

@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://dqrhcceq5g2sl" path="res://assets/materials/plaster_wall_mat.tres" id="1_2xjvt"]
 [ext_resource type="Material" uid="uid://tqsgkrmc8s7p" path="res://assets/materials/floor_mat.tres" id="1_43ddj"]
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
-[ext_resource type="PackedScene" uid="uid://cj3o4gmo2nlnc" path="res://prefabs/test_interactable.tscn" id="2_jovnn"]
+[ext_resource type="PackedScene" uid="uid://c0f8gqtb2ht2j" path="res://prefabs/interactables/box_interactabůe.tscn" id="5_gg03l"]
 [ext_resource type="PackedScene" uid="uid://xabnfm38hkjr" path="res://prefabs/interactables/workbench_interactable.tscn" id="5_tf4ej"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
@@ -79,8 +79,10 @@ skeleton = NodePath("../..")
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="TestInteractable" parent="Interactables" instance=ExtResource("2_jovnn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8509, 0.463546, 0)
-
-[node name="Workbench" parent="Interactables" instance=ExtResource("5_tf4ej")]
+[node name="Workbench" parent="Interactables" node_paths=PackedStringArray("player") instance=ExtResource("5_tf4ej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.55784)
+player = NodePath("../../Player")
+
+[node name="BoxInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("5_gg03l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27827, 0, -6.85413)
+player = NodePath("../../Player")
