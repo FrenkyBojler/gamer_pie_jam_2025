@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfjqxkyd0sk4d"]
+[gd_scene load_steps=5 format=3 uid="uid://bfjqxkyd0sk4d"]
 
 [ext_resource type="PackedScene" uid="uid://ddjrbsehklcwm" path="res://prefabs/pc/text_bubble.tscn" id="1_4fiqu"]
 [ext_resource type="Texture2D" uid="uid://bbrasw1la7uli" path="res://assets/textures/ui/Dudette.PNG" id="1_duqkh"]
+[ext_resource type="Script" path="res://scripts/post.gd" id="1_pfysf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i1qiw"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="Post" type="PanelContainer"]
 anchors_preset = -1
 anchor_right = 0.442
 anchor_bottom = 0.163
 offset_right = -808.64
 offset_bottom = -136.04
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i1qiw")
+script = ExtResource("1_pfysf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
