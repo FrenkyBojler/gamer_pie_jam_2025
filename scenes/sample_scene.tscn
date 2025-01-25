@@ -89,10 +89,19 @@ spot_range = 0.924
 spot_attenuation = 0.11
 spot_angle = 22.35
 
-[node name="OmniLight3D" type="OmniLight3D" parent="WallsAndFloor/Map2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64488, 1.97696, 0.659642)
-visible = false
-light_color = Color(0.91, 0.760153, 0.2184, 1)
+[node name="SpotLight3D" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(0.973345, -0.212545, -0.0861643, 0.167545, 0.402419, 0.899993, -0.156615, -0.89044, 0.427303, -3.14745, 1.20787, 3.15724)
+light_color = Color(0.672654, 0.7261, 0.856289, 1)
+light_energy = 2.519
+spot_range = 1.012
+spot_angle = 51.47
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(0.836609, -0.541003, 0.0860266, -0.167257, -0.40181, -0.900319, 0.521642, 0.738826, -0.426645, -3.12859, 0.850617, 3.0712)
+light_color = Color(0.672654, 0.7261, 0.856289, 1)
+light_energy = 2.519
+spot_range = 0.352
+spot_angle = 33.24
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallsAndFloor"]
 
