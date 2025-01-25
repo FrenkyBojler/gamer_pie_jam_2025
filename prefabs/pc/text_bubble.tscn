@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://ddjrbsehklcwm"]
+
+[ext_resource type="Script" path="res://scripts/text_bubble.gd" id="1_k81es"]
+[ext_resource type="Texture2D" uid="uid://f452vqn8ii4a" path="res://assets/textures/ui/like.png" id="1_x4ljm"]
+[ext_resource type="Texture2D" uid="uid://c2d6h7mt5f3t5" path="res://assets/textures/ui/ban.png" id="2_6i1pd"]
+[ext_resource type="Script" path="res://scripts/text.gd" id="2_vlfjs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfsgu"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.980392, 0.603922, 0.227451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_wumbb"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_jshd4"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_nfien"]
+font_size = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wodq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5vat"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mq11r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov52t"]
+
+[node name="TextBubble" type="PanelContainer" node_paths=PackedStringArray("author", "text", "date", "like_button", "ban_button")]
+custom_minimum_size = Vector2(800, 40)
+anchors_preset = -1
+anchor_right = 0.442
+anchor_bottom = 0.163
+offset_left = 1.0
+offset_right = 0.359924
+offset_bottom = -0.0400085
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_cfsgu")
+script = ExtResource("1_k81es")
+author = NodePath("HBoxContainer/VBoxContainer/Author")
+text = NodePath("HBoxContainer/VBoxContainer/Text")
+date = NodePath("HBoxContainer/VBoxContainer/Date")
+like_button = NodePath("HBoxContainer/HBoxContainer/LikeButton")
+ban_button = NodePath("HBoxContainer/HBoxContainer/BanButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Author" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "@Degen wrote:"
+label_settings = SubResource("LabelSettings_wumbb")
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Moje máma. S mojím tátou. Měli mě. A s mojím bráchou.
+"
+label_settings = SubResource("LabelSettings_jshd4")
+script = ExtResource("2_vlfjs")
+
+[node name="Date" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "2 minutes ago"
+label_settings = SubResource("LabelSettings_nfien")
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="LikeButton" type="Button" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6wodq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h5vat")
+icon = ExtResource("1_x4ljm")
+flat = true
+expand_icon = true
+
+[node name="BanButton" type="Button" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mq11r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ov52t")
+icon = ExtResource("2_6i1pd")
+flat = true
+expand_icon = true
+
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/Text" to="." method="_on_text_text_changed"]

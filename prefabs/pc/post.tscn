@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfjqxkyd0sk4d"]
+
+[ext_resource type="Script" path="res://scripts/post.gd" id="1_e31bc"]
+[ext_resource type="PackedScene" uid="uid://ddjrbsehklcwm" path="res://prefabs/pc/text_bubble.tscn" id="1_i1nje"]
+
+[node name="Post" type="Control"]
+layout_mode = 3
+anchor_right = 0.209
+anchor_bottom = 0.188
+offset_left = 570.0
+offset_top = 365.0
+offset_right = 568.72
+offset_bottom = 307.96
+script = ExtResource("1_e31bc")
+
+[node name="TextBubble" parent="." instance=ExtResource("1_i1nje")]
+layout_mode = 1
+anchor_right = 1.045
+anchor_bottom = 0.767
+offset_right = -3.05176e-05
+offset_bottom = 0.0179977
+grow_horizontal = 2
+grow_vertical = 2

@@ -19,7 +19,10 @@ shape = SubResource("BoxShape3D_w1oax")
 [node name="Workbench2" parent="." instance=ExtResource("2_yanvq")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88452, 0.808515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0697925, 1.605, 0.732285)
+keep_aspect = 0
+fov = 52.1
+size = 1.181
 
 [node name="GUIPanel3D" parent="." instance=ExtResource("3_f7kn0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0680881, 1.49537, -0.548998)
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.0680881, 1.60221, -0.548998)
