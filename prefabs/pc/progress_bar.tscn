@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://co6ll58klp776"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_20a7j"]
+font_size = 30
+font_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ex4a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7e5gs"]
+font_size = 15
+font_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86dbh"]
+bg_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unedr"]
+bg_color = Color(0.447059, 0.701961, 0.0901961, 1)
+
+[node name="ProgressBar" type="VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Hashtag" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "#dogs"
+label_settings = SubResource("LabelSettings_20a7j")
+vertical_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(317.72, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5ex4a")
+
+[node name="Points" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "45865 posts"
+label_settings = SubResource("LabelSettings_7e5gs")
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_86dbh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_unedr")
+value = 60.59
+show_percentage = false

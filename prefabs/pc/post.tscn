@@ -1,23 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfjqxkyd0sk4d"]
+[gd_scene load_steps=4 format=3 uid="uid://bfjqxkyd0sk4d"]
 
-[ext_resource type="Script" path="res://scripts/post.gd" id="1_e31bc"]
-[ext_resource type="PackedScene" uid="uid://ddjrbsehklcwm" path="res://prefabs/pc/text_bubble.tscn" id="1_i1nje"]
+[ext_resource type="PackedScene" uid="uid://ddjrbsehklcwm" path="res://prefabs/pc/text_bubble.tscn" id="1_4fiqu"]
+[ext_resource type="Texture2D" uid="uid://bbrasw1la7uli" path="res://assets/textures/ui/Dudette.PNG" id="1_duqkh"]
 
-[node name="Post" type="Control"]
-layout_mode = 3
-anchor_right = 0.209
-anchor_bottom = 0.188
-offset_left = 570.0
-offset_top = 365.0
-offset_right = 568.72
-offset_bottom = 307.96
-script = ExtResource("1_e31bc")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i1qiw"]
 
-[node name="TextBubble" parent="." instance=ExtResource("1_i1nje")]
-layout_mode = 1
-anchor_right = 1.045
-anchor_bottom = 0.767
-offset_right = -3.05176e-05
-offset_bottom = 0.0179977
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.442
+anchor_bottom = 0.163
+offset_right = -808.64
+offset_bottom = -136.04
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i1qiw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_duqkh")
+stretch_mode = 4
+
+[node name="TextBubble" parent="HBoxContainer" instance=ExtResource("1_4fiqu")]
+layout_mode = 2

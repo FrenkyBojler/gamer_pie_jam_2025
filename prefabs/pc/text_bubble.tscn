@@ -40,7 +40,7 @@ anchors_preset = -1
 anchor_right = 0.442
 anchor_bottom = 0.163
 offset_left = 1.0
-offset_right = 0.359924
+offset_right = -47.64
 offset_bottom = -0.0400085
 size_flags_horizontal = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_cfsgu")
@@ -63,7 +63,7 @@ text = "@Degen wrote:"
 label_settings = SubResource("LabelSettings_wumbb")
 
 [node name="Text" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(700, 80)
+custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0

@@ -1,16 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://coiuitr25vqrd"]
+[gd_scene load_steps=29 format=3 uid="uid://coiuitr25vqrd"]
 
 [ext_resource type="Script" path="res://scripts/pc_ui.gd" id="1_43wlc"]
 [ext_resource type="Texture2D" uid="uid://vpa41arh6j72" path="res://assets/textures/ui/logo_big.png" id="2_2u6rs"]
+[ext_resource type="Texture2D" uid="uid://dl0oaei5apldc" path="res://assets/textures/ui/Boss.PNG" id="2_djct2"]
 [ext_resource type="Texture2D" uid="uid://dfqt4rrbalvsb" path="res://assets/textures/ui/screen_feed.png" id="2_k18gq"]
 [ext_resource type="Texture2D" uid="uid://15rkwe8t13ut" path="res://assets/textures/ui/online.PNG" id="2_ybj6f"]
-[ext_resource type="PackedScene" uid="uid://ddjrbsehklcwm" path="res://prefabs/pc/text_bubble.tscn" id="3_8qash"]
+[ext_resource type="PackedScene" uid="uid://bfjqxkyd0sk4d" path="res://prefabs/pc/post.tscn" id="4_8wrbd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4067p"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgfyo"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikmoy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jcl7t"]
 font_size = 30
@@ -19,6 +22,16 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_7i68i"]
 font_color = Color(0.431373, 0.431373, 0.431373, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a656r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_phghf"]
+font_size = 25
+font_color = Color(0.980392, 0.603922, 0.227451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8d15k"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32y1d"]
 bg_color = Color(0.980392, 0.603922, 0.227451, 1)
 
@@ -26,7 +39,44 @@ bg_color = Color(0.980392, 0.603922, 0.227451, 1)
 font_size = 30
 font_color = Color(0.988235, 0.776471, 0.560784, 1)
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tp6qk"]
+content_margin_left = 55.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_20a7j"]
+font_size = 30
+font_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ex4a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7e5gs"]
+font_size = 15
+font_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86dbh"]
+bg_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unedr"]
+bg_color = Color(0.447059, 0.701961, 0.0901961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2uly1"]
+font_size = 30
+font_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2a0n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jg6tx"]
+font_size = 15
+font_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4yvo"]
+bg_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rhdh"]
+bg_color = Color(0.839216, 0.027451, 0.027451, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvusn"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("user_name", "user_picture", "points_label_1", "progress_bar_1", "points_label_2", "progress_bar_2", "posts_list")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,6 +87,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_43wlc")
+user_name = NodePath("Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer/VBoxContainer/UserLabel")
+user_picture = NodePath("Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer/ProfilePic")
+points_label_1 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/HBoxContainer/Points")
+progress_bar_1 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/ProgressBar")
+points_label_2 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/HBoxContainer/Points")
+progress_bar_2 = NodePath("Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/ProgressBar")
+posts_list = NodePath("Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -57,43 +114,61 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 0
 
 [node name="Header" type="PanelContainer" parent="Panel/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(800, 80)
+custom_minimum_size = Vector2(800, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mgfyo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2"]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ikmoy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ProfilePic" type="TextureRect" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_djct2")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="UserLabel" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer"]
+[node name="UserLabel" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(310, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "@Daniel Vávra"
 label_settings = SubResource("LabelSettings_jcl7t")
-horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-alignment = 2
-
-[node name="Container" type="Container" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer/HBoxContainer"]
+[node name="OnlinePic" type="TextureRect" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_ybj6f")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -101,16 +176,54 @@ text = "Online"
 label_settings = SubResource("LabelSettings_7i68i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-alignment = 1
+alignment = 2
 
 [node name="Logo" type="TextureRect" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer"]
-custom_minimum_size = Vector2(50, 60)
+custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture = ExtResource("2_2u6rs")
 expand_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(379.53, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a656r")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "HOME"
+label_settings = SubResource("LabelSettings_phghf")
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "USERS"
+label_settings = SubResource("LabelSettings_8d15k")
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "INBOX"
+label_settings = SubResource("LabelSettings_8d15k")
+vertical_alignment = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Panel/VBoxContainer/VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(54.77, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a656r")
 
 [node name="Separator" type="Panel" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 3)
@@ -136,50 +249,197 @@ size_flags_horizontal = 8
 text = "Trending Now"
 label_settings = SubResource("LabelSettings_8ejed")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(910, 955)
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(950, 955)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tp6qk")
 follow_focus = true
 horizontal_scroll_mode = 3
 
-[node name="Posts" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer"]
+[node name="Posts" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/ScrollContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="TextBubble" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="PanelContainer" parent="Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts" instance=ExtResource("4_8wrbd")]
 layout_mode = 2
 
-[node name="TextBubble2" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="PanelContainer2" parent="Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts" instance=ExtResource("4_8wrbd")]
 layout_mode = 2
 
-[node name="TextBubble3" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="PanelContainer3" parent="Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts" instance=ExtResource("4_8wrbd")]
 layout_mode = 2
 
-[node name="TextBubble4" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="PanelContainer4" parent="Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts" instance=ExtResource("4_8wrbd")]
 layout_mode = 2
 
-[node name="TextBubble5" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="PanelContainer5" parent="Panel/VBoxContainer/HBoxContainer2/ScrollContainer/Posts" instance=ExtResource("4_8wrbd")]
 layout_mode = 2
 
-[node name="TextBubble6" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ProgressBar" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="TextBubble7" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="TextBubble8" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="Hashtag" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "#dogs"
+label_settings = SubResource("LabelSettings_20a7j")
+vertical_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/HBoxContainer"]
+custom_minimum_size = Vector2(358.14, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5ex4a")
+
+[node name="Points" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "45865 posts"
+label_settings = SubResource("LabelSettings_7e5gs")
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_86dbh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_unedr")
+value = 60.59
+show_percentage = false
+
+[node name="ProgressBar2" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="TextBubble9" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="TextBubble10" parent="Panel/VBoxContainer/ScrollContainer/Posts" instance=ExtResource("3_8qash")]
+[node name="Hashtag" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+text = "#cats"
+label_settings = SubResource("LabelSettings_2uly1")
+vertical_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/HBoxContainer"]
+custom_minimum_size = Vector2(367.16, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w2a0n")
+
+[node name="Points" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "45865 posts"
+label_settings = SubResource("LabelSettings_jg6tx")
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_x4yvo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7rhdh")
+value = 30.0
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wvusn")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Trending last week"
+label_settings = SubResource("LabelSettings_8ejed")
+
+[node name="ProgressBar3" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Hashtag" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar3/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "#penises"
+label_settings = SubResource("LabelSettings_20a7j")
+vertical_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar3/HBoxContainer"]
+custom_minimum_size = Vector2(317.72, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5ex4a")
+
+[node name="Points" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar3/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "69696 posts"
+label_settings = SubResource("LabelSettings_7e5gs")
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar3"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_86dbh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_unedr")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar4" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar4"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Hashtag" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "#climatechange"
+label_settings = SubResource("LabelSettings_2uly1")
+vertical_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar4/HBoxContainer"]
+custom_minimum_size = Vector2(249.93, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w2a0n")
+
+[node name="Points" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "2 posts"
+label_settings = SubResource("LabelSettings_jg6tx")
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar4"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_x4yvo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7rhdh")
+value = 2.0
+show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
