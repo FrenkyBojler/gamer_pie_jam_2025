@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 class_name Interactable
+
 @export
 var player: Player = null
 @export
@@ -70,3 +71,15 @@ func cancel_interaction() -> void:
 func switch_cam_timer_timeout() -> void:
 	in_interaction = false
 	static_camera.current = false
+	
+func push_events(event: InputEventMouse) -> void:
+	for child in get_children():
+		if child is SubViewport:
+			var event_adjusted = event.duplicate() as InputEventMouse
+			var mesh_position = static_camera.unproject_position((child as SubViewport).mesh.global_position)
+			mesh_position /= 4
+			event_adjusted.global_position -= mesh_position
+			if event is InputEventMouseButton:
+				print(mesh_position)
+				print(event_adjusted.global_position)
+			#(child as SubViewport2D3D).push_input(event)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=14 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="Material" uid="uid://dqrhcceq5g2sl" path="res://assets/materials/plaster_wall_mat.tres" id="1_2xjvt"]
 [ext_resource type="Material" uid="uid://tqsgkrmc8s7p" path="res://assets/materials/floor_mat.tres" id="1_43ddj"]
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
+[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
 [ext_resource type="PackedScene" uid="uid://c0f8gqtb2ht2j" path="res://prefabs/interactables/box_interactabůe.tscn" id="5_gg03l"]
 [ext_resource type="PackedScene" uid="uid://xabnfm38hkjr" path="res://prefabs/interactables/workbench_interactable.tscn" id="5_tf4ej"]
+[ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,7 +34,9 @@ size = Vector3(3.0025, 0.520386, 2.92224)
 material = ExtResource("1_2xjvt")
 size = Vector2(3, 3)
 
-[node name="SampleScene" type="Node3D"]
+[node name="SampleScene" type="Node3D" node_paths=PackedStringArray("interactables")]
+script = ExtResource("1_ogcw3")
+interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/BoxInteractable"), NodePath("Interactables/PC")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
@@ -42,7 +46,7 @@ transform = Transform3D(0.523555, -0.684056, 0.507895, 0, 0.596127, 0.80289, -0.
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_au5jj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01508, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03884, 0)
 
 [node name="WallsAndFloor" type="Node" parent="."]
 
@@ -86,3 +90,9 @@ player = NodePath("../../Player")
 [node name="BoxInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("5_gg03l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27827, 0, -6.85413)
 player = NodePath("../../Player")
+
+[node name="PC" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("6_hoofi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.72418, 0, 0)
+player = NodePath("../../Player")
+
+[connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]

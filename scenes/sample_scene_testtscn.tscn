@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqgywp8je1iqs"]
+
+[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_irs38"]
+[ext_resource type="Material" uid="uid://tqsgkrmc8s7p" path="res://assets/materials/floor_mat.tres" id="3_6lkcu"]
+[ext_resource type="Material" uid="uid://dqrhcceq5g2sl" path="res://assets/materials/plaster_wall_mat.tres" id="4_x0j7v"]
+[ext_resource type="PackedScene" uid="uid://dvl383ispakmn" path="res://prefabs/2d-in-3d/gui_panel_3d.tscn" id="8_nj7nm"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0yrsp"]
+material = ExtResource("3_6lkcu")
+size = Vector2(3, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkwl2"]
+size = Vector3(3.0025, 0.520386, 2.92224)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ueedf"]
+material = ExtResource("4_x0j7v")
+size = Vector2(3, 3)
+
+[node name="SampleScene" type="Node3D" node_paths=PackedStringArray("interactables")]
+script = ExtResource("1_irs38")
+interactables = [null, null, null]
+
+[node name="WallsAndFloor" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="WallsAndFloor"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="WallsAndFloor/Floor"]
+mesh = SubResource("PlaneMesh_0yrsp")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallsAndFloor/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392151, -0.239807, -0.00665283)
+shape = SubResource("BoxShape3D_xkwl2")
+
+[node name="Wall1" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 7.21513, 0, 0)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="Wall2" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(2.18557e-07, 5, -4.37114e-07, 5, -2.18557e-07, 0, -1.91069e-14, -4.37114e-07, -5, -7.50678, 0, 0)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="Wall3" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(9.55343e-15, 2.18557e-07, 5, 5, -2.18557e-07, 0, 2.18557e-07, 5, -2.18557e-07, -0.160822, 0, -7.32516)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="Wall4" type="MeshInstance3D" parent="WallsAndFloor"]
+transform = Transform3D(9.55343e-15, 2.18557e-07, -5, 5, -2.18557e-07, 0, -2.18557e-07, -5, -2.18557e-07, -0.160822, 0, 7.40045)
+mesh = SubResource("PlaneMesh_ueedf")
+skeleton = NodePath("../..")
+
+[node name="GUIPanel3D" parent="." instance=ExtResource("8_nj7nm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.24281, 1.46096, -0.0102613)
+script = null
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.0070162, 0, 0.999975, 0, 1, 0, -0.999975, 0, 0.0070162, 0, 1.37344, 0)
+current = true
+
+[connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]

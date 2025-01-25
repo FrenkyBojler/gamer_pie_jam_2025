@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvqds7lqgk4qf"]
 
 [ext_resource type="Shader" path="res://resources/postprocess.gdshader" id="1_6n7je"]
-[ext_resource type="Script" path="res://scenes/sub_viewport.gd" id="2_abu7s"]
 [ext_resource type="PackedScene" uid="uid://ca3rirahl1gne" path="res://scenes/sample_scene.tscn" id="2_w1pdd"]
 [ext_resource type="Script" path="res://scripts/postprocessed_scene.gd" id="2_xb6fx"]
+[ext_resource type="Script" path="res://scripts/main_subviewport.gd" id="3_lri2b"]
 [ext_resource type="Script" path="res://prefabs/fps_label.gd" id="3_pg54o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vf61t"]
@@ -28,7 +28,7 @@ handle_input_locally = false
 physics_object_picking = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
-script = ExtResource("2_abu7s")
+script = ExtResource("3_lri2b")
 
 [node name="SampleScene" parent="SubViewport" instance=ExtResource("2_w1pdd")]
 
