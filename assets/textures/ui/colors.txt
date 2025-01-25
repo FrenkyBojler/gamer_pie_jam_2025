@@ -1,0 +1,9 @@
+orange: #FA9A3A
+orange-opaque (texty, linky): #FCC68F
+orange-highlight (čistě messsages): #FEF3E7
+green: 72b317
+red: d60707
+grey-text: #6E6E6E
+grey-bar: #DEDEDE
+
+navbar shadow: 0x 2y 3blur #FCC68F
