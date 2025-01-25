@@ -6,13 +6,13 @@
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8ru8r"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fc0xc"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d64ao"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxp8w"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_8ru8r")
+albedo_texture = SubResource("ViewportTexture_fc0xc")
 texture_filter = 1
 
 [node name="Viewport2Din3D" type="Node3D"]
@@ -31,4 +31,4 @@ render_target_update_mode = 1
 
 [node name="Screen" type="MeshInstance3D" parent="."]
 mesh = SubResource("1")
-surface_material_override/0 = SubResource("StandardMaterial3D_d64ao")
+surface_material_override/0 = SubResource("StandardMaterial3D_wxp8w")
