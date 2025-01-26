@@ -6,7 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://c0s2rbe8g052h" path="res://resources/window_right_anim_lib.tres" id="4_p1b14"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuq7p"]
-size = Vector3(1.08032, 1.70453, 0.0928955)
+size = Vector3(1.08032, 1.70453, 0.175842)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5038"]
 resource_name = "SD"
@@ -108,8 +108,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rr44j")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hqo5p"]
-points = PackedVector3Array(-0.480988, -0.796897, -1.94088e-06, -0.466016, -0.311707, -0.0468959, 0, -0.796897, -1.94088e-06, -0.480988, -0.796897, 0.036682, -0.480988, 0.796897, -1.94088e-06, -0.466016, -0.276761, -0.0468959, -0.3259, -0.311707, -0.0468959, 0, -0.796897, 0.036682, 0, 0.796897, -1.94088e-06, -0.480988, 0.796897, 0.036682, -0.378491, -0.265996, -0.0468959, -0.3259, -0.276761, -0.0468959, 0, 0.796897, 0.036682)
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ln5n"]
+size = Vector3(0.547974, 1.70807, 0.116638)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5fm06"]
 _surfaces = [{
@@ -165,8 +165,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5fm06")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ddmon"]
-points = PackedVector3Array(0, -0.796897, -1.94088e-06, 0.325853, -0.311707, -0.0468959, 0.480988, -0.796897, -1.94088e-06, 0, -0.796897, 0.036682, 0, 0.796897, -1.94088e-06, 0.325853, -0.276761, -0.0468959, 0.465969, -0.311707, -0.0468959, 0.480988, -0.796897, 0.036682, 0.480988, 0.796897, -1.94088e-06, 0, 0.796897, 0.036682, 0.378444, -0.265996, -0.0468959, 0.465969, -0.276761, -0.0468959, 0.480988, 0.796897, 0.036682)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jevxa"]
+size = Vector3(0.523773, 1.70807, 0.116638)
 
 [node name="WindowInteractable" type="StaticBody3D" node_paths=PackedStringArray("animation_player_left", "animation_player_right", "static_camera", "collider")]
 script = ExtResource("1_crbyh")
@@ -176,7 +176,7 @@ static_camera = NodePath("Camera3D")
 collider = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032959, 0.858551, 0.0106812)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032959, 0.858551, -0.0307922)
 shape = SubResource("BoxShape3D_kuq7p")
 
 [node name="Window" type="Node3D" parent="."]
@@ -193,7 +193,8 @@ skeleton = NodePath("")
 [node name="LeftStaticBody3D" type="StaticBody3D" parent="Window/WindowBase/WindowL"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Window/WindowBase/WindowL/LeftStaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_hqo5p")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208923, -0.000396729, 0.00894165)
+shape = SubResource("BoxShape3D_8ln5n")
 
 [node name="WindowR" type="MeshInstance3D" parent="Window/WindowBase"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.480988, 0.857432, -0.0243921)
@@ -203,7 +204,8 @@ skeleton = NodePath("")
 [node name="RightStaticBody3D" type="StaticBody3D" parent="Window/WindowBase/WindowR"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Window/WindowBase/WindowR/RightStaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_ddmon")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.210953, -0.000396729, 0.00894165)
+shape = SubResource("BoxShape3D_jevxa")
 
 [node name="AnimationPlayerLeft" type="AnimationPlayer" parent="Window"]
 libraries = {
