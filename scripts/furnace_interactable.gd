@@ -21,6 +21,7 @@ func _ready() -> void:
 	)
 	
 func light_fire() -> void:
+	$FireCrackling.play();
 	$FireTimer.start()
 	$FireLight.visible = true
 	GameState.fire_back_on.emit()
@@ -70,6 +71,7 @@ func _on_furnace_col_mouse_exited() -> void:
 	can_interact_with_door = false
 
 func _on_fire_timer_timeout() -> void:
+	$FireCrackling.stop()
 	$FireLight.visible = false
 	GameState.fire_out_event_trigger()
 	fire_is_lit = false

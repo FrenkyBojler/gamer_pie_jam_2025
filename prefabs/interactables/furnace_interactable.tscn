@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://kerlhpu7oglu"]
+[gd_scene load_steps=19 format=4 uid="uid://kerlhpu7oglu"]
 
 [ext_resource type="Script" path="res://scripts/furnace_interactable.gd" id="1_vn8k0"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_yie0q"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://prefabs/interactables/timber_2.tscn" id="5_g0k72"]
 [ext_resource type="PackedScene" path="res://prefabs/interactables/timber_3.tscn" id="6_t4hek"]
 [ext_resource type="AudioStream" uid="uid://cwh55forkaydy" path="res://assets/sounds/open_close_metal.wav" id="7_hhaqm"]
+[ext_resource type="AudioStream" uid="uid://dql5c0s4r1ha3" path="res://assets/sounds/fire.wav" id="8_sr1ej"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fwlf"]
 resource_name = "SD"
@@ -172,6 +173,11 @@ one_shot = true
 
 [node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_hhaqm")
+
+[node name="FireCrackling" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_sr1ej")
+unit_size = 15.0
+max_distance = 8.0
 
 [connection signal="mouse_entered" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_entered"]
 [connection signal="mouse_exited" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_exited"]
