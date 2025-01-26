@@ -1,0 +1,24 @@
+[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://by3qnye65lii"]
+
+[sub_resource type="Animation" id="Animation_suh1j"]
+resource_name = "WindowLOpen"
+length = 0.375
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("WindowBase/WindowL")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, -0.0275292, 0, 0.999621, 0.0666667, 1, 0, -0.0896359, 0, 0.995975, 0.1, 1, 0, -0.179092, 0, 0.983832, 0.133333, 1, 0, -0.287721, 0, 0.957714, 0.166667, 1, 0, -0.406387, 0, 0.913701, 0.2, 1, 0, -0.524182, 0, 0.851607, 0.233333, 1, 0, -0.628837, 0, 0.777538, 0.266667, 1, 0, -0.715119, 0, 0.699003, 0.3, 1, 0, -0.780435, 0, 0.625237, 0.333333, 1, 0, -0.824404, 0, 0.566002, 0.375, 1, 0, -0.843391, 0, 0.5373)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = false
+tracks/1/path = NodePath("WindowBase/WindowR")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[resource]
+_data = {
+"WindowLOpen": SubResource("Animation_suh1j")
+}

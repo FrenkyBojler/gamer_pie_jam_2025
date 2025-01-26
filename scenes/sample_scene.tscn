@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=13 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3wxupq5th3ht" path="res://prefabs/interactables/breakers_interactable.tscn" id="5_30pmb"]
 [ext_resource type="Script" path="res://scripts/hall_light.gd" id="5_b15p4"]
 [ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
+[ext_resource type="PackedScene" uid="uid://cmw8pdmm1ijyo" path="res://prefabs/interactables/window_interactable.tscn" id="8_wwipc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,6 +51,7 @@ current = false
 
 [node name="LampNightStandLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
 transform = Transform3D(0.781488, -0.516595, 0.349866, -0.0481206, 0.509178, 0.859315, -0.622062, -0.68838, 0.373058, 3.32068, 1.03018, 2.45297)
+visible = false
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 2.519
 spot_range = 1.486
@@ -57,6 +59,7 @@ spot_angle = 74.42
 
 [node name="LampNightStandBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
 transform = Transform3D(0.930531, 0.237418, -0.278829, -0.167257, -0.40181, -0.900319, -0.325788, 0.88441, -0.334187, 3.27263, 0.755047, 2.33203)
+visible = false
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 2.519
 spot_range = 0.352
@@ -93,13 +96,12 @@ spot_attenuation = 0.11
 spot_angle = 76.56
 
 [node name="HallLight2" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.58787, 2.35891, 2.3678)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -0.245409, 0.96942, 0, -0.96942, -0.245409, 1.58787, 2.35891, 2.3678)
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
-light_energy = 0.534
-spot_range = 2.576
+light_energy = 1.672
+spot_range = 3.23
 spot_attenuation = 0.11
-spot_angle = 30.26
+spot_angle = 46.45
 
 [node name="HallBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
 transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.58787, 1.36125, -0.955539)
@@ -111,7 +113,6 @@ spot_angle = 22.35
 
 [node name="HallBackLight2" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
 transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.58787, 1.36125, 2.33292)
-visible = false
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 5.81
 spot_range = 0.924
@@ -151,6 +152,10 @@ current = true
 
 [node name="BreakersInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("5_30pmb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34207, 1.45032, -2.1664)
+player = NodePath("../../Player")
+
+[node name="WindowInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("8_wwipc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75895, 0.777907, 3.56205)
 player = NodePath("../../Player")
 
 [connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]
