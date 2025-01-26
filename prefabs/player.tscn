@@ -202,7 +202,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-text = "Pickup"
+text = "Click to Pickup"
 label_settings = ExtResource("3_25v0u")
 
 [node name="ClickToPlaceLabel" parent="Control" instance=ExtResource("4_7f4hp")]
