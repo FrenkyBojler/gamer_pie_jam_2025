@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=20 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3wxupq5th3ht" path="res://prefabs/interactables/breakers_interactable.tscn" id="5_30pmb"]
 [ext_resource type="Script" path="res://scripts/hall_light.gd" id="5_b15p4"]
 [ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
+[ext_resource type="PackedScene" uid="uid://m1pry331gsg6" path="res://assets/meshes/MaroKit/DeskLamp.gltf" id="6_hxg00"]
 [ext_resource type="PackedScene" uid="uid://cmw8pdmm1ijyo" path="res://prefabs/interactables/window_interactable.tscn" id="8_wwipc"]
 [ext_resource type="PackedScene" uid="uid://dvvsb1d77unko" path="res://prefabs/interactables/closet_interactable.tscn" id="9_pk0ms"]
 [ext_resource type="PackedScene" uid="uid://bjiff8f6igt28" path="res://prefabs/interactables/gramec_interactable.tscn" id="10_30yah"]
@@ -148,6 +149,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00561523, -0.248038, 0.707
 shape = SubResource("BoxShape3D_krdbf")
 
 [node name="Interactables" type="Node" parent="."]
+
+[node name="DeskLamp2" parent="Interactables" instance=ExtResource("6_hxg00")]
+transform = Transform3D(0.832699, 0, -0.553726, 0, 1, 0, 0.553726, 0, 0.832699, -3.18713, 0.746867, 3.21785)
 
 [node name="PC" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("6_hoofi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6915, 1.02569, 3.08942)
