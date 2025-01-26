@@ -166,7 +166,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-text = "Interact"
+text = "Press F to Interact"
 label_settings = ExtResource("3_25v0u")
 
 [node name="GenericLabel" type="Label" parent="Control"]
