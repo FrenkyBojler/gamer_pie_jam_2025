@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://kerlhpu7oglu"]
+[gd_scene load_steps=17 format=4 uid="uid://kerlhpu7oglu"]
 
 [ext_resource type="Script" path="res://scripts/furnace_interactable.gd" id="1_vn8k0"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_yie0q"]
 [ext_resource type="PackedScene" uid="uid://bkhq7uudvgdak" path="res://prefabs/interactables/kettle.tscn" id="3_b62to"]
+[ext_resource type="PackedScene" uid="uid://cj2yqwoym2w0t" path="res://prefabs/interactables/timber_1.tscn" id="4_mwv7n"]
+[ext_resource type="PackedScene" uid="uid://ckkrejg75s1co" path="res://prefabs/interactables/timber_2.tscn" id="5_g0k72"]
+[ext_resource type="PackedScene" uid="uid://bccshd1ya7mve" path="res://prefabs/interactables/timber_3.tscn" id="6_t4hek"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fwlf"]
 resource_name = "SD"
@@ -106,7 +109,7 @@ script = ExtResource("1_vn8k0")
 anim_player = NodePath("Furace/AnimationPlayer")
 static_camera = NodePath("Camera3D")
 collider = NodePath("CollisionShape3D")
-pickable_objects = [NodePath("Kettle")]
+pickable_objects = [NodePath("Kettle"), NodePath("Timber1"), NodePath("Timber2"), NodePath("Timber3")]
 
 [node name="Furace" type="Node3D" parent="."]
 
@@ -143,6 +146,18 @@ transform = Transform3D(1, 0, 0, 0, 0.924206, 0.381893, 0, -0.381893, 0.924206, 
 
 [node name="Kettle" parent="." instance=ExtResource("3_b62to")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0145739, 0.974026, 0.0932994)
+is_placeholder = true
+
+[node name="Timber1" parent="." instance=ExtResource("4_mwv7n")]
+transform = Transform3D(-0.989801, -0.142155, -0.00930157, 0.142348, -0.989494, -0.0252709, -0.00561151, -0.0263372, 0.999637, -0.0876084, 0.625691, 0.0233276)
+is_placeholder = true
+
+[node name="Timber2" parent="." instance=ExtResource("5_g0k72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100295, 0.471815, 0)
+is_placeholder = true
+
+[node name="Timber3" parent="." instance=ExtResource("6_t4hek")]
+transform = Transform3D(0.140469, -0.990085, 0, 0.990085, 0.140469, 0, 0, 0, 1, 0.0644043, 0.665587, 0)
 is_placeholder = true
 
 [connection signal="mouse_entered" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_entered"]

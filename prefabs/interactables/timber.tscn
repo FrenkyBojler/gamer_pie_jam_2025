@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://betoi8olhd5th"]
+
+[ext_resource type="Script" path="res://scripts/pickable.gd" id="1_icc78"]
+[ext_resource type="PackedScene" uid="uid://by3epp85halit" path="res://assets/meshes/MaroKit/Timber.gltf" id="2_wlmmt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iptyt"]
+size = Vector3(0.187378, 0.157776, 0.5802)
+
+[node name="Timber" type="StaticBody3D"]
+script = ExtResource("1_icc78")
+
+[node name="Timber" parent="." instance=ExtResource("2_wlmmt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015564, 0.0569763, -0.000915527)
+shape = SubResource("BoxShape3D_iptyt")
