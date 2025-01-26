@@ -49,7 +49,7 @@ func _on_go_online_area_mouse_entered() -> void:
 	if is_online:
 		return
 	can_interact_with_monitor = true
-	player.show_generic_label("Go online", last_mouse_pos)
+	player.show_generic_label("Clik to Go online", last_mouse_pos)
 
 func _on_go_online_area_mouse_exited() -> void:
 	if is_online:
