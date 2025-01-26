@@ -53,16 +53,16 @@ size = Vector3(0.32959, 0.327515, 0.284058)
 script = ExtResource("1_3hx68")
 id = "kettle"
 
-[node name="Kettle" type="Node3D" parent="."]
-
-[node name="Kettle" type="MeshInstance3D" parent="Kettle"]
+[node name="Kettle2" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_hty5p")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Kettle/Kettle"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Kettle2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kettle/Kettle/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kettle2/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_m41ev")
+
+[node name="Kettle" type="Node3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334473, 0.16095, -0.00140381)
