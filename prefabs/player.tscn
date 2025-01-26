@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://klp0vv2sj7ne"]
+[gd_scene load_steps=26 format=3 uid="uid://klp0vv2sj7ne"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l5anj"]
 [ext_resource type="Texture2D" uid="uid://c1vjk68s0txmm" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png" id="2_vyetp"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/fatigue_progress_bar.gd" id="10_gtf24"]
 [ext_resource type="Texture2D" uid="uid://d2cqim32wawia" path="res://assets/textures/ui/messages.PNG" id="11_1bfi4"]
 [ext_resource type="Script" path="res://scripts/posts_progress_bar.gd" id="11_8wbk1"]
+[ext_resource type="Script" path="res://prefabs/label.gd" id="13_qvo0i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nymyg"]
 height = 2.74139
@@ -20,6 +21,47 @@ height = 2.74139
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_s1705"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2ord"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_16xx0"]
+font_size = 66
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_q8uub"]
+resource_name = "info_show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d42g4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_acsf2"]
+_data = {
+"RESET": SubResource("Animation_d42g4"),
+"info_show": SubResource("Animation_q8uub")
+}
 
 [sub_resource type="Animation" id="Animation_rgd1u"]
 length = 0.001
@@ -258,6 +300,28 @@ texture_progress = ExtResource("7_e46x2")
 texture_progress_offset = Vector2(-6, -5)
 tint_progress = Color(0, 0.588235, 0, 1)
 script = ExtResource("10_gtf24")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="InfoLable" type="Label" parent="Control/PanelContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Test text!"
+label_settings = SubResource("LabelSettings_16xx0")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_qvo0i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PanelContainer/VBoxContainer/InfoLable"]
+libraries = {
+"": SubResource("AnimationLibrary_acsf2")
+}
+
+[node name="WaitTimer" type="Timer" parent="Control/PanelContainer/VBoxContainer/InfoLable"]
+wait_time = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
