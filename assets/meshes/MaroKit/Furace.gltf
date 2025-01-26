@@ -30,6 +30,51 @@
 			"name":"FuraceBase-col"
 		}
 	],
+	"animations":[
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":0,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":0,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":0,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"FurnaceDoorOpen",
+			"samplers":[
+				{
+					"input":8,
+					"interpolation":"STEP",
+					"output":9
+				},
+				{
+					"input":10,
+					"interpolation":"LINEAR",
+					"output":11
+				},
+				{
+					"input":8,
+					"interpolation":"STEP",
+					"output":12
+				}
+			]
+		}
+	],
 	"materials":[
 		{
 			"doubleSided":true,
@@ -153,6 +198,48 @@
 			"componentType":5123,
 			"count":714,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":8,
+			"componentType":5126,
+			"count":2,
+			"max":[
+				0.4166666666666667
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":9,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":10,
+			"componentType":5126,
+			"count":11,
+			"max":[
+				0.4166666666666667
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":11,
+			"componentType":5126,
+			"count":11,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":12,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
 		}
 	],
 	"bufferViews":[
@@ -203,6 +290,31 @@
 			"byteLength":1428,
 			"byteOffset":18588,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":8,
+			"byteOffset":20016
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":20024
+		},
+		{
+			"buffer":0,
+			"byteLength":44,
+			"byteOffset":20048
+		},
+		{
+			"buffer":0,
+			"byteLength":176,
+			"byteOffset":20092
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":20268
 		}
 	],
 	"samplers":[
@@ -213,7 +325,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":20016,
+			"byteLength":20292,
 			"uri":"Furace.bin"
 		}
 	]

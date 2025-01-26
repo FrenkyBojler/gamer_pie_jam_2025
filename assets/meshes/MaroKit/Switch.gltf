@@ -17,7 +17,7 @@
 			"mesh":0,
 			"name":"Switch-convcol",
 			"rotation":[
-				-0.04187564551830292,
+				0.041875649243593216,
 				0,
 				0,
 				0.9991228580474854
@@ -34,6 +34,51 @@
 			],
 			"mesh":1,
 			"name":"SwitchBase"
+		}
+	],
+	"animations":[
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":0,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":0,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":0,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"SwitchOnOff",
+			"samplers":[
+				{
+					"input":8,
+					"interpolation":"STEP",
+					"output":9
+				},
+				{
+					"input":10,
+					"interpolation":"LINEAR",
+					"output":11
+				},
+				{
+					"input":8,
+					"interpolation":"STEP",
+					"output":12
+				}
+			]
 		}
 	],
 	"materials":[
@@ -159,6 +204,48 @@
 			"componentType":5123,
 			"count":48,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":8,
+			"componentType":5126,
+			"count":2,
+			"max":[
+				0.20833333333333334
+			],
+			"min":[
+				0.041666666666666664
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":9,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":10,
+			"componentType":5126,
+			"count":5,
+			"max":[
+				0.20833333333333334
+			],
+			"min":[
+				0.041666666666666664
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":11,
+			"componentType":5126,
+			"count":5,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":12,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
 		}
 	],
 	"bufferViews":[
@@ -209,6 +296,31 @@
 			"byteLength":96,
 			"byteOffset":1468,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":8,
+			"byteOffset":1564
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":1572
+		},
+		{
+			"buffer":0,
+			"byteLength":20,
+			"byteOffset":1596
+		},
+		{
+			"buffer":0,
+			"byteLength":80,
+			"byteOffset":1616
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":1696
 		}
 	],
 	"samplers":[
@@ -219,7 +331,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1564,
+			"byteLength":1720,
 			"uri":"Switch.bin"
 		}
 	]

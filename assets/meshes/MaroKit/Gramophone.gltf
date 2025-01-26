@@ -40,6 +40,94 @@
 			"name":"Gramophone-col"
 		}
 	],
+	"animations":[
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":0,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":0,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":0,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"GramophoneHandleSpin",
+			"samplers":[
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":17
+				},
+				{
+					"input":18,
+					"interpolation":"LINEAR",
+					"output":19
+				},
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":20
+				}
+			]
+		},
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":1,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":1,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":1,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"GramophoneRecordSpin",
+			"samplers":[
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":21
+				},
+				{
+					"input":18,
+					"interpolation":"LINEAR",
+					"output":22
+				},
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":23
+				}
+			]
+		}
+	],
 	"materials":[
 		{
 			"doubleSided":true,
@@ -273,6 +361,66 @@
 			"componentType":5123,
 			"count":1482,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":16,
+			"componentType":5126,
+			"count":2,
+			"max":[
+				1.6666666666666667
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":17,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":18,
+			"componentType":5126,
+			"count":41,
+			"max":[
+				1.6666666666666667
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":19,
+			"componentType":5126,
+			"count":41,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":20,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":21,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":22,
+			"componentType":5126,
+			"count":41,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":23,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
 		}
 	],
 	"bufferViews":[
@@ -371,6 +519,46 @@
 			"byteLength":2964,
 			"byteOffset":32764,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":8,
+			"byteOffset":35728
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":35736
+		},
+		{
+			"buffer":0,
+			"byteLength":164,
+			"byteOffset":35760
+		},
+		{
+			"buffer":0,
+			"byteLength":656,
+			"byteOffset":35924
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":36580
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":36604
+		},
+		{
+			"buffer":0,
+			"byteLength":656,
+			"byteOffset":36628
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":37284
 		}
 	],
 	"samplers":[
@@ -381,7 +569,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":35728,
+			"byteLength":37308,
 			"uri":"Gramophone.bin"
 		}
 	]
