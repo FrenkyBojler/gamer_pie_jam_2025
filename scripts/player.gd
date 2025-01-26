@@ -46,7 +46,7 @@ func _ready() -> void:
 		camera.current = true
 	)
 
-	GameState.game_lost.connect(func() :
+	GameState.game_lost.connect(func(reason: String) :
 		visible = false
 		$Control/Crosshair.visible = false
 		hide_all_labels()
