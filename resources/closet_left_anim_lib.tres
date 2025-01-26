@@ -1,0 +1,17 @@
+[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://fl6p8px6oe3r"]
+
+[sub_resource type="Animation" id="Animation_ladv1"]
+resource_name = "ClosedOpenL"
+length = 0.541667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Closet/DoorL")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.0233229, 0, 0.999728, 0.0333333, 1, 0, -0.0386, 0, 0.999255, 0.0666667, 1, 0, -0.0742739, 0, 0.997238, 0.1, 1, 0, -0.127695, 0, 0.991814, 0.133333, 1, 0, -0.195962, 0, 0.980612, 0.166667, 1, 0, -0.275822, 0, 0.961209, 0.2, 1, 0, -0.365382, 0, 0.930858, 0.233333, 1, 0, -0.456644, 0, 0.88965, 0.3, 1, 0, -0.629871, 0, 0.7767, 0.333333, 1, 0, -0.705708, 0, 0.708503, 0.366667, 1, 0, -0.769476, 0, 0.638676, 0.4, 1, 0, -0.821094, 0, 0.570794, 0.433333, 1, 0, -0.860808, 0, 0.50893, 0.466667, 1, 0, -0.889447, 0, 0.457038, 0.5, 1, 0, -0.908083, 0, 0.41879, 0.541667, 1, 0, -0.915918, 0, 0.401365)
+
+[resource]
+_data = {
+"ClosedOpenL": SubResource("Animation_ladv1")
+}

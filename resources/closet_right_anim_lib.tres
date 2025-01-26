@@ -1,0 +1,17 @@
+[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://gm7udg0ln7ha"]
+
+[sub_resource type="Animation" id="Animation_ul334"]
+resource_name = "ClosedOpenR"
+length = 0.541667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Closet/DoorR")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0.0158717, 0, 0.999874, 0.0666667, 1, 0, 0.0529548, 0, 0.998597, 0.1, 1, 0, 0.108533, 0, 0.994093, 0.133333, 1, 0, 0.179622, 0, 0.983736, 0.166667, 1, 0, 0.262845, 0, 0.964838, 0.2, 1, 0, 0.356209, 0, 0.934406, 0.233333, 1, 0, 0.451313, 0, 0.892366, 0.3, 1, 0, 0.631411, 0, 0.775448, 0.333333, 1, 0, 0.709882, 0, 0.704321, 0.366667, 1, 0, 0.775539, 0, 0.6313, 0.4, 1, 0, 0.828349, 0, 0.560213, 0.433333, 1, 0, 0.868671, 0, 0.49539, 0.466667, 1, 0, 0.897502, 0, 0.441011, 0.5, 1, 0, 0.916106, 0, 0.400937, 0.541667, 1, 0, 0.92388, 0, 0.382683)
+
+[resource]
+_data = {
+"ClosedOpenR": SubResource("Animation_ul334")
+}
