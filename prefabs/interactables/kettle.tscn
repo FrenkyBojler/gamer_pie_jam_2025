@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bkhq7uudvgdak"]
 
-[ext_resource type="Script" path="res://scripts/pickable.gd" id="1_3hx68"]
+[ext_resource type="Script" path="res://scripts/kettle.gd" id="1_fb5pe"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="2_xbf6g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5waaa"]
@@ -50,7 +50,7 @@ points = PackedVector3Array(-0.00726657, 0.322504, 0.00666852, -0.00726657, 0.32
 size = Vector3(0.32959, 0.327515, 0.284058)
 
 [node name="Kettle" type="StaticBody3D"]
-script = ExtResource("1_3hx68")
+script = ExtResource("1_fb5pe")
 id = "kettle"
 
 [node name="Kettle2" type="MeshInstance3D" parent="."]

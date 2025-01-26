@@ -96,7 +96,7 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gc0pe"]
 height = 0.0998033
-radius = 0.0583367
+radius = 0.0805305
 
 [node name="Mug" type="StaticBody3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_g5i3d")
