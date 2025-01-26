@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=19 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://kerlhpu7oglu" path="res://prefabs/interactables/furnace_interactable.tscn" id="11_ply6o"]
 [ext_resource type="PackedScene" uid="uid://b5g3icj7fktce" path="res://prefabs/interactables/countertop_interactable.tscn" id="12_0ehd0"]
 [ext_resource type="PackedScene" uid="uid://vlu5w3pbxuuc" path="res://prefabs/interactables/timber_pile_interactable.tscn" id="13_jq1x8"]
+[ext_resource type="PackedScene" uid="uid://bjsr1knuvmxwi" path="res://prefabs/interactables/fridge_interactable.tscn" id="14_ukyel"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -178,6 +179,10 @@ player = NodePath("../../Player")
 
 [node name="TimberPileInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("13_jq1x8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86987, 0, -1.79712)
+player = NodePath("../../Player")
+
+[node name="Fridge" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("14_ukyel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029432, 0, -1.74893)
 player = NodePath("../../Player")
 
 [connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]

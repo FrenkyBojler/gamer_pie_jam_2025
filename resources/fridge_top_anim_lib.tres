@@ -1,0 +1,17 @@
+[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://bqbwfjpb7437f"]
+
+[sub_resource type="Animation" id="Animation_mob7n"]
+resource_name = "FridgeTopDoor"
+length = 0.625
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fridge/Fridge_002")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0.0130698, 0, 0.999915, 0.0666667, 1, 0, 0.0439079, 0, 0.999036, 0.1, 1, 0, 0.0906072, 0, 0.995887, 0.133333, 1, 0, 0.151094, 0, 0.988519, 0.166667, 1, 0, 0.223037, 0, 0.97481, 0.2, 1, 0, 0.305963, 0, 0.952044, 0.233333, 1, 0, 0.392924, 0, 0.919571, 0.266667, 1, 0, 0.480902, 0, 0.876774, 0.3, 1, 0, 0.56691, 0, 0.82378, 0.333333, 1, 0, 0.648174, 0, 0.761493, 0.366667, 1, 0, 0.721381, 0, 0.692539, 0.4, 1, 0, 0.784755, 0, 0.619806, 0.433333, 1, 0, 0.837603, 0, 0.54628, 0.466667, 1, 0, 0.879927, 0, 0.475109, 0.5, 1, 0, 0.91234, 0, 0.409434, 0.533333, 1, 0, 0.934126, 0, 0.356943, 0.566667, 1, 0, 0.948224, 0, 0.317602, 0.6, 1, 0, 0.955845, 0, 0.293872, 0.625, 1, 0, 0.95868, 0, 0.284488)
+
+[resource]
+_data = {
+"FridgeTopDoor": SubResource("Animation_mob7n")
+}
