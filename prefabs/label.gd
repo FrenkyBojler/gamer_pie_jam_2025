@@ -7,12 +7,12 @@ extends Label
 func _ready() -> void:
 	GameState.windows_open.connect(func():
 		print("window open")
-		text = "The window blew open!"
+		text = "The Window blew open!"
 		notification_wait()
 		)
 		
 	GameState.pc_power_off.connect(func():
-		text = "The PCs power wnet out!"
+		text = "The PCs power went out!"
 		notification_wait()
 		)
 		
@@ -20,7 +20,11 @@ func _ready() -> void:
 		text = "The Fire went out!"
 		notification_wait()
 		)
-		
+	GameState.pc_power_off.connect(func():
+		text = "The Power went out!"
+		notification_wait()
+		)
+
 	pass # Replace with function body.
 func notification_wait():
 	animation_player.play("info_show")
