@@ -31,6 +31,8 @@ var windows_open_event_max_wait_time := 30.0
 
 var freeze_score_timer: Timer = Timer.new()
 
+signal posts_score_update(score: int)
+var posts_score_critical_value := 20
 
 func _enter_tree() -> void:
 	_setup_windows_open_event()

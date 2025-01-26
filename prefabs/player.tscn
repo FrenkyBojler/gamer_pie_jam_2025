@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://klp0vv2sj7ne"]
+[gd_scene load_steps=20 format=3 uid="uid://klp0vv2sj7ne"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l5anj"]
 [ext_resource type="Texture2D" uid="uid://c1vjk68s0txmm" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png" id="2_vyetp"]
@@ -10,11 +10,15 @@
 [ext_resource type="Script" path="res://scripts/warmth_progress_bar.gd" id="8_0fh7o"]
 [ext_resource type="Texture2D" uid="uid://dpkw2fl5re0nr" path="res://assets/textures/ui/fatigue.PNG" id="8_cg7bj"]
 [ext_resource type="Script" path="res://scripts/fatigue_progress_bar.gd" id="10_gtf24"]
+[ext_resource type="Texture2D" uid="uid://d2cqim32wawia" path="res://assets/textures/ui/messages.PNG" id="11_1bfi4"]
+[ext_resource type="Script" path="res://scripts/posts_progress_bar.gd" id="11_8wbk1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nymyg"]
 height = 2.74139
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_s1705"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2ord"]
 
 [sub_resource type="Animation" id="Animation_rgd1u"]
 length = 0.001
@@ -186,21 +190,26 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WarmthProgressBar" type="TextureProgressBar" parent="Control"]
-custom_minimum_size = Vector2(200, 200)
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -172.0
-offset_right = -100.0
-offset_bottom = 28.0
 grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2.3, 2.3)
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u2ord")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="WarmthProgressBar" type="TextureProgressBar" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 value = 66.0
 fill_mode = 4
 texture_over = ExtResource("6_nns8l")
@@ -209,21 +218,38 @@ texture_progress_offset = Vector2(-6, -5)
 tint_progress = Color(0, 0.588235, 0, 1)
 script = ExtResource("8_0fh7o")
 
-[node name="FatigueProgressBar" type="TextureProgressBar" parent="Control"]
-custom_minimum_size = Vector2(200, 200)
+[node name="PostsProgressBar" type="TextureProgressBar" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 20.0
+value = 10.0
+fill_mode = 4
+texture_under = ExtResource("7_e46x2")
+texture_progress = ExtResource("7_e46x2")
+tint_under = Color(1, 0, 0, 1)
+tint_progress = Color(0, 0.588235, 0, 1)
+script = ExtResource("11_8wbk1")
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer/PostsProgressBar"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -175.0
-offset_right = 300.0
-offset_bottom = 25.0
+anchors_preset = -1
+anchor_left = 0.0986302
+anchor_top = 0.1
+anchor_right = 0.875343
+anchor_bottom = 0.897222
+offset_right = 24.3
+offset_bottom = 24.6
 grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2.3, 2.3)
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_1bfi4")
+metadata/_edit_use_anchors_ = true
+
+[node name="FatigueProgressBar" type="TextureProgressBar" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 value = 66.0
 fill_mode = 4
 texture_over = ExtResource("8_cg7bj")
@@ -231,20 +257,6 @@ texture_progress = ExtResource("7_e46x2")
 texture_progress_offset = Vector2(-6, -5)
 tint_progress = Color(0, 0.588235, 0, 1)
 script = ExtResource("10_gtf24")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -55,11 +55,11 @@ var last_negative_post_index = -1
 
 const SCORE_MODIFIER = 2
 
-const FINISH_SCORE = 12
+var FINISH_SCORE = GameState.posts_score_critical_value
 
 var tutorial_skipped := false
 
-var posts_handled_count := -1
+var posts_handled_count := 0
 
 func _ready() -> void:
 	progress_bar_1.max_value = FINISH_SCORE
@@ -135,6 +135,7 @@ func start_game() -> void:
 	get_new_post()
 
 func get_new_post() -> void:
+
 	var randomizer = RandomNumberGenerator.new()
 	await get_tree().create_timer(randomizer.randf_range(new_post_wait_time_min, new_post_wait_time_max)).timeout
 	
@@ -160,8 +161,7 @@ func get_new_post() -> void:
 	
 	get_new_post()
 	
-	if not tutorial_skipped and posts_handled_count == 7:
-		GameState.start_game()
+
 
 func adjust_score(alignment: String) -> void:
 	if alignment == "positive":
@@ -210,6 +210,12 @@ func update_score_texts() -> void:
 	points_label_2.text = str(negative_score) + " points"
 	
 	posts_handled_count += SCORE_MODIFIER
+	
+	if not tutorial_skipped and posts_handled_count == 14:
+		GameState.start_game()
+	
+	var score_coef = positive_score - negative_score
+	GameState.posts_score_update.emit(score_coef)
 	
 	if positive_score >= FINISH_SCORE:
 		GameState.win_game()

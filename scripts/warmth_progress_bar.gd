@@ -8,3 +8,7 @@ func _ready() -> void:
 		min_value = 0
 		value = GameState.freeze_score_critical_value - score
 	)
+	
+	GameState.game_start.connect(func():
+		visible = true
+	)
