@@ -13,6 +13,7 @@ signal fire_out_signal
 
 signal windows_closed
 signal fire_back_on
+signal power_back_on
 
 var can_interact := false
 
@@ -31,6 +32,10 @@ var windows_open_event_timer: Timer = Timer.new()
 var windows_open_event_min_wait_time := 10.0
 var windows_open_event_max_wait_time := 30.0
 
+var power_off_event_timer: Timer = Timer.new()
+var power_off_event_min_wait_time := 10.0
+var power_off_event_max_wait_time := 30.0
+
 var freeze_score_timer: Timer = Timer.new()
 
 signal posts_score_update(score: int)
@@ -40,6 +45,7 @@ func _enter_tree() -> void:
 	_setup_windows_open_event()
 	_setup_freeze_score_timer()
 	_setup_fire_out_event()
+	_setup_power_off_event()
 
 func _setup_fire_out_event() -> void:
 	fire_back_on.connect(func(): fire_out = false)
@@ -79,8 +85,17 @@ func _setup_windows_open_event() -> void:
 		windows_open_event_timer.start(RandomNumberGenerator.new().randf_range(windows_open_event_min_wait_time, windows_open_event_max_wait_time))
 		windows_opened = false
 	)
+	
+func _setup_power_off_event() -> void:
+	power_off_event_timer.wait_time = RandomNumberGenerator.new().randf_range(windows_open_event_min_wait_time, windows_open_event_max_wait_time)
+	power_off_event_timer.one_shot = true
+	power_off_event_timer.autostart = false
+	power_off_event_timer.timeout.connect(func(): power_off_event_trigger())
+	power_back_on.connect(func(): 
+		power_off_event_timer.start(RandomNumberGenerator.new().randf_range(power_off_event_min_wait_time, power_off_event_max_wait_time))
+)
 
-func power_off_event() -> void:
+func power_off_event_trigger() -> void:
 	pc_power_off.emit()
 	
 func fire_out_event_trigger() -> void:
@@ -102,7 +117,7 @@ func win_game() -> void:
 	can_interact = false
 	game_win.emit()
 
-func start_game() -> void:
+func start_game(tutorial_skiped: bool) -> void:
 	can_interact = true
 	game_start.emit()
 	
@@ -111,6 +126,10 @@ func start_game() -> void:
 	
 	get_tree().root.add_child(freeze_score_timer)
 	freeze_score_timer.start()
+	
+	get_tree().root.add_child(power_off_event_timer)
+	if tutorial_skiped:
+		power_off_event_timer.start()
 
 func restart_game() -> void:
 	can_interact = false
@@ -127,6 +146,10 @@ func restart_game() -> void:
 	windows_open_event_timer = Timer.new()
 	windows_open_event_min_wait_time = 10.0
 	windows_open_event_max_wait_time = 30.0
+	
+	power_off_event_timer = Timer.new()
+	power_off_event_min_wait_time = 10.0
+	power_off_event_max_wait_time = 30.0
 
 	freeze_score_timer = Timer.new()
 

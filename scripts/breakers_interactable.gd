@@ -30,6 +30,15 @@ var last_mouse_pos: Vector2
 
 func _ready() -> void:
 	_setup_switches()
+	
+	GameState.pc_power_off.connect(func():
+		is_switch_3_on = false
+		is_switch_1_on = false
+		switch_1_flip.emit(is_switch_1_on)
+		switches_anim_players[0].play("flip_switch_1_off")
+		await get_tree().create_timer(0.5).timeout
+		switches_anim_players[2].play("flip_switch_3_off")
+	)
 
 func _setup_switches() -> void:
 	var index := 0
@@ -47,8 +56,8 @@ func _setup_switches() -> void:
 
 	flip_switch_1()
 	flip_switch_2()
-	flip_switch_4()
 	flip_switch_3()
+	flip_switch_4()
 
 func _on_mouse_enter_switch_col(index: int) -> void:
 	if index == 0:
@@ -119,9 +128,11 @@ func flip_switch_3() -> void:
 	if is_switch_3_on:
 		is_switch_3_on = false
 		switches_anim_players[2].play("flip_switch_3_off")
+		GameState.power_off_event_trigger()
 	elif not is_switch_3_on:
 		is_switch_3_on = true
 		switches_anim_players[2].play("flip_switch_3_on")
+		GameState.power_back_on.emit()
 	switch_3_flip.emit(is_switch_3_on)
 	
 func flip_switch_4() -> void:
