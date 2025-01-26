@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://b5g3icj7fktce"]
+[gd_scene load_steps=17 format=4 uid="uid://b5g3icj7fktce"]
 
 [ext_resource type="Script" path="res://scripts/countertop_interactable.gd" id="1_0tpoc"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_4xb4f"]
 [ext_resource type="PackedScene" uid="uid://bkhq7uudvgdak" path="res://prefabs/interactables/kettle.tscn" id="3_65khe"]
 [ext_resource type="PackedScene" uid="uid://cgtxxedrjpbn3" path="res://prefabs/interactables/coffee.tscn" id="4_ah7nx"]
+[ext_resource type="PackedScene" uid="uid://i30xvieibqm1" path="res://prefabs/interactables/mug.tscn" id="5_knpa4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dah01"]
 resource_name = "SD"
@@ -123,7 +124,7 @@ size = Vector3(2.43677, 0.990601, 0.816895)
 script = ExtResource("1_0tpoc")
 static_camera = NodePath("Camera3D")
 collider = NodePath("CollisionShape3D")
-pickable_objects = [NodePath("Kettle"), NodePath("Coffee")]
+pickable_objects = [NodePath("Kettle"), NodePath("Coffee"), NodePath("Mug")]
 
 [node name="Linka3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.807502, 0.475, 0.0127523)
@@ -168,3 +169,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334463, 0.968731, 0)
 [node name="Coffee" parent="." instance=ExtResource("4_ah7nx")]
 transform = Transform3D(0.946097, 0, 0.323884, 0, 1, 0, -0.323884, 0, 0.946097, -0.362856, 0.94989, -0.19097)
 is_placeholder = true
+
+[node name="Mug" parent="." instance=ExtResource("5_knpa4")]
+transform = Transform3D(-0.714363, 0, 0.699776, 0, 1, 0, -0.699776, 0, -0.714363, -0.0806158, 0.950866, 0.20942)
