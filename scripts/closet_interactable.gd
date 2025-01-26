@@ -41,10 +41,12 @@ func _toggle_right_window() -> void:
 func open_right_window() -> void:
 	is_right_window_open = true
 	animation_player_right.play("ClosedOpenR")
+	$OpenSound.play()
 
 func close_right_window() -> void:
 	is_right_window_open = false
 	animation_player_right.play_backwards("ClosedOpenR")
+	$OpenSound.play()
 
 func _toggle_left_window() -> void:
 	if is_left_window_open:
@@ -55,10 +57,12 @@ func _toggle_left_window() -> void:
 func open_left_window() -> void:
 	is_left_window_open = true
 	animation_player_left.play("ClosedOpenL")
+	$OpenSound.play()
 
 func close_left_window() -> void:
 	is_left_window_open = false
 	animation_player_left.play_backwards("ClosedOpenL")
+	$OpenSound.play()
 
 func _on_left_col_mouse_entered() -> void:
 	can_interact_left = true

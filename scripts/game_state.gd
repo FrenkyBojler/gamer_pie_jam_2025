@@ -9,6 +9,7 @@ signal game_lost(reason: String)
 signal pc_power_off
 signal windows_open
 signal stop_music
+signal notification_recieved
 
 signal windows_closed
 
@@ -69,6 +70,9 @@ func _setup_windows_open_event() -> void:
 		windows_opened = false
 	)
 
+func notification_recieved_event() -> void:
+	notification_recieved.emit()
+	
 func power_off_event() -> void:
 	pc_power_off.emit()
 

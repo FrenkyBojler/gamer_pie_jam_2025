@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://coiuitr25vqrd"]
+[gd_scene load_steps=35 format=3 uid="uid://coiuitr25vqrd"]
 
 [ext_resource type="Script" path="res://scripts/pc_ui.gd" id="1_43wlc"]
 [ext_resource type="Texture2D" uid="uid://vpa41arh6j72" path="res://assets/textures/ui/logo_big.png" id="2_2u6rs"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://15rkwe8t13ut" path="res://assets/textures/ui/online.PNG" id="2_ybj6f"]
 [ext_resource type="PackedScene" uid="uid://bfjqxkyd0sk4d" path="res://prefabs/pc/post.tscn" id="4_8wrbd"]
 [ext_resource type="PackedScene" uid="uid://crlpv0gr67oln" path="res://prefabs/pc/login_screen.tscn" id="7_rlwnq"]
+[ext_resource type="AudioStream" uid="uid://bf7qmtdbyb672" path="res://assets/sounds/success.wav" id="7_u8sau"]
+[ext_resource type="AudioStream" uid="uid://ckn1ytjjouc5h" path="res://assets/sounds/wrong.wav" id="8_duqof"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4067p"]
 bg_color = Color(1, 1, 1, 1)
@@ -523,5 +525,11 @@ custom_minimum_size = Vector2(500, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="SuccessSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_u8sau")
+
+[node name="FailSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_duqof")
 
 [connection signal="login" from="PanelContainer/LoginScreen" to="." method="_on_login_screen_login"]

@@ -169,6 +169,7 @@ func handle_animations() -> void:
 		$AnimationPlayer.play("idle")
 		
 func _pickup() -> void:
+	$PickUp.play()
 	picked_object = pickable_object.duplicate()
 	$Camera3D.add_child(picked_object)
 	picked_object.global_position = $Camera3D/CarrySpot.global_position
@@ -177,6 +178,7 @@ func _pickup() -> void:
 	picked_object.is_picked = true
 
 func _place() -> void:
+	$PlaceDown.play()
 	placeable_object.place()
 	picked_object.queue_free()
 	picked_object = null

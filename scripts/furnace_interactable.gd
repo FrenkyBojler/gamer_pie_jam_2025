@@ -30,10 +30,12 @@ func toggle_door() -> void:
 func open_door() -> void:
 	is_door_open = true
 	anim_player.play("FurnaceDoorOpen")
+	$OpenSound.play()
 
 func close_door() -> void:
 	is_door_open = false
 	anim_player.play_backwards("FurnaceDoorOpen")
+	$OpenSound.play()
 
 
 func _on_furnace_col_mouse_entered() -> void:
