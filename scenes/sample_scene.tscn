@@ -29,7 +29,7 @@ size = Vector3(7.16357, 0.498535, 5.71283)
 
 [node name="SampleScene" type="Node3D" node_paths=PackedStringArray("interactables")]
 script = ExtResource("1_ogcw3")
-interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/BoxInteractable"), NodePath("")]
+interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/BoxInteractable"), null]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
