@@ -13,7 +13,7 @@ func _on_cancel_interaction() -> void:
 	is_online = false
 
 func _input(event: InputEvent) -> void:
-	if in_interaction and event is InputEventMouseMotion:
+	if event is InputEventMouseMotion:
 		last_mouse_pos = event.global_position
 		
 func _process(delta: float) -> void:
