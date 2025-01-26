@@ -168,7 +168,7 @@ light_color = Color(0.89, 0.52955, 0.089, 1)
 omni_range = 0.39
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 40.0
+wait_time = 60.0
 one_shot = true
 
 [node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
