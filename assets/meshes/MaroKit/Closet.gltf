@@ -8,7 +8,8 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				2
+				2,
+				3
 			]
 		}
 	],
@@ -43,7 +44,104 @@
 				1
 			],
 			"mesh":2,
-			"name":"Closet-col"
+			"name":"Closet"
+		},
+		{
+			"mesh":3,
+			"name":"Collider-convcolonly",
+			"translation":[
+				-0.19073486328125,
+				0.9757019281387329,
+				0.7469890117645264
+			]
+		}
+	],
+	"animations":[
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":0,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":0,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":0,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"ClosedOpenL",
+			"samplers":[
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":17
+				},
+				{
+					"input":18,
+					"interpolation":"LINEAR",
+					"output":19
+				},
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":20
+				}
+			]
+		},
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":1,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":1,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":1,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"ClosedOpenR",
+			"samplers":[
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":21
+				},
+				{
+					"input":18,
+					"interpolation":"LINEAR",
+					"output":22
+				},
+				{
+					"input":16,
+					"interpolation":"STEP",
+					"output":23
+				}
+			]
 		}
 	],
 	"materials":[
@@ -98,6 +196,19 @@
 					},
 					"indices":11,
 					"material":0
+				}
+			]
+		},
+		{
+			"name":"Cube",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":12,
+						"NORMAL":13,
+						"TEXCOORD_0":14
+					},
+					"indices":15
 				}
 			]
 		}
@@ -217,6 +328,100 @@
 			"componentType":5123,
 			"count":168,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":12,
+			"componentType":5126,
+			"count":24,
+			"max":[
+				0.990734875202179,
+				0.9565703868865967,
+				-0.49397802352905273
+			],
+			"min":[
+				-0.609265148639679,
+				-0.9757019281387329,
+				-1
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":13,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":14,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":15,
+			"componentType":5123,
+			"count":36,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":16,
+			"componentType":5126,
+			"count":2,
+			"max":[
+				0.5416666666666666
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":17,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":18,
+			"componentType":5126,
+			"count":14,
+			"max":[
+				0.5416666666666666
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":19,
+			"componentType":5126,
+			"count":14,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":20,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":21,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":22,
+			"componentType":5126,
+			"count":14,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":23,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
 		}
 	],
 	"bufferViews":[
@@ -291,6 +496,70 @@
 			"byteLength":336,
 			"byteOffset":8864,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":9200,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":9488,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":192,
+			"byteOffset":9776,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":72,
+			"byteOffset":9968,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":8,
+			"byteOffset":10040
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":10048
+		},
+		{
+			"buffer":0,
+			"byteLength":56,
+			"byteOffset":10072
+		},
+		{
+			"buffer":0,
+			"byteLength":224,
+			"byteOffset":10128
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":10352
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":10376
+		},
+		{
+			"buffer":0,
+			"byteLength":224,
+			"byteOffset":10400
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":10624
 		}
 	],
 	"samplers":[
@@ -301,7 +570,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":9200,
+			"byteLength":10648,
 			"uri":"Closet.bin"
 		}
 	]
