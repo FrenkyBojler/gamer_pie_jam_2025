@@ -55,7 +55,7 @@ var last_negative_post_index = -1
 
 const SCORE_MODIFIER = 2
 
-const FINISH_SCORE = 6
+const FINISH_SCORE = 12
 
 var tutorial_skipped := false
 
@@ -681,7 +681,7 @@ var postsTutorial = [
 		profile_pic_index = 0,
 		tutorial = 3,
 		name = "Boss",
-		text = "If you manage to fill the green progress bar you win!\nBut if the red progress bar fills up, well, you can try again tomorrow. Let's go dogs!",
+		text = "If you manage to fill the green progress bar you win!\nBut if the red progress bar fills up, well, you can try again tomorrow.\nAlso, be CAREFUL, score is processed even when YOU ARE NOT at your computer.\nLet's go dogs!",
 		date = "6 minutes ago",
 		alignment = "positive"
 	},

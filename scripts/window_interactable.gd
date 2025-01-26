@@ -13,6 +13,12 @@ var can_interact_right := false
 
 var last_mouse_pos: Vector2
 
+func _ready() -> void:
+	GameState.windows_open.connect(func(): 
+		open_left_window()
+		open_right_window()
+	)
+
 func _input(event: InputEvent) -> void:
 	if in_interaction and event is InputEventMouseMotion:
 		last_mouse_pos = event.global_position
@@ -45,6 +51,9 @@ func open_right_window() -> void:
 func close_right_window() -> void:
 	is_right_window_open = false
 	animation_player_right.play_backwards("WindowROpen")
+	
+	if not is_left_window_open:
+		GameState.windows_closed.emit()
 
 func _toggle_left_window() -> void:
 	if is_left_window_open:
@@ -59,6 +68,9 @@ func open_left_window() -> void:
 func close_left_window() -> void:
 	is_left_window_open = false
 	animation_player_left.play_backwards("WindowLOpen")
+	
+	if not is_right_window_open:
+		GameState.windows_closed.emit()
 
 func _on_left_static_body_3d_mouse_entered() -> void:
 	can_interact_left = true
