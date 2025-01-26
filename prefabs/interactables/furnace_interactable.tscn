@@ -166,7 +166,7 @@ light_color = Color(0.89, 0.52955, 0.089, 1)
 omni_range = 0.39
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 40.0
 one_shot = true
 
 [connection signal="mouse_entered" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_entered"]

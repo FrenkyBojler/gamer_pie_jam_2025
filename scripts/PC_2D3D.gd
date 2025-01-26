@@ -17,6 +17,19 @@ var game_loose_freeze: Control
 @export
 var game_loose_tired: Control
 
+func _ready() -> void:
+	super._ready()
+	
+	GameState.pc_power_off.connect(func():
+		pc_ui.visible = false
+		power_off.visible = true
+	)
+	
+	GameState.power_back_on.connect(func():
+		pc_ui.visible = true
+		power_off.visible = false
+	)
+
 func _on_restart_button_pressed() -> void:
 	GameState.restart_game()
 
