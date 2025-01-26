@@ -176,3 +176,7 @@ func _on_static_body_3d_mouse_exited() -> void:
 	if in_interaction:
 		can_interact_with_doors = false
 		player.hide_generic_label()
+
+
+func _on_close_breaker_timer_timeout() -> void:
+	pass # Replace with function body.

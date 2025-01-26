@@ -521,7 +521,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7pcb5")
 
 [node name="LoginScreen" parent="PanelContainer" instance=ExtResource("7_rlwnq")]
-custom_minimum_size = Vector2(700, 400)
+custom_minimum_size = Vector2(1200, 600)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

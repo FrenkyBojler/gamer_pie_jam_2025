@@ -62,10 +62,6 @@ func _setup_freeze_score_timer() -> void:
 			
 		if not windows_opened and not fire_out:
 			freeze_score -= 2
-		elif not windows_open:
-			freeze_score -= 1
-		elif not fire_out:
-			freeze_score -= 1
 
 		if freeze_score <= 0:
 				freeze_score = 0

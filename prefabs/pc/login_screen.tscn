@@ -43,7 +43,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_bxat6"]
-font_size = 12
+font_size = 30
 font_color = Color(0.988235, 0.776471, 0.560784, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ln7v"]
@@ -67,20 +67,16 @@ bg_color = Color(1, 1, 1, 1)
 
 [node name="LoginScreen" type="PanelContainer" node_paths=PackedStringArray("nickname", "profile_pics_list")]
 custom_minimum_size = Vector2(400, 200)
-anchors_preset = -1
-anchor_left = 0.395833
-anchor_top = 0.337037
-anchor_right = 0.604167
-anchor_bottom = 0.592593
-offset_right = 100.0
-offset_bottom = 124.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ohs64")
 script = ExtResource("1_vpnaq")
 nickname = NodePath("VBoxContainer/LineEdit")
 profile_pics_list = NodePath("VBoxContainer/HBoxContainer")
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -102,12 +98,11 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_swm8o")
 
 [node name="Logo" type="TextureRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(60, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_sc2w3")
-stretch_mode = 4
 
 [node name="Spacer2" type="PanelContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -115,11 +110,12 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_swm8o")
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_placeholder_color = Color(0.856067, 0.856067, 0.856067, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_vbixn")
 placeholder_text = "Enter your nickname"
 alignment = 1
@@ -215,11 +211,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.980392, 0.603922, 0.227451, 1)
+theme_override_font_sizes/font_size = 25
 text = "Login"
 flat = true
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "Login & Skip Tutorial"
 flat = true
 
