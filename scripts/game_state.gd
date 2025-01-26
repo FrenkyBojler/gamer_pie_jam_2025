@@ -107,6 +107,8 @@ func windows_open_event_trigger() -> void:
 func loose_game(reason: String) -> void:
 	freeze_score_timer.stop()
 	windows_open_event_timer.stop()
+	power_off_event_timer.stop()
+	
 	
 	game_lost.emit(reason)
 	can_interact = false

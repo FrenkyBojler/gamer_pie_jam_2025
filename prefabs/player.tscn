@@ -109,6 +109,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "carry_spot") groups=["interactable"]]
 script = ExtResource("1_l5anj")
+move_speed = 3.0
 camera = NodePath("Camera3D")
 carry_spot = NodePath("Camera3D/CarrySpot")
 
