@@ -172,3 +172,4 @@ is_placeholder = true
 
 [node name="Mug" parent="." instance=ExtResource("5_knpa4")]
 transform = Transform3D(-0.714363, 0, 0.699776, 0, 1, 0, -0.699776, 0, -0.714363, -0.0806158, 0.950866, 0.20942)
+is_placeholder = true

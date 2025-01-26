@@ -22,7 +22,6 @@ func _ready():
 	if node_quad.get_surface_override_material(0).billboard_mode == BaseMaterial3D.BillboardMode.BILLBOARD_DISABLED:
 		set_process(false)
 
-
 func _process(_delta):
 	# NOTE: Remove this function if you don't plan on using billboard settings.
 	rotate_area_to_billboard()

@@ -67,6 +67,9 @@ func interact(current_camera_transform: Transform3D) -> void:
 	in_interaction = true
 	_show_pickables_placeholder()
 	_on_interact()
+	
+func _on_cancel_interaction() -> void:
+	pass
 
 func cancel_interaction() -> void:
 	collider.disabled = false
@@ -74,6 +77,7 @@ func cancel_interaction() -> void:
 	switch_cam_timer.start()
 	_hide_pickables_placeholder()
 	player.hide_all_labels()
+	_on_cancel_interaction()
 
 func switch_cam_timer_timeout() -> void:
 	in_interaction = false
