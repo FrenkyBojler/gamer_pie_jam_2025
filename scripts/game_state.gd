@@ -30,11 +30,11 @@ var fire_out := false
 
 var windows_open_event_timer: Timer = Timer.new()
 var windows_open_event_min_wait_time := 10.0
-var windows_open_event_max_wait_time := 30.0
+var windows_open_event_max_wait_time := 40.0
 
 var power_off_event_timer: Timer = Timer.new()
 var power_off_event_min_wait_time := 10.0
-var power_off_event_max_wait_time := 30.0
+var power_off_event_max_wait_time := 40.0
 
 var freeze_score_timer: Timer = Timer.new()
 
@@ -56,9 +56,7 @@ func _setup_freeze_score_timer() -> void:
 	freeze_score_timer.autostart = false
 	
 	freeze_score_timer.timeout.connect(func(): 
-		if windows_opened:
-			freeze_score += 1
-		if fire_out:
+		if windows_opened or fire_out:
 			freeze_score += 1
 			
 		if not windows_opened and not fire_out:
