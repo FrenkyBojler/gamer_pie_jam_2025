@@ -54,7 +54,7 @@ func open_door() -> void:
 func close_door() -> void:
 	is_door_open = false
 	anim_player.play_backwards("FurnaceDoorOpen")
-		$OpenSound.play()
+	$OpenSound.play()
 
 	if not $Timber1.is_placeholder and not $Timber2.is_placeholder and not $Timber3.is_placeholder:
 		light_fire()
