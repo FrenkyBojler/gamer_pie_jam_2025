@@ -115,6 +115,7 @@ func handle_interaction() -> void:
 
 func start_interaction() -> void:
 	if interactable_object is Interactable:
+		$CollisionShape3D.disabled = true
 		in_interaction = true
 		camera.current = false
 		interactable_object.interact(camera.global_transform)
@@ -128,6 +129,7 @@ func start_interaction() -> void:
 		print_debug("missing interact method")
 
 func cancel_interaction() -> void:
+	$CollisionShape3D.disabled = false
 	interactable_object.cancel_interaction()
 	interactable_object = null
 	in_interaction = false
