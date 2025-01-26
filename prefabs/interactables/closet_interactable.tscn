@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://dvvsb1d77unko"]
+[gd_scene load_steps=17 format=4 uid="uid://dvvsb1d77unko"]
 
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_gb6ek"]
 [ext_resource type="Script" path="res://scripts/closet_interactable.gd" id="1_u11gy"]
 [ext_resource type="AnimationLibrary" uid="uid://fl6p8px6oe3r" path="res://resources/closet_left_anim_lib.tres" id="2_kpnlb"]
 [ext_resource type="AnimationLibrary" uid="uid://gm7udg0ln7ha" path="res://resources/closet_right_anim_lib.tres" id="3_cj0to"]
+[ext_resource type="PackedScene" uid="uid://cgtxxedrjpbn3" path="res://prefabs/interactables/coffee.tscn" id="5_2etar"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phhuq"]
 resource_name = "SD"
@@ -119,12 +120,13 @@ points = PackedVector3Array(-0.609265, -0.975702, -1, -0.609265, -0.975702, -0.4
 [sub_resource type="BoxShape3D" id="BoxShape3D_t3oo5"]
 size = Vector3(1.59889, 1.9231, 0.619629)
 
-[node name="ClosetInteractable" type="StaticBody3D" node_paths=PackedStringArray("animation_player_left", "animation_player_right", "static_camera", "collider")]
+[node name="ClosetInteractable" type="StaticBody3D" node_paths=PackedStringArray("animation_player_left", "animation_player_right", "static_camera", "collider", "pickable_objects")]
 script = ExtResource("1_u11gy")
 animation_player_left = NodePath("Closet2/AnimationPlayerLeft")
 animation_player_right = NodePath("Closet2/AnimationPlayerRight")
 static_camera = NodePath("Camera3D")
 collider = NodePath("CollisionShape3D")
+pickable_objects = [NodePath("Coffee")]
 
 [node name="Closet2" type="Node3D" parent="."]
 
@@ -159,6 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.190735, 0.975702, 0.746989
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Closet2/Collider"]
 shape = SubResource("ConvexPolygonShape3D_5kh53")
+disabled = true
 
 [node name="AnimationPlayerLeft" type="AnimationPlayer" parent="Closet2"]
 libraries = {
@@ -176,6 +179,9 @@ shape = SubResource("BoxShape3D_t3oo5")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.0517, -1.31472)
+
+[node name="Coffee" parent="." instance=ExtResource("5_2etar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.553177, 0.966393, 0)
 
 [connection signal="mouse_entered" from="Closet2/Closet/DoorL/LeftCol" to="." method="_on_left_col_mouse_entered"]
 [connection signal="mouse_exited" from="Closet2/Closet/DoorL/LeftCol" to="." method="_on_left_col_mouse_exited"]
