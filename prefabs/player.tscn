@@ -334,3 +334,9 @@ current = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_nkluo")
+
+[node name="PickUp" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_rnqrk")
+
+[node name="PlaceDown" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("15_1mu27")

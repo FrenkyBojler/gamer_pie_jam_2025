@@ -35,6 +35,10 @@ func go_online() -> void:
 func _ready() -> void:
 	collider.disabled = true
 	
+	GameState.notification_recieved.connect(func():
+		$NotificationSound.play();
+	)
+	
 	GameState.game_start.connect(func(): 
 		static_camera.current = false
 		collider.disabled = false

@@ -75,6 +75,7 @@ func _start_tutorial_1() -> void:
 		_start_tutorial_2()
 	
 	posts_list.add_child(post)
+	GameState.notification_recieved_event()
 	post.setup(post_data, user_profile_pic_index, tutorial_1_promote, ban,adjust_score, true)
 	posts_list.move_child(post, 0)
 
@@ -89,6 +90,7 @@ func _start_tutorial_2() -> void:
 		_start_tutorial_3()
 	
 	posts_list.add_child(post)
+	GameState.notification_recieved_event()
 	post.setup(post_data, user_profile_pic_index, promote, tutorial_2_ban,adjust_score, true)
 	posts_list.move_child(post, 0)
 
@@ -126,6 +128,7 @@ func _start_tutorial_4() -> void:
 		#GameState.start_game()
 	
 	posts_list.add_child(post)
+	GameState.notification_recieved_event()
 	post.setup(post_data, user_profile_pic_index, tutorial_4_promote, tutorial_4_ban,adjust_score, true)
 	posts_list.move_child(post, 0)
 
@@ -155,6 +158,7 @@ func get_new_post() -> void:
 	var post_data = posts[index]
 	
 	posts_list.add_child(post)
+	GameState.notification_recieved_event()
 	post.setup(post_data, user_profile_pic_index, promote, ban, adjust_score, false)
 	posts_list.move_child(post, 0)
 	
@@ -179,9 +183,11 @@ func ban(alignment: String) -> void:
 		negative_score += SCORE_MODIFIER
 		positive_score -= SCORE_MODIFIER
 		progress_bar_animation_player_2.play("score_up")
+		$FailSound.play()
 	else:
 		positive_score += SCORE_MODIFIER
 		progress_bar_animation_player_1.play("score_up")
+		$SuccessSound.play()
 
 	update_score_texts()
 
@@ -189,11 +195,12 @@ func promote(alignment: String) -> void:
 	if alignment == "positive":
 		positive_score += SCORE_MODIFIER
 		progress_bar_animation_player_1.play("score_up")
+		$SuccessSound.play()
 	else:
 		negative_score += SCORE_MODIFIER
 		positive_score -= SCORE_MODIFIER
 		progress_bar_animation_player_2.play("score_up")
-
+		$FailSound.play()
 	update_score_texts()
 
 func update_score_texts() -> void:

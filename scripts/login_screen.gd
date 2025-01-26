@@ -38,3 +38,7 @@ func _on_button_pressed() -> void:
 	if nickname.text.is_empty():
 		return
 	login.emit(nickname.text, selected_index, true)
+
+
+func _on_line_edit_text_changed(new_text: String) -> void:
+	$AudioStreamPlayer3D.play()

@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bjiff8f6igt28" path="res://prefabs/interactables/gramec_interactable.tscn" id="10_30yah"]
 [ext_resource type="PackedScene" uid="uid://kerlhpu7oglu" path="res://prefabs/interactables/furnace_interactable.tscn" id="11_ply6o"]
 [ext_resource type="PackedScene" uid="uid://b5g3icj7fktce" path="res://prefabs/interactables/countertop_interactable.tscn" id="12_0ehd0"]
-[ext_resource type="PackedScene" uid="uid://vlu5w3pbxuuc" path="res://prefabs/interactables/timber_pile_interactable.tscn" id="13_jq1x8"]
-[ext_resource type="PackedScene" uid="uid://bjsr1knuvmxwi" uid="uid://da6e2jv6kke3c" path="res://prefabs/interactables/fridge_interactable.tscn" id="14_ukyel"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/timber_pile_interactable.tscn" id="13_jq1x8"]
+[ext_resource type="PackedScene" uid="uid://da6e2jv6kke3c" path="res://prefabs/interactables/fridge_interactable.tscn" id="14_ukyel"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

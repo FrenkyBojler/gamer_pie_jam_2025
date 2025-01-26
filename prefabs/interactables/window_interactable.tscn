@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://cmw8pdmm1ijyo"]
+[gd_scene load_steps=17 format=4 uid="uid://cmw8pdmm1ijyo"]
 
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_3gphi"]
 [ext_resource type="Script" path="res://scripts/window_interactable.gd" id="1_crbyh"]
 [ext_resource type="AnimationLibrary" uid="uid://by3qnye65lii" path="res://resources/window_left_anim_lib.tres" id="3_8uem1"]
 [ext_resource type="AnimationLibrary" uid="uid://c0s2rbe8g052h" path="res://resources/window_right_anim_lib.tres" id="4_p1b14"]
+[ext_resource type="AudioStream" uid="uid://b5yqvsou5eiis" path="res://assets/sounds/open_close_wood.wav" id="5_mr021"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kuq7p"]
 size = Vector3(1.08032, 1.70453, 0.175842)
@@ -219,6 +220,9 @@ libraries = {
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, -2.22045e-16, -8.74228e-08, 1.79424e-09, 0.999789, -0.0205237, 8.74044e-08, -0.0205237, -0.999789, 0.0887148, 0.660206, -1.09479)
+
+[node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_mr021")
 
 [connection signal="mouse_entered" from="Window/WindowBase/WindowL/LeftStaticBody3D" to="." method="_on_left_static_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Window/WindowBase/WindowL/LeftStaticBody3D" to="." method="_on_left_static_body_3d_mouse_exited"]

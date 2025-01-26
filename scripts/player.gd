@@ -169,7 +169,14 @@ func handle_animations() -> void:
 		$AnimationPlayer.play("idle")
 		
 func _pickup() -> void:
+	$PickUp.play()
 	picked_object = pickable_object.duplicate()
+	
+	if pickable_object is Kettle:
+		print_debug(pickable_object.is_boiled)
+	if picked_object is Kettle:
+		print_debug(picked_object.is_boiled)
+	
 	$Camera3D.add_child(picked_object)
 	picked_object.global_position = $Camera3D/CarrySpot.global_position
 	hide_pickup_object_label()
@@ -177,7 +184,11 @@ func _pickup() -> void:
 	picked_object.is_picked = true
 
 func _place() -> void:
+	$PlaceDown.play()
 	placeable_object.place()
+	if placeable_object is Kettle and picked_object is Kettle:
+		placeable_object.is_boiled = picked_object.is_boiled
+	
 	picked_object.queue_free()
 	picked_object = null
 	hide_place_object_label()

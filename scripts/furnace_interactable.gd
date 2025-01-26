@@ -7,15 +7,24 @@ var is_door_open := false
 
 var last_mouse_pos: Vector2
 
+var fire_is_lit := true
+
 func _ready() -> void:
 	GameState.game_start.connect(func():
 		light_fire()
+	)
+	
+	$Kettle.placed.connect(func():
+		print_debug("Fire is lit: " + str(fire_is_lit))
+		if fire_is_lit:
+			$Kettle.is_boiled = true
 	)
 	
 func light_fire() -> void:
 	$FireTimer.start()
 	$FireLight.visible = true
 	GameState.fire_back_on.emit()
+	fire_is_lit = true
 
 func _input(event: InputEvent) -> void:
 	if in_interaction and event is InputEventMouseMotion:
@@ -40,13 +49,18 @@ func toggle_door() -> void:
 func open_door() -> void:
 	is_door_open = true
 	anim_player.play("FurnaceDoorOpen")
+	$OpenSound.play()
 
 func close_door() -> void:
 	is_door_open = false
 	anim_player.play_backwards("FurnaceDoorOpen")
-	
+		$OpenSound.play()
+
 	if not $Timber1.is_placeholder and not $Timber2.is_placeholder and not $Timber3.is_placeholder:
 		light_fire()
+
+		if not $Kettle.is_placeholder:
+			$Kettle.is_boiled = true
 
 func _on_furnace_col_mouse_entered() -> void:
 	can_interact_with_door = true
@@ -58,6 +72,6 @@ func _on_furnace_col_mouse_exited() -> void:
 func _on_fire_timer_timeout() -> void:
 	$FireLight.visible = false
 	GameState.fire_out_event_trigger()
-	
+	fire_is_lit = false
 	for item in pickable_objects:
 		item.pickup()

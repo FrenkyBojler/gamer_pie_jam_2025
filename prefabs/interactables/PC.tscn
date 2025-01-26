@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://bs21iur2g2inp"]
+[gd_scene load_steps=12 format=4 uid="uid://bs21iur2g2inp"]
 
 [ext_resource type="Script" path="res://scripts/pc.gd" id="1_0bp2d"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="3_ske0i"]
 [ext_resource type="PackedScene" uid="uid://c7pnqjg6vnhk4" path="res://prefabs/2d-in-3d/crt_panel.tscn" id="3_xjn5x"]
 [ext_resource type="PackedScene" uid="uid://i30xvieibqm1" path="res://prefabs/interactables/mug.tscn" id="4_goh8m"]
+[ext_resource type="AudioStream" uid="uid://cygmxybcu1fts" path="res://assets/sounds/notification.wav" id="5_m6jj7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adllx"]
 resource_name = "SD"
@@ -98,6 +99,10 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0971069, -0.013855)
 shape = SubResource("BoxShape3D_2073f")
 disabled = true
+
+[node name="NotificationSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_m6jj7")
+max_distance = 7.0
 
 [connection signal="mouse_entered" from="GoOnlineArea" to="." method="_on_go_online_area_mouse_entered"]
 [connection signal="mouse_exited" from="GoOnlineArea" to="." method="_on_go_online_area_mouse_exited"]

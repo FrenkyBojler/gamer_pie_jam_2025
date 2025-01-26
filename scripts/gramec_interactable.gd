@@ -27,12 +27,14 @@ func _process(delta: float) -> void:
 func _push_button() -> void:
 	if can_interact_with_button:
 		anim_player.play("button")
+		$ButtonPress.play()
 		await get_tree().create_timer(1).timeout
 		anim_player.play("GramophoneRecordSpin")
 
 func _spin_handle() -> void:
 	if can_interact:
 		anim_player.play("GramophoneHandleSpin")
+		$HandleCreak.play()
 
 func _on_static_body_3d_mouse_entered() -> void:
 	can_interact = true

@@ -10,6 +10,7 @@ signal pc_power_off
 signal windows_open
 signal stop_music
 signal fire_out_signal
+signal notification_recieved
 
 signal windows_closed
 signal fire_back_on
@@ -83,6 +84,9 @@ func _setup_windows_open_event() -> void:
 		windows_open_event_timer.start(RandomNumberGenerator.new().randf_range(windows_open_event_min_wait_time, windows_open_event_max_wait_time))
 		windows_opened = false
 	)
+	
+func notification_recieved_event() -> void:
+	notification_recieved.emit()
 	
 func _setup_power_off_event() -> void:
 	power_off_event_timer.wait_time = RandomNumberGenerator.new().randf_range(windows_open_event_min_wait_time, windows_open_event_max_wait_time)

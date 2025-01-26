@@ -16,6 +16,8 @@ var current_mouse_pos: Vector2
 
 var is_picked := false
 
+signal placed
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		current_mouse_pos = event.position
@@ -70,6 +72,7 @@ func pickup() -> void:
 			mesh_instance.material_override = placeholder_mat
 
 func place() -> void:
+	placed.emit()
 	is_picked = false
 	is_placeholder = false
 	visible = true
