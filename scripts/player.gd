@@ -151,6 +151,7 @@ func _pickup() -> void:
 	picked_object.global_position = $Camera3D/CarrySpot.global_position
 	hide_pickup_object_label()
 	pickable_object.pickup()
+	picked_object.is_picked = true
 
 func _place() -> void:
 	placeable_object.place()
