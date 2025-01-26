@@ -6,7 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://def0nhv8nsike" path="res://resources/fridge_top_anim_lib.tres" id="4_3pjd0"]
 [ext_resource type="AnimationLibrary" uid="uid://bo7afmor06sgu" path="res://resources/fridge_down_anim_lib.tres" id="5_l86ke"]
 [ext_resource type="AudioStream" uid="uid://b0qkw6qu1bmsl" path="res://assets/sounds/fridge.wav" id="6_gud8s"]
-[ext_resource type="AudioStream" uid="uid://cwh55forkaydy" path="res://assets/sounds/open_close_metal.wav" id="7_xjec2"]
+[ext_resource type="AudioStream" uid="uid://cwh55forkaydy" path="res://assets/sounds/close_metal.wav" id="7_xjec2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wipur"]
 resource_name = "HD"

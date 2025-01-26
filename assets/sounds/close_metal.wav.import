@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cwh55forkaydy"
-path="res://.godot/imported/close_metal.wav-167e37917a15531bcb08a565fea53543.sample"
+uid="uid://bda0ihahb7le5"
+path="res://.godot/imported/close_metal.wav-6eda0c945796db6b2617924c4e5d2a64.sample"
 
 [deps]
 
 source_file="res://assets/sounds/close_metal.wav"
-dest_files=["res://.godot/imported/close_metal.wav-167e37917a15531bcb08a565fea53543.sample"]
+dest_files=["res://.godot/imported/close_metal.wav-6eda0c945796db6b2617924c4e5d2a64.sample"]
 
 [params]
 

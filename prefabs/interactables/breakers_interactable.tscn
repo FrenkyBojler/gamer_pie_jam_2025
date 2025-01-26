@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://d3wxupq5th3ht"]
+[gd_scene load_steps=35 format=4 uid="uid://d3wxupq5th3ht"]
 
 [ext_resource type="Script" path="res://scripts/breakers_interactable.gd" id="1_k3je5"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_t0vsy"]
@@ -7,6 +7,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://bhjjy7tqljf72" path="res://resources/switch_2_anim_lib.tres" id="5_ugnj4"]
 [ext_resource type="AnimationLibrary" uid="uid://ddy5ly3kq15na" path="res://resources/switch_3_anim_lib.tres" id="6_j5587"]
 [ext_resource type="AnimationLibrary" uid="uid://nbo4cbffsbqg" path="res://resources/switch_4_anim_lib.tres" id="7_8c6uj"]
+[ext_resource type="AudioStream" uid="uid://boptw7nrp2f6b" path="res://assets/sounds/switch.wav" id="8_lddsm"]
+[ext_resource type="AudioStream" uid="uid://bda0ihahb7le5" path="res://assets/sounds/close_metal.wav" id="9_q6535"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x88sh"]
 resource_name = "SD"
@@ -350,7 +352,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_kxu3r")
 
 [node name="Switch2" type="MeshInstance3D" parent="Breakers/BreakerBase"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0508778, 0.00164115, 0.11868)
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766045, 0, -0.766045, 0.642787, -0.0508778, 0.00164115, 0.11868)
 mesh = SubResource("ArrayMesh_17jjg")
 skeleton = NodePath("")
 
@@ -416,8 +418,17 @@ libraries = {
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116014, 0, 0.552264)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="SwitchSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.136571)
+stream = ExtResource("8_lddsm")
+
+[node name="CloseSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.136571)
+stream = ExtResource("9_q6535")
+
+[node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.136571)
+stream = ExtResource("9_q6535")
 
 [connection signal="mouse_entered" from="Breakers/BreakerBase/Door/StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Breakers/BreakerBase/Door/StaticBody3D" to="." method="_on_static_body_3d_mouse_exited"]

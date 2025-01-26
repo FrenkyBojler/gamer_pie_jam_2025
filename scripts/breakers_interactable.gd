@@ -145,12 +145,14 @@ func flip_switch_4() -> void:
 	switch_4_flip.emit(is_switch_4_on)
 
 func _open_doors() -> void:
+	$OpenSound.play()
 	animation_player.play("open")
 	doors_opened = true
 	
 	player.hide_generic_label()
 
 func _close_doors() -> void:
+	$CloseSound.play()
 	animation_player.play("close")
 	doors_opened = false
 	
