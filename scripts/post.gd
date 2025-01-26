@@ -63,6 +63,7 @@ func _ready() -> void:
 func _hide_buttons() -> void:
 	$HBoxContainer/TextBubble.like_button.visible = false
 	$HBoxContainer/TextBubble.ban_button.visible = false
+	$HBoxContainer/TextBubble.switch_to_old()
 
 func _on_like_button_click() -> void:
 	on_promote.call(alignment)
