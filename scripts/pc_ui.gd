@@ -46,7 +46,6 @@ var twitter_screen: Panel
 var positive_score := 0
 var negative_score := 0
 
-
 var new_post_wait_time_min = 4.0
 var new_post_wait_time_max = 10.0
 
@@ -219,7 +218,8 @@ func update_score_texts() -> void:
 	posts_handled_count += SCORE_MODIFIER
 	
 	if not tutorial_skipped and posts_handled_count == 14:
-		GameState.start_game()
+		GameState.power_off_event_trigger()
+		GameState.start_game(tutorial_skipped)
 	
 	var score_coef = positive_score - negative_score
 	GameState.posts_score_update.emit(score_coef)
@@ -240,7 +240,7 @@ func _on_login_screen_login(nick: String, pic_index: int, skip_tutorial: bool) -
 	if skip_tutorial:
 		tutorial_skipped = true
 		start_game()
-		GameState.start_game()
+		GameState.start_game(tutorial_skipped)
 		return
 
 	await get_tree().create_timer(2).timeout

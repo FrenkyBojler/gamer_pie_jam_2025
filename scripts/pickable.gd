@@ -40,6 +40,13 @@ func _ready() -> void:
 				var mesh_instance: MeshInstance3D = child
 				mesh_instance.material_override = placeholder_mat
 
+func init_pickable() -> void:
+	if is_placeholder:
+		for child in get_children():
+			if child is MeshInstance3D:
+				var mesh_instance: MeshInstance3D = child
+				mesh_instance.material_override = placeholder_mat
+
 func _on_mouse_entered() -> void:
 	if is_picked:
 		return
