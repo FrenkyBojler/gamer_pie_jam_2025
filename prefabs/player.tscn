@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://klp0vv2sj7ne"]
+[gd_scene load_steps=15 format=3 uid="uid://klp0vv2sj7ne"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l5anj"]
 [ext_resource type="Texture2D" uid="uid://c1vjk68s0txmm" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png" id="2_vyetp"]
 [ext_resource type="LabelSettings" uid="uid://c2mshiytlfvim" path="res://resources/label_settings.tres" id="3_25v0u"]
 [ext_resource type="PackedScene" uid="uid://ds0qfkjv7mh0s" path="res://prefabs/ui/click_to_place_label.tscn" id="4_7f4hp"]
 [ext_resource type="PackedScene" uid="uid://sjd04rc5odjd" path="res://prefabs/ui/missing_object_label.tscn" id="5_5sq66"]
+[ext_resource type="Texture2D" uid="uid://cv8peujewqmmr" path="res://assets/textures/ui/warmth.PNG" id="6_nns8l"]
+[ext_resource type="Texture2D" uid="uid://cvoqmxdn4q6s0" path="res://assets/textures/ui/progress_bar.PNG" id="7_e46x2"]
+[ext_resource type="Texture2D" uid="uid://dpkw2fl5re0nr" path="res://assets/textures/ui/fatigue.PNG" id="8_cg7bj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nymyg"]
 height = 2.74139
@@ -181,8 +184,37 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="WarmthProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 30.0
+offset_bottom = 30.0
+value = 66.0
+fill_mode = 4
+texture_over = ExtResource("6_nns8l")
+texture_progress = ExtResource("7_e46x2")
+texture_progress_offset = Vector2(-6, -5)
+tint_progress = Color(0, 0.588235, 0, 1)
+
+[node name="FatigueProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 30.0
+offset_bottom = 30.0
+value = 66.0
+fill_mode = 4
+texture_over = ExtResource("8_cg7bj")
+texture_progress = ExtResource("7_e46x2")
+texture_progress_offset = Vector2(-6, -5)
+tint_progress = Color(0, 0.588235, 0, 1)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_px3dl")
 }
 speed_scale = 0.3
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true

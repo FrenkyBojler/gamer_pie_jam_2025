@@ -1,8 +1,10 @@
-[gd_resource type="AnimationLibrary" load_steps=3 format=3 uid="uid://bhjjy7tqljf72"]
+[gd_resource type="AnimationLibrary" load_steps=4 format=3 uid="uid://bhjjy7tqljf72"]
+
+[ext_resource type="AudioStream" uid="uid://boptw7nrp2f6b" path="res://assets/sounds/switch.wav" id="1_r1mm2"]
 
 [sub_resource type="Animation" id="Animation_yy7hx"]
 resource_name = "flip_switch_2_off"
-length = 0.10001
+length = 0.20001
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -16,10 +18,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(-0.872665, 0, 0), Vector3(0, 0, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_r1mm2")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_30o6t"]
 resource_name = "flip_switch_2_on"
-length = 0.10001
+length = 0.20001
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -33,6 +50,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.872665, 0, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_r1mm2")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/1/use_blend = true
 
 [resource]
 _data = {

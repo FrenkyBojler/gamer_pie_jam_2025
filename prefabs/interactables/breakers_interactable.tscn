@@ -340,7 +340,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_4dq3l")
 
 [node name="Switch1" type="MeshInstance3D" parent="Breakers/BreakerBase"]
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, -0.156701, 0.00164115, 0.11868)
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766045, 0, -0.766045, 0.642787, -0.156701, 0.00164115, 0.11868)
 mesh = SubResource("ArrayMesh_6io8x")
 skeleton = NodePath("")
 
@@ -350,7 +350,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_kxu3r")
 
 [node name="Switch2" type="MeshInstance3D" parent="Breakers/BreakerBase"]
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, -0.0508778, 0.00164115, 0.11868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0508778, 0.00164115, 0.11868)
 mesh = SubResource("ArrayMesh_17jjg")
 skeleton = NodePath("")
 
@@ -360,7 +360,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_no48r")
 
 [node name="Switch3" type="MeshInstance3D" parent="Breakers/BreakerBase"]
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0.0549455, 0.00164115, 0.11868)
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766045, 0, -0.766045, 0.642787, 0.0549455, 0.00164115, 0.11868)
 mesh = SubResource("ArrayMesh_3i853")
 skeleton = NodePath("")
 
@@ -370,7 +370,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_nn7vm")
 
 [node name="Switch4" type="MeshInstance3D" parent="Breakers/BreakerBase"]
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0.160769, 0.00164115, 0.11868)
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766045, 0, -0.766045, 0.642787, 0.160769, 0.00164115, 0.11868)
 mesh = SubResource("ArrayMesh_wvi6v")
 skeleton = NodePath("")
 
@@ -415,6 +415,9 @@ libraries = {
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116014, 0, 0.552264)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.136571)
 
 [connection signal="mouse_entered" from="Breakers/BreakerBase/Door/StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Breakers/BreakerBase/Door/StaticBody3D" to="." method="_on_static_body_3d_mouse_exited"]
