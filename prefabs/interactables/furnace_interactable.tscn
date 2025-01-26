@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/furnace_interactable.gd" id="1_vn8k0"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_yie0q"]
 [ext_resource type="PackedScene" uid="uid://bkhq7uudvgdak" path="res://prefabs/interactables/kettle.tscn" id="3_b62to"]
-[ext_resource type="PackedScene" path="res://prefabs/interactables/timber_1.tscn" id="4_mwv7n"]
-[ext_resource type="PackedScene" path="res://prefabs/interactables/timber_2.tscn" id="5_g0k72"]
-[ext_resource type="PackedScene" path="res://prefabs/interactables/timber_3.tscn" id="6_t4hek"]
+[ext_resource type="PackedScene" uid="uid://cj2yqwoym2w0t" path="res://prefabs/interactables/timber_1.tscn" id="4_mwv7n"]
+[ext_resource type="PackedScene" uid="uid://ckkrejg75s1co" path="res://prefabs/interactables/timber_2.tscn" id="5_g0k72"]
+[ext_resource type="PackedScene" uid="uid://bccshd1ya7mve" path="res://prefabs/interactables/timber_3.tscn" id="6_t4hek"]
 [ext_resource type="AudioStream" uid="uid://d2qhv8rdoj8g0" path="res://assets/sounds/open_metal.wav" id="7_3r2hr"]
 [ext_resource type="AudioStream" uid="uid://dql5c0s4r1ha3" path="res://assets/sounds/fire.wav" id="8_sr1ej"]
 [ext_resource type="AudioStream" uid="uid://bda0ihahb7le5" path="res://assets/sounds/close_metal.wav" id="9_jly3f"]
@@ -112,7 +112,7 @@ script = ExtResource("1_vn8k0")
 anim_player = NodePath("Furace/AnimationPlayer")
 static_camera = NodePath("Camera3D")
 collider = NodePath("CollisionShape3D")
-pickable_objects = [NodePath("Kettle"), NodePath("Timber1"), NodePath("Timber2"), NodePath("Timber3")]
+pickable_objects = [NodePath("Timber1"), NodePath("Timber2"), NodePath("Timber3"), NodePath("Kettle")]
 
 [node name="Furace" type="Node3D" parent="."]
 
@@ -169,7 +169,7 @@ light_color = Color(0.89, 0.52955, 0.089, 1)
 omni_range = 0.39
 
 [node name="FireTimer" type="Timer" parent="."]
-wait_time = 40.0
+wait_time = 60.0
 one_shot = true
 
 [node name="OpenSound" type="AudioStreamPlayer3D" parent="."]

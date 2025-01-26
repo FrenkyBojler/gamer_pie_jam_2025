@@ -26,6 +26,7 @@ func light_fire() -> void:
 	$FireLight.visible = true
 	GameState.fire_back_on.emit()
 	fire_is_lit = true
+	$Furace/FuraceBase/FuraceDoor/FurnaceCol/CollisionShape3D.disabled = true
 
 func _input(event: InputEvent) -> void:
 	if in_interaction and event is InputEventMouseMotion:
@@ -73,6 +74,7 @@ func _on_furnace_col_mouse_exited() -> void:
 func _on_fire_timer_timeout() -> void:
 	$FireCrackling.stop()
 	$FireLight.visible = false
+	$Furace/FuraceBase/FuraceDoor/FurnaceCol/CollisionShape3D.disabled = false
 	GameState.fire_out_event_trigger()
 	fire_is_lit = false
 	for item in pickable_objects:

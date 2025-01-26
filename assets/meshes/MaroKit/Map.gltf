@@ -14,7 +14,8 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7
 			]
 		}
 	],
@@ -80,6 +81,21 @@
 				1.119173526763916,
 				1.4841833114624023,
 				11.6110258102417
+			]
+		},
+		{
+			"mesh":7,
+			"name":"Map-col.002",
+			"rotation":[
+				0,
+				0.2588190734386444,
+				0,
+				0.965925931930542
+			],
+			"translation":[
+				-2.457141637802124,
+				0.32962262630462646,
+				3.1099772453308105
 			]
 		}
 	],
@@ -224,6 +240,20 @@
 					},
 					"indices":31,
 					"material":2
+				}
+			]
+		},
+		{
+			"name":"Cube.005",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":32,
+						"NORMAL":33,
+						"TEXCOORD_0":34
+					},
+					"indices":35,
+					"material":0
 				}
 			]
 		}
@@ -540,6 +570,40 @@
 			"componentType":5123,
 			"count":30,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":32,
+			"componentType":5126,
+			"count":20,
+			"max":[
+				0.0970613956451416,
+				0.1111607551574707,
+				0.14122962951660156
+			],
+			"min":[
+				-0.0970613956451416,
+				-0.1111607551574707,
+				-0.14122962951660156
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":33,
+			"componentType":5126,
+			"count":20,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":34,
+			"componentType":5126,
+			"count":20,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":35,
+			"componentType":5123,
+			"count":30,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -734,6 +798,30 @@
 			"byteLength":60,
 			"byteOffset":464932,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":240,
+			"byteOffset":464992,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":240,
+			"byteOffset":465232,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":160,
+			"byteOffset":465472,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":60,
+			"byteOffset":465632,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -748,7 +836,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":464992,
+			"byteLength":465692,
 			"uri":"Map.bin"
 		}
 	]

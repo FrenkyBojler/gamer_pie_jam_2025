@@ -105,6 +105,7 @@ func handle_movement(delta: float) -> void:
 	
 	if((velocity.x != 0 || velocity.z != 0) && !$AudioStreamPlayer3D.playing) :
 		await walk_timer.timeout
+		$AudioStreamPlayer3D.pitch_scale = randf_range(0.8, 1.2)
 		$AudioStreamPlayer3D.play()
 
 # Handle camera look

@@ -128,7 +128,6 @@ func flip_switch_3() -> void:
 	if is_switch_3_on:
 		is_switch_3_on = false
 		switches_anim_players[2].play("flip_switch_3_off")
-		GameState.power_off_event_trigger()
 	elif not is_switch_3_on:
 		is_switch_3_on = true
 		switches_anim_players[2].play("flip_switch_3_on")
@@ -178,3 +177,7 @@ func _on_static_body_3d_mouse_exited() -> void:
 	if in_interaction:
 		can_interact_with_doors = false
 		player.hide_generic_label()
+
+
+func _on_close_breaker_timer_timeout() -> void:
+	pass # Replace with function body.
