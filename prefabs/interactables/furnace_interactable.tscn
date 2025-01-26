@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://kerlhpu7oglu"]
+[gd_scene load_steps=14 format=4 uid="uid://kerlhpu7oglu"]
 
 [ext_resource type="Script" path="res://scripts/furnace_interactable.gd" id="1_vn8k0"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_yie0q"]
+[ext_resource type="PackedScene" uid="uid://bkhq7uudvgdak" path="res://prefabs/interactables/kettle.tscn" id="3_b62to"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fwlf"]
 resource_name = "SD"
@@ -100,11 +101,12 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5n27"]
 size = Vector3(0.585632, 0.586365, 0.743958)
 
-[node name="FurnaceInteractable" type="StaticBody3D" node_paths=PackedStringArray("anim_player", "static_camera", "collider")]
+[node name="FurnaceInteractable" type="StaticBody3D" node_paths=PackedStringArray("anim_player", "static_camera", "collider", "pickable_objects")]
 script = ExtResource("1_vn8k0")
 anim_player = NodePath("Furace/AnimationPlayer")
 static_camera = NodePath("Camera3D")
 collider = NodePath("CollisionShape3D")
+pickable_objects = [NodePath("Kettle")]
 
 [node name="Furace" type="Node3D" parent="."]
 
@@ -138,6 +140,10 @@ shape = SubResource("BoxShape3D_d5n27")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.924206, 0.381893, 0, -0.381893, 0.924206, 0, 1.17262, 0.956531)
+
+[node name="Kettle" parent="." instance=ExtResource("3_b62to")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0145739, 0.974026, 0.0932994)
+is_placeholder = true
 
 [connection signal="mouse_entered" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_entered"]
 [connection signal="mouse_exited" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_exited"]
