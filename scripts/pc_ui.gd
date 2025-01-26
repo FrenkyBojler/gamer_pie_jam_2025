@@ -59,6 +59,8 @@ const FINISH_SCORE = 20
 
 var tutorial_skipped := false
 
+var posts_handled_count := -1
+
 func _ready() -> void:
 	progress_bar_1.max_value = FINISH_SCORE
 	progress_bar_2.max_value = FINISH_SCORE
@@ -158,7 +160,7 @@ func get_new_post() -> void:
 	
 	get_new_post()
 	
-	if not tutorial_skipped and last_negative_post_index + last_negative_post_index == 2:
+	if not tutorial_skipped and posts_handled_count == 7:
 		GameState.start_game()
 
 func adjust_score(alignment: String) -> void:
@@ -204,6 +206,9 @@ func update_score_texts() -> void:
 	
 	points_label_1.text = str(positive_score) + " points"
 	points_label_2.text = str(negative_score) + " points"
+	
+	posts_handled_count += 1
+	print_debug("Posts handled count: " + str(posts_handled_count))
 
 func _on_login_screen_login(nick: String, pic_index: int, skip_tutorial: bool) -> void:
 	user_name.text = nick
