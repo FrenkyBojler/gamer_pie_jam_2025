@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://by3qnye65lii"]
+[gd_resource type="AnimationLibrary" load_steps=3 format=3 uid="uid://by3qnye65lii"]
 
 [sub_resource type="Animation" id="Animation_suh1j"]
 resource_name = "WindowLOpen"
@@ -18,7 +18,26 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_2cvg7"]
+resource_name = "WindowROpen"
+length = 0.416667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("WindowBase/WindowR")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0.0273634, 0, 0.999626, 0.0666667, 1, 0, 0.0897983, 0, 0.99596, 0.1, 1, 0, 0.180794, 0, 0.983521, 0.133333, 1, 0, 0.292772, 0, 0.956182, 0.166667, 1, 0, 0.416915, 0, 0.908945, 0.233333, 1, 0, 0.6589, 0, 0.752231, 0.266667, 1, 0, 0.75663, 0, 0.653843, 0.3, 1, 0, 0.833385, 0, 0.552694, 0.333333, 1, 0, 0.888777, 0, 0.458339, 0.366667, 1, 0, 0.920341, 0, 0.391117, 0.4, 1, 0, 0.934925, 0, 0.354846, 0.416667, 1, 0, 0.939693, 0, 0.34202)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = false
+tracks/1/path = NodePath("WindowBase/WindowL")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
 [resource]
 _data = {
-"WindowLOpen": SubResource("Animation_suh1j")
+"WindowLOpen": SubResource("Animation_suh1j"),
+"WindowROpen": SubResource("Animation_2cvg7")
 }
