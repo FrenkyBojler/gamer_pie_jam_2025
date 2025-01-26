@@ -16,8 +16,11 @@ var can_interact := false
 
 var freeze_score := 0
 var freeze_score_critical_value := 20
+signal freeze_score_updated(score: int)
 
 var tired_score := 0
+var tired_score_critical_value := 20
+signal tired_score_updated(score: int)
 
 var windows_opened := false
 var fire_out := false
@@ -28,6 +31,8 @@ var windows_open_event_max_wait_time := 30.0
 
 var freeze_score_timer: Timer = Timer.new()
 
+signal posts_score_update(score: int)
+var posts_score_critical_value := 20
 
 func _enter_tree() -> void:
 	_setup_windows_open_event()
@@ -46,13 +51,12 @@ func _setup_freeze_score_timer() -> void:
 			
 		if not windows_opened and not fire_out:
 			freeze_score -= 1
-			if freeze_score < 0:
-				freeze_score = 1
+			if freeze_score <= 0:
+				freeze_score = 0
 				
+		freeze_score_updated.emit(freeze_score)
 		if freeze_score >= freeze_score_critical_value:
 			loose_game("freeze")
-
-		print_debug("Freeze score: " + str(freeze_score))
 	)
 
 func _setup_windows_open_event() -> void:
