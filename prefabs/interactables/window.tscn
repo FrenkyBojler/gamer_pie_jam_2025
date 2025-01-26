@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://idokpedy2cq2"]
-
-[ext_resource type="PackedScene" uid="uid://cy6og7brk55k0" path="res://assets/meshes/MaroKit/Window.gltf" id="1_rh7vm"]
-
-[node name="Window" instance=ExtResource("1_rh7vm")]

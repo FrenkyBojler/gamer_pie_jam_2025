@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://10gu18xkdccv"]
-
-[ext_resource type="PackedScene" uid="uid://dwlxrwepfwm0p" path="res://assets/meshes/MaroKit/Kettle.gltf" id="1_sidut"]
-
-[node name="Kettle" instance=ExtResource("1_sidut")]

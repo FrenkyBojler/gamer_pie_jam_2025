@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hg4umudyj0p7"]
-
-[ext_resource type="PackedScene" uid="uid://bnoaa0xanev35" path="res://assets/meshes/MaroKit/Gramophone.gltf" id="1_70t0i"]
-
-[node name="Gramophone" instance=ExtResource("1_70t0i")]

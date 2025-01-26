@@ -1,20 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=11 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
 [ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
-[ext_resource type="PackedScene" uid="uid://idokpedy2cq2" path="res://prefabs/interactables/window.tscn" id="4_huii1"]
 [ext_resource type="PackedScene" uid="uid://c0f8gqtb2ht2j" path="res://prefabs/interactables/box_interactabůe.tscn" id="5_gg03l"]
 [ext_resource type="PackedScene" uid="uid://xabnfm38hkjr" path="res://prefabs/interactables/workbench_interactable.tscn" id="5_tf4ej"]
 [ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
-[ext_resource type="PackedScene" uid="uid://c01yq401xn42m" path="res://prefabs/interactables/breakers.tscn" id="7_6vm4k"]
-[ext_resource type="PackedScene" uid="uid://cqnkdsb4oqp3p" path="res://prefabs/interactables/closet.tscn" id="8_vptpv"]
-[ext_resource type="PackedScene" uid="uid://dsgcx7jgbpnu4" path="res://prefabs/interactables/coffie_box.tscn" id="9_7xlda"]
-[ext_resource type="PackedScene" uid="uid://demmbgcpbksec" path="res://prefabs/interactables/cup.tscn" id="10_kjd8m"]
-[ext_resource type="PackedScene" uid="uid://peh8fxhbv8so" path="res://prefabs/interactables/furace.tscn" id="11_jm43o"]
-[ext_resource type="PackedScene" uid="uid://hg4umudyj0p7" path="res://prefabs/interactables/gramophone.tscn" id="12_bvi68"]
-[ext_resource type="PackedScene" uid="uid://10gu18xkdccv" path="res://prefabs/interactables/kettle.tscn" id="13_8ibre"]
-[ext_resource type="PackedScene" uid="uid://d1n6jlwc6v0hs" path="res://prefabs/interactables/switch.tscn" id="14_fhled"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -118,23 +109,6 @@ light_energy = 2.519
 spot_range = 0.352
 spot_angle = 33.24
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="WallsAndFloor/Map2"]
-transform = Transform3D(0.973345, -0.212545, -0.0861639, 0.167545, 0.402419, 0.899993, -0.156615, -0.89044, 0.427303, 3.34868, 0.998975, 2.4445)
-light_color = Color(0.672654, 0.7261, 0.856289, 1)
-light_energy = 2.519
-spot_range = 1.012
-spot_angle = 51.47
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="WallsAndFloor/Map2"]
-transform = Transform3D(0.836609, -0.541003, 0.0860272, -0.167257, -0.40181, -0.900319, 0.521642, 0.738826, -0.426645, 3.36754, 0.641722, 2.35846)
-light_color = Color(0.672654, 0.7261, 0.856289, 1)
-light_energy = 2.519
-spot_range = 0.352
-spot_angle = 33.24
-
-[node name="Window" parent="WallsAndFloor/Map2" instance=ExtResource("4_huii1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74822, 0.791706, 3.57212)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="WallsAndFloor"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallsAndFloor/StaticBody3D"]
@@ -157,39 +131,6 @@ player = NodePath("../Player")
 
 [node name="Camera3D" parent="PC" index="1"]
 current = true
-
-[node name="Breakers" parent="." instance=ExtResource("7_6vm4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40579, 1.41773, -2.14165)
-
-[node name="Closet" parent="." instance=ExtResource("8_vptpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8178, 0.00122947, 0.0967542)
-
-[node name="Closet2" parent="." instance=ExtResource("8_vptpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21726, 0.00122947, 0.0760269)
-
-[node name="CoffieBox" parent="." instance=ExtResource("9_7xlda")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53625, 0.95, -1.85639)
-
-[node name="Cup" parent="." instance=ExtResource("10_kjd8m")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -2.31347, 0.95, -1.42607)
-
-[node name="Furace" parent="." instance=ExtResource("11_jm43o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17078, 0.00122947, -1.71878)
-
-[node name="Gramophone" parent="." instance=ExtResource("12_bvi68")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2528, 0.00122958, 0.310826)
-
-[node name="Kettle" parent="." instance=ExtResource("13_8ibre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.166, 0.976992, -1.62333)
-
-[node name="Switch" parent="." instance=ExtResource("14_fhled")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66484, 1.15664, -2.14203)
-
-[node name="Switch2" parent="." instance=ExtResource("14_fhled")]
-transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 3.59107, 1.15505, -1.65389)
-
-[node name="Switch3" parent="." instance=ExtResource("14_fhled")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.563478, 1.25579, 1.03582)
 
 [connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]
 

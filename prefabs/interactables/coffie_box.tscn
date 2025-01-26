@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsgcx7jgbpnu4"]
-
-[ext_resource type="PackedScene" uid="uid://cax7ivuf864yu" path="res://assets/meshes/MaroKit/CoffieBox.gltf" id="1_b853a"]
-
-[node name="CoffieBox" instance=ExtResource("1_b853a")]
