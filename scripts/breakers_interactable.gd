@@ -128,7 +128,6 @@ func flip_switch_3() -> void:
 	if is_switch_3_on:
 		is_switch_3_on = false
 		switches_anim_players[2].play("flip_switch_3_off")
-		GameState.power_off_event_trigger()
 	elif not is_switch_3_on:
 		is_switch_3_on = true
 		switches_anim_players[2].play("flip_switch_3_on")

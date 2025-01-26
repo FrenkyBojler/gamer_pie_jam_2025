@@ -173,10 +173,9 @@ player = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34483, 0, 0.16236)
 player = NodePath("../../Player")
 
-[node name="FurnaceInteractable" parent="Interactables" node_paths=PackedStringArray("player", "pickable_objects") groups=["interactable"] instance=ExtResource("11_ply6o")]
+[node name="FurnaceInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("11_ply6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17508, 0, -1.69867)
 player = NodePath("../../Player")
-pickable_objects = [NodePath("Kettle")]
 
 [node name="CountertopInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("12_0ehd0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57435, 0, -1.71802)
