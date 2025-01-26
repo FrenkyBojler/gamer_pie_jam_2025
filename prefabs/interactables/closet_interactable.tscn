@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://dvvsb1d77unko"]
+[gd_scene load_steps=18 format=4 uid="uid://dvvsb1d77unko"]
 
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_gb6ek"]
 [ext_resource type="Script" path="res://scripts/closet_interactable.gd" id="1_u11gy"]
 [ext_resource type="AnimationLibrary" uid="uid://fl6p8px6oe3r" path="res://resources/closet_left_anim_lib.tres" id="2_kpnlb"]
 [ext_resource type="AnimationLibrary" uid="uid://gm7udg0ln7ha" path="res://resources/closet_right_anim_lib.tres" id="3_cj0to"]
 [ext_resource type="PackedScene" uid="uid://cgtxxedrjpbn3" path="res://prefabs/interactables/coffee.tscn" id="5_2etar"]
+[ext_resource type="PackedScene" uid="uid://bfx1n8q55otff" path="res://assets/meshes/MaroKit/ClosetInside.gltf" id="6_xwlhr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phhuq"]
 resource_name = "SD"
@@ -182,6 +183,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.0
 
 [node name="Coffee" parent="." instance=ExtResource("5_2etar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.553177, 0.966393, 0)
+
+[node name="ClosetInside2" parent="." instance=ExtResource("6_xwlhr")]
 
 [connection signal="mouse_entered" from="Closet2/Closet/DoorL/LeftCol" to="." method="_on_left_col_mouse_entered"]
 [connection signal="mouse_exited" from="Closet2/Closet/DoorL/LeftCol" to="." method="_on_left_col_mouse_exited"]

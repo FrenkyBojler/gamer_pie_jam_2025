@@ -84,19 +84,19 @@
 			"name":"ClosedOpenL",
 			"samplers":[
 				{
-					"input":20,
+					"input":16,
 					"interpolation":"STEP",
-					"output":21
+					"output":17
 				},
 				{
-					"input":22,
+					"input":18,
 					"interpolation":"LINEAR",
-					"output":23
+					"output":19
 				},
 				{
-					"input":20,
+					"input":16,
 					"interpolation":"STEP",
-					"output":24
+					"output":20
 				}
 			]
 		},
@@ -127,19 +127,19 @@
 			"name":"ClosedOpenR",
 			"samplers":[
 				{
-					"input":20,
+					"input":16,
 					"interpolation":"STEP",
-					"output":25
+					"output":21
 				},
 				{
-					"input":22,
+					"input":18,
 					"interpolation":"LINEAR",
-					"output":26
+					"output":22
 				},
 				{
-					"input":20,
+					"input":16,
 					"interpolation":"STEP",
-					"output":27
+					"output":23
 				}
 			]
 		}
@@ -151,16 +151,6 @@
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":0
-				},
-				"metallicFactor":0
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"HD",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":1
 				},
 				"metallicFactor":0
 			}
@@ -206,15 +196,6 @@
 					},
 					"indices":11,
 					"material":0
-				},
-				{
-					"attributes":{
-						"POSITION":12,
-						"NORMAL":13,
-						"TEXCOORD_0":14
-					},
-					"indices":15,
-					"material":1
 				}
 			]
 		},
@@ -223,11 +204,11 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":16,
-						"NORMAL":17,
-						"TEXCOORD_0":18
+						"POSITION":12,
+						"NORMAL":13,
+						"TEXCOORD_0":14
 					},
-					"indices":19
+					"indices":15
 				}
 			]
 		}
@@ -236,10 +217,6 @@
 		{
 			"sampler":0,
 			"source":0
-		},
-		{
-			"sampler":0,
-			"source":1
 		}
 	],
 	"images":[
@@ -247,11 +224,6 @@
 			"mimeType":"image/png",
 			"name":"TestureAtlas1",
 			"uri":"../../textures/maro_kit/TestureAtlas1.png"
-		},
-		{
-			"mimeType":"image/png",
-			"name":"TestureAtlas2",
-			"uri":"../../textures/maro_kit/TestureAtlas2.png"
 		}
 	],
 	"accessors":[
@@ -360,40 +332,6 @@
 		{
 			"bufferView":12,
 			"componentType":5126,
-			"count":3650,
-			"max":[
-				0.7704257965087891,
-				1.6298482418060303,
-				0.22912076115608215
-			],
-			"min":[
-				-0.7323203682899475,
-				0.42948707938194275,
-				-0.17518417537212372
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":13,
-			"componentType":5126,
-			"count":3650,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":14,
-			"componentType":5126,
-			"count":3650,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":15,
-			"componentType":5123,
-			"count":9792,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":16,
-			"componentType":5126,
 			"count":24,
 			"max":[
 				0.990734875202179,
@@ -408,25 +346,25 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":17,
+			"bufferView":13,
 			"componentType":5126,
 			"count":24,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":18,
+			"bufferView":14,
 			"componentType":5126,
 			"count":24,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":19,
+			"bufferView":15,
 			"componentType":5123,
 			"count":36,
 			"type":"SCALAR"
 		},
 		{
-			"bufferView":20,
+			"bufferView":16,
 			"componentType":5126,
 			"count":2,
 			"max":[
@@ -436,6 +374,36 @@
 				0
 			],
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":17,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":18,
+			"componentType":5126,
+			"count":14,
+			"max":[
+				0.5416666666666666
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":19,
+			"componentType":5126,
+			"count":14,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":20,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
 		},
 		{
 			"bufferView":21,
@@ -447,40 +415,10 @@
 			"bufferView":22,
 			"componentType":5126,
 			"count":14,
-			"max":[
-				0.5416666666666666
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
+			"type":"VEC4"
 		},
 		{
 			"bufferView":23,
-			"componentType":5126,
-			"count":14,
-			"type":"VEC4"
-		},
-		{
-			"bufferView":24,
-			"componentType":5126,
-			"count":2,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":25,
-			"componentType":5126,
-			"count":2,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":26,
-			"componentType":5126,
-			"count":14,
-			"type":"VEC4"
-		},
-		{
-			"bufferView":27,
 			"componentType":5126,
 			"count":2,
 			"type":"VEC3"
@@ -561,91 +499,67 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":43800,
+			"byteLength":288,
 			"byteOffset":9200,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":43800,
-			"byteOffset":53000,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":29200,
-			"byteOffset":96800,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":19584,
-			"byteOffset":126000,
-			"target":34963
-		},
-		{
-			"buffer":0,
 			"byteLength":288,
-			"byteOffset":145584,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":288,
-			"byteOffset":145872,
+			"byteOffset":9488,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":192,
-			"byteOffset":146160,
+			"byteOffset":9776,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":72,
-			"byteOffset":146352,
+			"byteOffset":9968,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":8,
-			"byteOffset":146424
+			"byteOffset":10040
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":146432
+			"byteOffset":10048
 		},
 		{
 			"buffer":0,
 			"byteLength":56,
-			"byteOffset":146456
+			"byteOffset":10072
 		},
 		{
 			"buffer":0,
 			"byteLength":224,
-			"byteOffset":146512
+			"byteOffset":10128
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":146736
+			"byteOffset":10352
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":146760
+			"byteOffset":10376
 		},
 		{
 			"buffer":0,
 			"byteLength":224,
-			"byteOffset":146784
+			"byteOffset":10400
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":147008
+			"byteOffset":10624
 		}
 	],
 	"samplers":[
@@ -656,7 +570,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":147032,
+			"byteLength":10648,
 			"uri":"Closet.bin"
 		}
 	]
