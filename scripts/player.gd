@@ -36,13 +36,29 @@ func _ready() -> void:
 	hide_all_labels()
 	Input.set_custom_mouse_cursor(interaction_cursor_active, Input.CURSOR_ARROW)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
+
 	GameState.game_start.connect(func(): 
 		visible = true
 		$Control/Crosshair.visible = true
 		GameState.can_interact = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		camera.current = true
+	)
+
+	GameState.game_lost.connect(func() :
+		visible = false
+		$Control/Crosshair.visible = false
+		hide_all_labels()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		camera.current = false
+	)
+
+	GameState.game_win.connect(func() :
+		visible = false
+		$Control/Crosshair.visible = false
+		hide_all_labels()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		camera.current = false
 	)
 
 func _input(event: InputEvent) -> void:
@@ -164,6 +180,7 @@ func hide_all_labels() -> void:
 	hide_missing_object_label()
 	hide_pickup_object_label()
 	hide_generic_label()
+	$Control/InteractLabel.visible = false
 
 func show_generic_label(text: String, pos: Vector2) -> void:
 	$Control/GenericLabel.text = text

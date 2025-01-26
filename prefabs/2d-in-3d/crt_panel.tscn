@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7pnqjg6vnhk4"]
+[gd_scene load_steps=9 format=3 uid="uid://c7pnqjg6vnhk4"]
 
 [ext_resource type="Script" path="res://scripts/PC_2D3D.gd" id="1_3kh6j"]
 [ext_resource type="Material" uid="uid://ur8vfj6oalrk" path="res://resources/crt_mat.tres" id="2_1ahg5"]
@@ -9,6 +9,8 @@
 font_size = 60
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bskll"]
+
 [sub_resource type="QuadMesh" id="1"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
@@ -16,11 +18,15 @@ size = Vector2(3, 2)
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(3, 2, 0.1)
 
-[node name="CRT2Din3D" type="Node3D" node_paths=PackedStringArray("pc_ui", "power_off")]
+[node name="CRT2Din3D" type="Node3D" node_paths=PackedStringArray("pc_ui", "power_off", "game_win", "game_loose_points", "game_loose_freeze", "game_loose_tired")]
 process_mode = 3
 script = ExtResource("1_3kh6j")
 pc_ui = NodePath("SubViewport/GUI/Control")
 power_off = NodePath("SubViewport/GUI/Off")
+game_win = NodePath("SubViewport/GUI/GameWin")
+game_loose_points = NodePath("SubViewport/GUI/GameLoosePoints")
+game_loose_freeze = NodePath("SubViewport/GUI/GameLooseFreeze")
+game_loose_tired = NodePath("SubViewport/GUI/GameLooseTired")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_embed_subwindows = true
@@ -73,6 +79,212 @@ label_settings = SubResource("LabelSettings_h45y6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameWin" type="Control" parent="SubViewport/GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/GUI/GameWin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SubViewport/GUI/GameWin/VBoxContainer"]
+layout_mode = 2
+text = "CONGRATULATIONS!
+YOU DID IT!"
+label_settings = SubResource("LabelSettings_h45y6")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/GUI/GameWin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="SubViewport/GUI/GameWin/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/GUI/GameWin/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(54.29, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bskll")
+
+[node name="ExitButton" type="Button" parent="SubViewport/GUI/GameWin/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+flat = true
+
+[node name="GameLoosePoints" type="Control" parent="SubViewport/GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/GUI/GameLoosePoints"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SubViewport/GUI/GameLoosePoints/VBoxContainer"]
+layout_mode = 2
+text = "CATS WON
+YOU LOST"
+label_settings = SubResource("LabelSettings_h45y6")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/GUI/GameLoosePoints/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="SubViewport/GUI/GameLoosePoints/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/GUI/GameLoosePoints/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(54.29, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bskll")
+
+[node name="ExitButton" type="Button" parent="SubViewport/GUI/GameLoosePoints/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+flat = true
+
+[node name="GameLooseFreeze" type="Control" parent="SubViewport/GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/GUI/GameLooseFreeze"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SubViewport/GUI/GameLooseFreeze/VBoxContainer"]
+layout_mode = 2
+text = "YOU FROZE
+NEXT TIME TRY TO KEEP YOURSELF WARM"
+label_settings = SubResource("LabelSettings_h45y6")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/GUI/GameLooseFreeze/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="SubViewport/GUI/GameLooseFreeze/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/GUI/GameLooseFreeze/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(54.29, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bskll")
+
+[node name="ExitButton" type="Button" parent="SubViewport/GUI/GameLooseFreeze/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+flat = true
+
+[node name="GameLooseTired" type="Control" parent="SubViewport/GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/GUI/GameLooseTired"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="SubViewport/GUI/GameLooseTired/VBoxContainer"]
+layout_mode = 2
+text = "YOU FELL ASLEEP
+CATS WON
+AND YOU PROBABLY GOT ROBBED
+NEXT TIME TAKE BETTER CARE OF YOUR ENERGY LEVELS"
+label_settings = SubResource("LabelSettings_h45y6")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport/GUI/GameLooseTired/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="SubViewport/GUI/GameLooseTired/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport/GUI/GameLooseTired/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(54.29, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bskll")
+
+[node name="ExitButton" type="Button" parent="SubViewport/GUI/GameLooseTired/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+flat = true
+
 [node name="Quad" type="MeshInstance3D" parent="."]
 mesh = SubResource("1")
 surface_material_override/0 = ExtResource("4_ocrit")
@@ -83,3 +295,12 @@ input_capture_on_drag = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quad/Area3D"]
 shape = SubResource("4")
+
+[connection signal="pressed" from="SubViewport/GUI/GameWin/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="SubViewport/GUI/GameWin/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="SubViewport/GUI/GameLoosePoints/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="SubViewport/GUI/GameLoosePoints/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="SubViewport/GUI/GameLooseFreeze/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="SubViewport/GUI/GameLooseFreeze/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="SubViewport/GUI/GameLooseTired/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="SubViewport/GUI/GameLooseTired/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

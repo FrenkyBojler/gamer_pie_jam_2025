@@ -76,5 +76,6 @@ func _on_ban_button_click() -> void:
 	$Timer.stop()
 
 func _on_timer_timeout() -> void:
-	adjust_score.call(alignment)
+	if alignment == "negative":
+		adjust_score.call(alignment)
 	_hide_buttons()

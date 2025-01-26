@@ -55,7 +55,7 @@ var last_negative_post_index = -1
 
 const SCORE_MODIFIER = 2
 
-const FINISH_SCORE = 20
+const FINISH_SCORE = 6
 
 var tutorial_skipped := false
 
@@ -172,6 +172,8 @@ func adjust_score(alignment: String) -> void:
 		progress_bar_animation_player_2.play("score_up")
 
 	update_score_texts()
+	
+	
 
 func ban(alignment: String) -> void:
 	if alignment == "positive":
@@ -207,8 +209,12 @@ func update_score_texts() -> void:
 	points_label_1.text = str(positive_score) + " points"
 	points_label_2.text = str(negative_score) + " points"
 	
-	posts_handled_count += 1
-	print_debug("Posts handled count: " + str(posts_handled_count))
+	posts_handled_count += SCORE_MODIFIER
+	
+	if positive_score >= FINISH_SCORE:
+		GameState.win_game()
+	elif negative_score >= FINISH_SCORE:
+		GameState.loose_game("points")
 
 func _on_login_screen_login(nick: String, pic_index: int, skip_tutorial: bool) -> void:
 	user_name.text = nick

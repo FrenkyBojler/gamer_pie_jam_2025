@@ -40,6 +40,31 @@ func _ready() -> void:
 		collider.disabled = false
 		_on_cancel_interaction()
 	)
+	
+	GameState.game_lost.connect(func(reason: String):
+		$CRT2Din3D.pc_ui.visible = false
+		
+		if reason == "points":
+			$CRT2Din3D.game_loose_points.visible = true
+		elif reason == "freeze":
+			$CRT2Din3D.game_loose_freeze.visible = true
+		elif reason == "tired":
+			$CRT2Din3D.game_loose_freeze.visible = true
+			
+		$CameraMonitor.current = true
+		$CollisionShape3D.disabled = true
+		$GoOnlineArea.monitoring = false
+		$GoOnlineArea/CollisionShape3D.disabled = true
+	)
+	
+	GameState.game_win.connect(func():
+		$CRT2Din3D.game_win.visible = true
+		$CRT2Din3D.pc_ui.visible = false
+		$CameraMonitor.current = true
+		$CollisionShape3D.disabled = true
+		$GoOnlineArea.monitoring = false
+		$GoOnlineArea/CollisionShape3D.disabled = true
+	)
 
 func _on_breakers_interactable_switch_3_flip(is_on: bool) -> void:
 	$CRT2Din3D.pc_ui.visible = is_on
