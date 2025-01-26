@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bjiff8f6igt28" path="res://prefabs/interactables/gramec_interactable.tscn" id="10_30yah"]
 [ext_resource type="PackedScene" uid="uid://kerlhpu7oglu" path="res://prefabs/interactables/furnace_interactable.tscn" id="11_ply6o"]
 [ext_resource type="PackedScene" uid="uid://b5g3icj7fktce" path="res://prefabs/interactables/countertop_interactable.tscn" id="12_0ehd0"]
-[ext_resource type="PackedScene" uid="uid://vlu5w3pbxuuc" path="res://prefabs/interactables/timber_pile_interactable.tscn" id="13_jq1x8"]
-[ext_resource type="PackedScene" uid="uid://bjsr1knuvmxwi" path="res://prefabs/interactables/fridge_interactable.tscn" id="14_ukyel"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/timber_pile_interactable.tscn" id="13_jq1x8"]
+[ext_resource type="PackedScene" path="res://prefabs/interactables/fridge_interactable.tscn" id="14_ukyel"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -51,6 +51,12 @@ pc_interactable = NodePath("../Interactables/PC")
 [node name="Camera3D" parent="Player" index="1"]
 transform = Transform3D(1.99929, -0.0463703, 0.0263484, 0.0335455, 1.86148, 0.730596, -0.0414624, -0.729895, 1.86159, 0, 0.904988, 0)
 current = false
+
+[node name="WarmthProgressBar" parent="Player/Control" index="6"]
+tint_progress = Color(0, 0.588235, 0, 1)
+
+[node name="FatigueProgressBar" parent="Player/Control" index="7"]
+tint_progress = Color(0, 0.588235, 0, 1)
 
 [node name="WallsAndFloor" type="Node" parent="."]
 

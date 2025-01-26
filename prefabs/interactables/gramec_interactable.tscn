@@ -415,7 +415,6 @@ skeleton = NodePath("")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26346, 0)
 stream = ExtResource("4_er6tu")
-volume_db = 20.0
 autoplay = true
 max_distance = 8.0
 

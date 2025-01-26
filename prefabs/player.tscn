@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://klp0vv2sj7ne"]
+[gd_scene load_steps=16 format=3 uid="uid://klp0vv2sj7ne"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l5anj"]
 [ext_resource type="Texture2D" uid="uid://c1vjk68s0txmm" path="res://assets/textures/kenney_crosshair-pack/PNG/Outline Retina/crosshair001.png" id="2_vyetp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cv8peujewqmmr" path="res://assets/textures/ui/warmth.PNG" id="6_nns8l"]
 [ext_resource type="Texture2D" uid="uid://cvoqmxdn4q6s0" path="res://assets/textures/ui/progress_bar.PNG" id="7_e46x2"]
 [ext_resource type="Texture2D" uid="uid://dpkw2fl5re0nr" path="res://assets/textures/ui/fatigue.PNG" id="8_cg7bj"]
+[ext_resource type="AudioStream" uid="uid://erq08ub3c2gx" path="res://assets/sounds/footstep.wav" id="9_nkluo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nymyg"]
 height = 2.74139
@@ -218,3 +219,6 @@ speed_scale = 0.3
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_nkluo")

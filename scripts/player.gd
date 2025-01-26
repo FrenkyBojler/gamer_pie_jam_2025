@@ -29,6 +29,7 @@ var can_place := false
 var pitch: float = 0.0
 
 func _ready() -> void:
+	
 	assert(camera != null, "Player needs a camera to work properly.")
 	assert(carry_spot != null, "Player needs a carry spot to work properly.")
 	
@@ -85,6 +86,8 @@ func _process(delta: float) -> void:
 
 # Handle player movement
 func handle_movement(delta: float) -> void:
+	var walk_timer = get_tree().create_timer(0.02)
+	
 	# Get input direction
 	var input_direction: Vector3 = Vector3.ZERO
 	input_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -97,8 +100,12 @@ func handle_movement(delta: float) -> void:
 	# Apply movement
 	velocity.x = rotated_direction.x * move_speed
 	velocity.z = rotated_direction.z * move_speed
-
+	
 	move_and_slide()
+	
+	if((velocity.x != 0 || velocity.z != 0) && !$AudioStreamPlayer3D.playing) :
+		await walk_timer.timeout
+		$AudioStreamPlayer3D.play()
 
 # Handle camera look
 func handle_look() -> void:
