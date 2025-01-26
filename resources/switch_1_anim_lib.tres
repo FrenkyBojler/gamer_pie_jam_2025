@@ -1,0 +1,41 @@
+[gd_resource type="AnimationLibrary" load_steps=3 format=3 uid="uid://cj1s7q0hvymnw"]
+
+[sub_resource type="Animation" id="Animation_37jox"]
+resource_name = "flip_switch_1_on"
+length = 0.10001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Breakers/BreakerBase/Switch1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.872665, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p7h0f"]
+resource_name = "flip_switch_1_off"
+length = 0.10001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Breakers/BreakerBase/Switch1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.872665, 0, 0), Vector3(0, 0, 0)]
+}
+
+[resource]
+_data = {
+"flip_switch_1_off": SubResource("Animation_p7h0f"),
+"flip_switch_1_on": SubResource("Animation_37jox")
+}

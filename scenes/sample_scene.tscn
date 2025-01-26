@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=12 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
 [ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
-[ext_resource type="PackedScene" uid="uid://c0f8gqtb2ht2j" path="res://prefabs/interactables/box_interactabůe.tscn" id="5_gg03l"]
-[ext_resource type="PackedScene" uid="uid://xabnfm38hkjr" path="res://prefabs/interactables/workbench_interactable.tscn" id="5_tf4ej"]
+[ext_resource type="Script" path="res://scripts/living_room_light.gd" id="4_jmdbd"]
+[ext_resource type="PackedScene" uid="uid://d3wxupq5th3ht" path="res://prefabs/interactables/breakers_interactable.tscn" id="5_30pmb"]
+[ext_resource type="Script" path="res://scripts/hall_light.gd" id="5_b15p4"]
 [ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
@@ -29,7 +30,7 @@ size = Vector3(7.16357, 0.498535, 5.71283)
 
 [node name="SampleScene" type="Node3D" node_paths=PackedStringArray("interactables")]
 script = ExtResource("1_ogcw3")
-interactables = [NodePath("Interactables/Workbench"), NodePath("Interactables/BoxInteractable"), null]
+interactables = [null, null, null]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
@@ -37,7 +38,7 @@ environment = SubResource("Environment_sj3r8")
 [node name="Player" parent="." node_paths=PackedStringArray("pc_interactable") instance=ExtResource("1_au5jj")]
 transform = Transform3D(-0.432444, 0, 0.250982, 0, 0.5, 0, -0.250982, 0, -0.432444, -2.23947, 1.07977, 1.91756)
 visible = false
-pc_interactable = NodePath("../PC")
+pc_interactable = NodePath("../Interactables/PC")
 
 [node name="Camera3D" parent="Player" index="1"]
 transform = Transform3D(1.99929, -0.0463703, 0.0263484, 0.0335455, 1.86148, 0.730596, -0.0414624, -0.729895, 1.86159, 0, 0.904988, 0)
@@ -47,7 +48,24 @@ current = false
 
 [node name="Map2" parent="WallsAndFloor" instance=ExtResource("3_pcqem")]
 
-[node name="LivingRoomLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+[node name="LampNightStandLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(0.781488, -0.516595, 0.349866, -0.0481206, 0.509178, 0.859315, -0.622062, -0.68838, 0.373058, 3.32068, 1.03018, 2.45297)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 2.519
+spot_range = 1.486
+spot_angle = 74.42
+
+[node name="LampNightStandBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+transform = Transform3D(0.930531, 0.237418, -0.278829, -0.167257, -0.40181, -0.900319, -0.325788, 0.88441, -0.334187, 3.27263, 0.755047, 2.33203)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 2.519
+spot_range = 0.352
+spot_angle = 33.24
+
+[node name="LivingRoomLight" type="Node3D" parent="WallsAndFloor/Map2"]
+script = ExtResource("4_jmdbd")
+
+[node name="LivingRoomLight" type="SpotLight3D" parent="WallsAndFloor/Map2/LivingRoomLight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.64995, 2.39672, 0.728348)
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 2.012
@@ -55,7 +73,7 @@ spot_range = 3.646
 spot_attenuation = 0.11
 spot_angle = 76.56
 
-[node name="LivingRoomBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+[node name="LivingRoomBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2/LivingRoomLight"]
 transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, -1.64995, 1.36125, 0.728348)
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 5.81
@@ -63,23 +81,10 @@ spot_range = 0.924
 spot_attenuation = 0.11
 spot_angle = 22.35
 
-[node name="BedroomLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.72799, 2.39672, 2.3506)
-light_color = Color(0.909804, 0.760784, 0.219608, 1)
-light_energy = 1.253
-spot_range = 3.646
-spot_attenuation = 0.11
-spot_angle = 76.56
+[node name="HallLight" type="Node3D" parent="WallsAndFloor/Map2"]
+script = ExtResource("5_b15p4")
 
-[node name="BedroomBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2"]
-transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.72799, 1.36125, 2.3506)
-light_color = Color(0.909804, 0.760784, 0.219608, 1)
-light_energy = 5.81
-spot_range = 0.924
-spot_attenuation = 0.11
-spot_angle = 22.35
-
-[node name="BedroomLight2" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+[node name="HallLight" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.58787, 2.39672, -0.955539)
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 1.253
@@ -87,7 +92,16 @@ spot_range = 3.646
 spot_attenuation = 0.11
 spot_angle = 76.56
 
-[node name="BedroomBackLight2" type="SpotLight3D" parent="WallsAndFloor/Map2"]
+[node name="HallLight2" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.58787, 2.35891, 2.3678)
+visible = false
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 0.534
+spot_range = 2.576
+spot_attenuation = 0.11
+spot_angle = 30.26
+
+[node name="HallBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
 transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.58787, 1.36125, -0.955539)
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 5.81
@@ -95,15 +109,26 @@ spot_range = 0.924
 spot_attenuation = 0.11
 spot_angle = 22.35
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WallsAndFloor/Map2"]
-transform = Transform3D(0.973345, -0.212545, -0.0861643, 0.167545, 0.402419, 0.899993, -0.156615, -0.89044, 0.427303, -3.14745, 1.20787, 3.15724)
+[node name="HallBackLight2" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
+transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.58787, 1.36125, 2.33292)
+visible = false
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+light_energy = 5.81
+spot_range = 0.924
+spot_attenuation = 0.11
+spot_angle = 22.35
+
+[node name="LampPCLight" type="Node3D" parent="WallsAndFloor/Map2"]
+
+[node name="LampPCLight" type="SpotLight3D" parent="WallsAndFloor/Map2/LampPCLight"]
+transform = Transform3D(0.973345, -0.212545, -0.0861639, 0.167545, 0.402419, 0.899993, -0.156615, -0.89044, 0.427303, -3.14745, 1.20787, 3.15724)
 light_color = Color(0.672654, 0.7261, 0.856289, 1)
 light_energy = 2.519
 spot_range = 1.012
 spot_angle = 51.47
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="WallsAndFloor/Map2"]
-transform = Transform3D(0.836609, -0.541003, 0.0860266, -0.167257, -0.40181, -0.900319, 0.521642, 0.738826, -0.426645, -3.12859, 0.850617, 3.0712)
+[node name="LampPCBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2/LampPCLight"]
+transform = Transform3D(0.836609, -0.541003, 0.0860272, -0.167257, -0.40181, -0.900319, 0.521642, 0.738826, -0.426645, -3.12859, 0.850617, 3.0712)
 light_color = Color(0.672654, 0.7261, 0.856289, 1)
 light_energy = 2.519
 spot_range = 0.352
@@ -117,22 +142,22 @@ shape = SubResource("BoxShape3D_krdbf")
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="Workbench" parent="Interactables" node_paths=PackedStringArray("player") instance=ExtResource("5_tf4ej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.55784)
-player = NodePath("../../Player")
-
-[node name="BoxInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("5_gg03l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27827, 0, -6.85413)
-player = NodePath("../../Player")
-
-[node name="PC" parent="." node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("6_hoofi")]
+[node name="PC" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("6_hoofi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6915, 1.02569, 3.08942)
-player = NodePath("../Player")
+player = NodePath("../../Player")
 
-[node name="Camera3D" parent="PC" index="1"]
+[node name="Camera3D" parent="Interactables/PC" index="1"]
 current = true
 
+[node name="BreakersInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("5_30pmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34207, 1.45032, -2.1664)
+player = NodePath("../../Player")
+
 [connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]
+[connection signal="switch_1_flip" from="Interactables/BreakersInteractable" to="WallsAndFloor/Map2/LivingRoomLight" method="_on_breakers_interactable_switch_1_flip"]
+[connection signal="switch_2_flip" from="Interactables/BreakersInteractable" to="WallsAndFloor/Map2/HallLight" method="_on_breakers_interactable_switch_2_flip"]
+[connection signal="switch_3_flip" from="Interactables/BreakersInteractable" to="Interactables/PC" method="_on_breakers_interactable_switch_3_flip"]
 
 [editable path="Player"]
-[editable path="PC"]
+[editable path="Interactables/PC"]
+[editable path="Interactables/BreakersInteractable"]

@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 
 	handle_interaction()
 	
-	if Input.is_action_pressed("place_or_pickup"):
+	if Input.is_action_just_pressed("place_or_pickup"):
 		if can_pickup:
 			_pickup()
 		elif can_place:
@@ -160,6 +160,15 @@ func hide_all_labels() -> void:
 	hide_place_object_label()
 	hide_missing_object_label()
 	hide_pickup_object_label()
+	hide_generic_label()
+
+func show_generic_label(text: String, pos: Vector2) -> void:
+	$Control/GenericLabel.text = text
+	$Control/GenericLabel.global_position = pos
+	$Control/GenericLabel.visible = true
+	
+func hide_generic_label() -> void:
+	$Control/GenericLabel.visible = false
 
 func show_place_object_label(pos: Vector2, placeable: Pickable) -> void:
 	can_place = true

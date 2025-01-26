@@ -57,6 +57,8 @@ const SCORE_MODIFIER = 2
 
 const FINISH_SCORE = 20
 
+var tutorial_skipped := false
+
 func _ready() -> void:
 	progress_bar_1.max_value = FINISH_SCORE
 	progress_bar_2.max_value = FINISH_SCORE
@@ -156,7 +158,7 @@ func get_new_post() -> void:
 	
 	get_new_post()
 	
-	if last_negative_post_index + last_negative_post_index == 2:
+	if not tutorial_skipped and last_negative_post_index + last_negative_post_index == 2:
 		GameState.start_game()
 
 func adjust_score(alignment: String) -> void:
@@ -203,16 +205,22 @@ func update_score_texts() -> void:
 	points_label_1.text = str(positive_score) + " points"
 	points_label_2.text = str(negative_score) + " points"
 
-func _on_login_screen_login(nick: String, pic_index: int) -> void:
+func _on_login_screen_login(nick: String, pic_index: int, skip_tutorial: bool) -> void:
 	user_name.text = nick
 	user_profile_pic_index = pic_index
 	user_picture.texture = profile_pics[pic_index]
 	
 	login_screen.visible = false
 	twitter_screen.visible = true
+	
+	if skip_tutorial:
+		tutorial_skipped = true
+		start_game()
+		GameState.start_game()
+		return
+
 	await get_tree().create_timer(2).timeout
 	_start_tutorial_1()
-
 
 var postsDogs = [
 	{

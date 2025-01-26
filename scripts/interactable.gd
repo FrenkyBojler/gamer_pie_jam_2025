@@ -33,6 +33,7 @@ func _setup_switch_cam_timer() -> void:
 	switch_cam_timer.timeout.connect(switch_cam_timer_timeout)
 	switch_cam_timer.one_shot = true
 	switch_cam_timer.wait_time = 0.1
+	switch_cam_timer.autostart = false
 	add_child(switch_cam_timer)
 
 func _setup_pickables() -> void:
@@ -54,6 +55,9 @@ func _process(delta: float) -> void:
 		return
 	static_camera.global_transform = static_camera.global_transform.interpolate_with(camera_target_transform, delta * 10)
 
+func _on_interact() -> void:
+	pass
+
 func interact(current_camera_transform: Transform3D) -> void:
 	collider.disabled = true
 	camera_target_transform = static_camera_orignal_transform
@@ -62,6 +66,7 @@ func interact(current_camera_transform: Transform3D) -> void:
 	static_camera.current = true
 	in_interaction = true
 	_show_pickables_placeholder()
+	_on_interact()
 
 func cancel_interaction() -> void:
 	collider.disabled = false
