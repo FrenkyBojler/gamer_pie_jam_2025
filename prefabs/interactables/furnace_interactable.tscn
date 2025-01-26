@@ -143,6 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 0.924206, 0.381893, 0, -0.381893, 0.924206, 
 
 [node name="Kettle" parent="." instance=ExtResource("3_b62to")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0145739, 0.974026, 0.0932994)
+is_placeholder = true
 
 [connection signal="mouse_entered" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_entered"]
 [connection signal="mouse_exited" from="Furace/FuraceBase/FuraceDoor/FurnaceCol" to="." method="_on_furnace_col_mouse_exited"]
