@@ -83,10 +83,10 @@ func _process(delta: float) -> void:
 		handle_movement(delta)
 		handle_look()
 		handle_animations()
+		_play_walking_sound()
 
 # Handle player movement
 func handle_movement(delta: float) -> void:
-	var walk_timer = get_tree().create_timer(0.02)
 	
 	# Get input direction
 	var input_direction: Vector3 = Vector3.ZERO
@@ -102,9 +102,10 @@ func handle_movement(delta: float) -> void:
 	velocity.z = rotated_direction.z * move_speed
 	
 	move_and_slide()
-	
+
+func _play_walking_sound() -> void:
+	await get_tree().create_timer(0.02).timeout
 	if((velocity.x != 0 || velocity.z != 0) && !$AudioStreamPlayer3D.playing) :
-		await walk_timer.timeout
 		$AudioStreamPlayer3D.pitch_scale = randf_range(0.8, 1.2)
 		$AudioStreamPlayer3D.play()
 
@@ -139,6 +140,7 @@ func handle_interaction() -> void:
 
 func start_interaction() -> void:
 	if interactable_object is Interactable:
+		$AnimationPlayer.stop()
 		$CollisionShape3D.disabled = true
 		in_interaction = true
 		camera.current = false
@@ -164,11 +166,11 @@ func cancel_interaction() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func handle_animations() -> void:
-	if velocity.length() > 0:
+	if velocity.length() > 0 and not $AnimationPlayer.is_playing():
 		$AnimationPlayer.play("walk")
-	else:
-		$AnimationPlayer.play("idle")
-		
+	elif velocity.length() == 0 and $AnimationPlayer.is_playing():
+		$AnimationPlayer.stop()
+
 func _pickup() -> void:
 	$PickUp.play()
 	picked_object = pickable_object.duplicate()
