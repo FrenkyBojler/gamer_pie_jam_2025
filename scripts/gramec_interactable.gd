@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	if not in_interaction:
 		return
-	if Input.is_action_just_pressed("place_or_pickup"):
+	if in_interaction and Input.is_action_just_pressed("place_or_pickup"):
 		_spin_handle()
 		_push_button()
 

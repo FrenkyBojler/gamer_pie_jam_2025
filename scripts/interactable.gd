@@ -64,9 +64,11 @@ func interact(current_camera_transform: Transform3D) -> void:
 	camera_transform_from = current_camera_transform
 	static_camera.global_transform = current_camera_transform
 	static_camera.current = true
-	in_interaction = true
 	_show_pickables_placeholder()
+	
+	await get_tree().create_timer(0.1).timeout
 	_on_interact()
+	in_interaction = true
 	
 func _on_cancel_interaction() -> void:
 	pass
@@ -78,6 +80,7 @@ func cancel_interaction() -> void:
 	_hide_pickables_placeholder()
 	player.hide_all_labels()
 	_on_cancel_interaction()
+	in_interaction = false
 
 func switch_cam_timer_timeout() -> void:
 	in_interaction = false

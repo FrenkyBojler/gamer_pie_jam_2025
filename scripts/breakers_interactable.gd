@@ -90,9 +90,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	super._process(delta)
-	if not in_interaction:
-		return
-	if Input.is_action_just_pressed("place_or_pickup"):
+	if in_interaction and Input.is_action_just_pressed("place_or_pickup"):
 		_toggle_doors()
 		_flip_switches()
 
@@ -165,7 +163,6 @@ func _toggle_doors() -> void:
 			_open_doors()
 		
 func _on_interact() -> void:
-	can_interact_with_doors = true
 	player.show_generic_label("Click to open", Vector2.ZERO)
 
 func _on_static_body_3d_mouse_entered() -> void:
@@ -177,7 +174,6 @@ func _on_static_body_3d_mouse_exited() -> void:
 	if in_interaction:
 		can_interact_with_doors = false
 		player.hide_generic_label()
-
 
 func _on_close_breaker_timer_timeout() -> void:
 	pass # Replace with function body.

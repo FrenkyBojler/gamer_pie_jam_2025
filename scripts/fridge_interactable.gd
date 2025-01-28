@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	if not in_interaction:
 		return
-	if Input.is_action_just_pressed("place_or_pickup"):
+	if in_interaction and Input.is_action_just_pressed("place_or_pickup"):
 		_toggle_windows()
 		
 func _toggle_windows() -> void:
@@ -82,12 +82,16 @@ func _on_right_col_mouse_exited() -> void:
 	player.hide_generic_label()
 
 func _on_static_body_3d_mouse_entered() -> void:
+	if not in_interaction:
+		return
 	_on_right_col_mouse_entered()
 
 func _on_static_body_3d_mouse_exited() -> void:
 	_on_right_col_mouse_exited()
 
 func _on_downbody_mouse_entered() -> void:
+	if not in_interaction:
+		return
 	_on_left_col_mouse_entered()
 
 func _on_downbody_mouse_exited() -> void:
