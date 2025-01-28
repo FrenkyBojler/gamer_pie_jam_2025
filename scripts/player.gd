@@ -28,6 +28,8 @@ var can_place := false
 
 var pitch: float = 0.0
 
+var current_mouse_pos: Vector2
+
 func _ready() -> void:
 	
 	assert(camera != null, "Player needs a camera to work properly.")
@@ -65,6 +67,9 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if GameState.can_interact and event is InputEventMouseButton and not in_interaction:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+	if event is InputEventMouseMotion:
+		current_mouse_pos = event.position
 
 func _process(delta: float) -> void:
 	if not GameState.can_interact:
@@ -182,9 +187,10 @@ func _pickup() -> void:
 	
 	$Camera3D.add_child(picked_object)
 	picked_object.global_position = $Camera3D/CarrySpot.global_position
-	hide_pickup_object_label()
 	pickable_object.pickup()
-	picked_object.is_picked = true
+	
+	hide_pickup_object_label()
+	show_place_object_label(current_mouse_pos, pickable_object)
 
 func _place() -> void:
 	$PlaceDown.play()
@@ -194,7 +200,10 @@ func _place() -> void:
 	
 	picked_object.queue_free()
 	picked_object = null
+	
 	hide_place_object_label()
+	show_pickup_object_label(current_mouse_pos, placeable_object)
+	
 	
 func hide_all_labels() -> void:
 	hide_place_object_label()
