@@ -21,6 +21,10 @@ const cannot_interact_cursor = preload("res://assets/textures/kenney_cursor-pixe
 
 @export var pc_interactable: Interactable
 
+@export var step_delay_time: float = 0.5
+
+@onready var step_delay: Timer = $PlayerStep/StepDelay
+
 var interactable_object: Interactable = null
 var in_interaction := false
 var canceled_interaction := false
@@ -39,6 +43,8 @@ var current_mouse_pos: Vector2
 func _ready() -> void:
 	assert(camera != null, "Player needs a camera to work properly.")
 	assert(carry_spot != null, "Player needs a carry spot to work properly.")
+
+
 
 	$Control/Crosshair.visible = false
 	_switch_crosshair_to_default()
@@ -143,10 +149,13 @@ func handle_movement(delta: float) -> void:
 	move_and_slide()
 
 func _play_walking_sound() -> void:
-	await get_tree().create_timer(0.02).timeout
-	if((velocity.x != 0 || velocity.z != 0) && !$AudioStreamPlayer3D.playing) :
-		$AudioStreamPlayer3D.pitch_scale = randf_range(0.8, 1.2)
-		$AudioStreamPlayer3D.play()
+	
+	if velocity.length() > 0 and !$PlayerStep.playing and step_delay.is_stopped():
+		$PlayerStep.pitch_scale = randf_range(0.9, 1.1)  # Slight variation
+		$PlayerStep.play()
+		
+		step_delay.wait_time = step_delay_time
+		step_delay.start()
 
 # Handle camera look
 func handle_look() -> void:
