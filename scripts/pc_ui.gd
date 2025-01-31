@@ -76,7 +76,7 @@ func _start_tutorial_1() -> void:
 	
 	posts_list.add_child(post)
 	GameState.notification_recieved_event()
-	post.setup(post_data, user_profile_pic_index, tutorial_1_promote, ban,adjust_score, true)
+	post.setup(post_data, user_profile_pic_index, tutorial_1_promote, ban, adjust_score, true)
 	posts_list.move_child(post, 0)
 
 	
@@ -91,7 +91,7 @@ func _start_tutorial_2() -> void:
 	
 	posts_list.add_child(post)
 	GameState.notification_recieved_event()
-	post.setup(post_data, user_profile_pic_index, promote, tutorial_2_ban,adjust_score, true)
+	post.setup(post_data, user_profile_pic_index, promote, tutorial_2_ban, adjust_score, true)
 	posts_list.move_child(post, 0)
 
 func _start_tutorial_3() -> void:
@@ -109,7 +109,7 @@ func _start_tutorial_3() -> void:
 		_start_tutorial_4()
 	
 	posts_list.add_child(post)
-	post.setup(post_data, user_profile_pic_index, tutorial_3_promote, tutorial_3_ban,adjust_score, true)
+	post.setup(post_data, user_profile_pic_index, tutorial_3_promote, tutorial_3_ban, adjust_score, true)
 	posts_list.move_child(post, 0)
 	
 func _start_tutorial_4() -> void:
@@ -129,7 +129,7 @@ func _start_tutorial_4() -> void:
 	
 	posts_list.add_child(post)
 	GameState.notification_recieved_event()
-	post.setup(post_data, user_profile_pic_index, tutorial_4_promote, tutorial_4_ban,adjust_score, true)
+	post.setup(post_data, user_profile_pic_index, tutorial_4_promote, tutorial_4_ban, adjust_score, true)
 	posts_list.move_child(post, 0)
 
 func start_game() -> void:
@@ -143,19 +143,11 @@ func get_new_post() -> void:
 	
 	var is_positive = RandomNumberGenerator.new().randi_range(0, 1) == 0
 	var posts = postsDogs if is_positive else postsCats
-	
-	if is_positive:
-		last_positive_post_index += 1
-		if last_positive_post_index >= postsDogs.size() - 1:
-			last_positive_post_index = 0
-	else:
-		last_negative_post_index += 1
-		if last_negative_post_index >= postsCats.size() - 1:
-			last_negative_post_index = 0
+
+	var post_data = posts.pick_random()
+	posts.remove_at(posts.find(post_data))
 			
-	var index = last_positive_post_index if is_positive else last_negative_post_index
 	var post = post_prefab.instantiate()
-	var post_data = posts[index]
 	
 	posts_list.add_child(post)
 	GameState.notification_recieved_event()
@@ -165,19 +157,17 @@ func get_new_post() -> void:
 	get_new_post()
 	
 
-
 func adjust_score(alignment: String) -> void:
 	if alignment == "positive":
 		positive_score += SCORE_MODIFIER
 		progress_bar_animation_player_1.play("score_up")
 	else:
-		negative_score += SCORE_MODIFIER
+		negative_score += SCORE_MODIFIER * 2
 		progress_bar_animation_player_2.play("score_up")
 
 	update_score_texts()
 	
 	
-
 func ban(alignment: String) -> void:
 	if alignment == "positive":
 		negative_score += SCORE_MODIFIER

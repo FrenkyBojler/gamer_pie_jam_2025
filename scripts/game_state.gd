@@ -19,11 +19,11 @@ signal power_back_on
 var can_interact := false
 
 var freeze_score := 0
-var freeze_score_critical_value := 20
+var freeze_score_critical_value := 40
 signal freeze_score_updated(score: int)
 
 var tired_score := 0
-var tired_score_critical_value := 20
+var tired_score_critical_value := 40
 signal tired_score_updated(score: int)
 
 var windows_opened := false
@@ -40,7 +40,7 @@ var power_off_event_max_wait_time := 40.0
 var freeze_score_timer: Timer = Timer.new()
 
 signal posts_score_update(score: int)
-var posts_score_critical_value := 20
+var posts_score_critical_value := 40
 
 func _enter_tree() -> void:
 	_setup_windows_open_event()
@@ -56,8 +56,10 @@ func _setup_freeze_score_timer() -> void:
 	freeze_score_timer.one_shot = false
 	freeze_score_timer.autostart = false
 	
-	freeze_score_timer.timeout.connect(func(): 
-		if windows_opened or fire_out:
+	freeze_score_timer.timeout.connect(func():
+		if windows_opened:
+			freeze_score += 1
+		if fire_out:
 			freeze_score += 1
 			
 		if not windows_opened and not fire_out:
@@ -76,7 +78,7 @@ func _setup_windows_open_event() -> void:
 	windows_open_event_timer.one_shot = true
 	windows_open_event_timer.autostart = false
 	windows_open_event_timer.timeout.connect(func(): windows_open_event_trigger())
-	windows_closed.connect(func(): 
+	windows_closed.connect(func():
 		windows_open_event_timer.start(RandomNumberGenerator.new().randf_range(windows_open_event_min_wait_time, windows_open_event_max_wait_time))
 		windows_opened = false
 	)
@@ -89,7 +91,7 @@ func _setup_power_off_event() -> void:
 	power_off_event_timer.one_shot = true
 	power_off_event_timer.autostart = false
 	power_off_event_timer.timeout.connect(func(): power_off_event_trigger())
-	power_back_on.connect(func(): 
+	power_back_on.connect(func():
 		power_off_event_timer.start(RandomNumberGenerator.new().randf_range(power_off_event_min_wait_time, power_off_event_max_wait_time))
 )
 
