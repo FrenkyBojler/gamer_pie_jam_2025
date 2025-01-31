@@ -48,6 +48,20 @@ func _enter_tree() -> void:
 	_setup_fire_out_event()
 	_setup_power_off_event()
 
+	game_lost.connect(func():
+		can_interact = false
+		freeze_score_timer.stop()
+		windows_open_event_timer.stop()
+		power_off_event_timer.stop()
+	)
+	
+	game_win.connect(func():
+		can_interact = false
+		freeze_score_timer.stop()
+		windows_open_event_timer.stop()
+		power_off_event_timer.stop()
+	)
+
 func _setup_fire_out_event() -> void:
 	fire_back_on.connect(func(): fire_out = false)
 

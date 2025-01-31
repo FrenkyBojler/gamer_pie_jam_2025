@@ -60,10 +60,20 @@ var tutorial_skipped := false
 
 var posts_handled_count := 0
 
+var can_get_posts := false
+
 func _ready() -> void:
 	progress_bar_1.max_value = FINISH_SCORE
 	progress_bar_2.max_value = FINISH_SCORE
 	update_score_texts()
+
+	GameState.game_lost.connect(func():
+		can_get_posts = false
+	)
+
+	GameState.game_win.connect(func():
+		can_get_posts = false
+	)
 
 func _start_tutorial_1() -> void:
 	var post = post_prefab.instantiate()
@@ -134,10 +144,12 @@ func _start_tutorial_4() -> void:
 
 func start_game() -> void:
 	update_score_texts()
+	can_get_posts = true
 	get_new_post()
 
 func get_new_post() -> void:
-
+	if not can_get_posts:
+		return
 	var randomizer = RandomNumberGenerator.new()
 	await get_tree().create_timer(randomizer.randf_range(new_post_wait_time_min, new_post_wait_time_max)).timeout
 	
