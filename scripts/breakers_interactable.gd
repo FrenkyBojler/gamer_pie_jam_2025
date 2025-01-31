@@ -44,7 +44,7 @@ func _setup_switches() -> void:
 	var index := 0
 	
 	for switch_col in switches_col:
-		switch_col.mouse_entered.connect(func(): 
+		switch_col.mouse_entered.connect(func():
 			_on_mouse_enter_switch_col(index)
 		)
 		
@@ -166,14 +166,12 @@ func _on_interact() -> void:
 	player.show_generic_label("Click to open", Vector2.ZERO)
 
 func _on_static_body_3d_mouse_entered() -> void:
-	if in_interaction:
-		can_interact_with_doors = true
-		player.show_generic_label("Click to open" if not doors_opened else "Click to close", last_mouse_pos)
+	can_interact_with_doors = true
+	player.show_generic_label("Click to open" if not doors_opened else "Click to close", last_mouse_pos)
 
 func _on_static_body_3d_mouse_exited() -> void:
-	if in_interaction:
-		can_interact_with_doors = false
-		player.hide_generic_label()
+	can_interact_with_doors = false
+	player.hide_generic_label()
 
 func _on_close_breaker_timer_timeout() -> void:
 	pass # Replace with function body.

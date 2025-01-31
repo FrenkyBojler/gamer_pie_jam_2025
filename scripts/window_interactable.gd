@@ -14,7 +14,7 @@ var can_interact_right := false
 var last_mouse_pos: Vector2
 
 func _ready() -> void:
-	GameState.windows_open.connect(func(): 
+	GameState.windows_open.connect(func():
 		open_left_window()
 		open_right_window()
 	)
@@ -77,20 +77,16 @@ func close_left_window() -> void:
 		GameState.windows_closed.emit()
 
 func _on_left_static_body_3d_mouse_entered() -> void:
-	if not in_interaction:
-		return
 	can_interact_left = true
-	player.show_generic_label("Click to open" if not is_left_window_open else "Click to close" , last_mouse_pos)
+	player.show_generic_label("Click to open" if not is_left_window_open else "Click to close", last_mouse_pos)
 
 func _on_left_static_body_3d_mouse_exited() -> void:
 	can_interact_left = false
 	player.hide_generic_label()
 
 func _on_right_static_body_3d_mouse_entered() -> void:
-	if not in_interaction:
-		return
 	can_interact_right = true
-	player.show_generic_label("Click to open" if not is_right_window_open else "Click to close" , last_mouse_pos)
+	player.show_generic_label("Click to open" if not is_right_window_open else "Click to close", last_mouse_pos)
 
 func _on_right_static_body_3d_mouse_exited() -> void:
 	can_interact_right = false

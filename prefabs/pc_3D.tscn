@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cxwvs01ywmdmu"]
 
-[ext_resource type="Script" path="res://prefabs/2d-in-3d/gui_3d.gd" id="1_kwkkm"]
+[ext_resource type="Script" uid="uid://decmb2pxn82lp" path="res://prefabs/2d-in-3d/gui_3d.gd" id="1_kwkkm"]
 [ext_resource type="Texture2D" uid="uid://dwk7hg8o5h5ub" path="res://icon.svg" id="2_7uo0i"]
 [ext_resource type="PackedScene" uid="uid://coiuitr25vqrd" path="res://prefabs/PC_UI.tscn" id="3_la62j"]
 

@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://sjd04rc5odjd" path="res://prefabs/ui/missing_object_label.tscn" id="5_5sq66"]
 [ext_resource type="Texture2D" uid="uid://cv8peujewqmmr" path="res://assets/textures/ui/warmth.PNG" id="6_nns8l"]
 [ext_resource type="Texture2D" uid="uid://cvoqmxdn4q6s0" path="res://assets/textures/ui/progress_bar.PNG" id="7_e46x2"]
-[ext_resource type="Script" path="res://scripts/warmth_progress_bar.gd" id="8_0fh7o"]
+[ext_resource type="Script" uid="uid://brtom5sy5g2c6" path="res://scripts/warmth_progress_bar.gd" id="8_0fh7o"]
 [ext_resource type="Texture2D" uid="uid://dpkw2fl5re0nr" path="res://assets/textures/ui/fatigue.PNG" id="8_cg7bj"]
 [ext_resource type="AudioStream" uid="uid://erq08ub3c2gx" path="res://assets/sounds/footstep.wav" id="9_nkluo"]
-[ext_resource type="Script" path="res://scripts/fatigue_progress_bar.gd" id="10_gtf24"]
+[ext_resource type="Script" uid="uid://dysj5dpn6fp6i" path="res://scripts/fatigue_progress_bar.gd" id="10_gtf24"]
 [ext_resource type="Texture2D" uid="uid://d2cqim32wawia" path="res://assets/textures/ui/messages.PNG" id="11_1bfi4"]
-[ext_resource type="Script" path="res://scripts/posts_progress_bar.gd" id="11_8wbk1"]
+[ext_resource type="Script" uid="uid://cs7rmifpjehmg" path="res://scripts/posts_progress_bar.gd" id="11_8wbk1"]
 [ext_resource type="Script" path="res://prefabs/label.gd" id="13_qvo0i"]
 [ext_resource type="AudioStream" uid="uid://t6x6dgd34gb0" path="res://assets/sounds/item_pick_up.wav" id="14_rnqrk"]
 [ext_resource type="AudioStream" uid="uid://bkr07ixdjye14" path="res://assets/sounds/item_put_down.wav" id="15_1mu27"]
@@ -109,7 +109,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "carry_spot") groups=["interactable"]]
 script = ExtResource("1_l5anj")
-move_speed = 3.0
+move_speed = 140.0
 camera = NodePath("Camera3D")
 carry_spot = NodePath("Camera3D/CarrySpot")
 
@@ -144,8 +144,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
+offset_left = -10.0
+offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
@@ -330,7 +330,7 @@ wait_time = 3.0
 libraries = {
 "": SubResource("AnimationLibrary_px3dl")
 }
-speed_scale = 0.3
+speed_scale = 0.2
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
