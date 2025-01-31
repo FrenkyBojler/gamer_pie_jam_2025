@@ -13,5 +13,5 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.0233229, 0, 0.999728, 0.0333333, 
 
 [resource]
 _data = {
-"ClosedOpenL": SubResource("Animation_ladv1")
+&"ClosedOpenL": SubResource("Animation_ladv1")
 }
