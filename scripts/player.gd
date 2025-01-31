@@ -11,7 +11,7 @@ const grab_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tile
 const place_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0135.png")
 const cannot_interact_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0015.png")
 
-@export var move_speed: float = 5.0
+@export var move_speed: float = 500.0
 @export var look_sensitivity: float = 0.002
 @export var jump_strength: float = 8.0
 @export var gravity: float = -20.0
@@ -131,7 +131,6 @@ func _process(delta: float) -> void:
 
 # Handle player movement
 func handle_movement(delta: float) -> void:
-	
 	# Get input direction
 	var input_direction: Vector3 = Vector3.ZERO
 	input_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -142,13 +141,12 @@ func handle_movement(delta: float) -> void:
 	var rotated_direction = (global_transform.basis * input_direction).normalized()
 
 	# Apply movement
-	velocity.x = rotated_direction.x * move_speed
-	velocity.z = rotated_direction.z * move_speed
+	velocity.x = rotated_direction.x * move_speed * delta
+	velocity.z = rotated_direction.z * move_speed * delta
 	
 	move_and_slide()
 
 func _play_walking_sound() -> void:
-	
 	if velocity.length() > 0 and !$PlayerStep.playing and step_delay.is_stopped():
 		$PlayerStep.pitch_scale = randf_range(0.9, 1.1) # Slight variation
 		$PlayerStep.play()
