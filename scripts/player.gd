@@ -125,7 +125,7 @@ func _process(delta: float) -> void:
 	if not in_interaction:
 		check_interaction()
 		handle_movement(delta)
-		handle_look()
+		handle_look(delta)
 		handle_animations()
 		_play_walking_sound()
 
@@ -155,8 +155,8 @@ func _play_walking_sound() -> void:
 		step_delay.start()
 
 # Handle camera look
-func handle_look() -> void:
-	var mouse_delta: Vector2 = Input.get_last_mouse_velocity() * look_sensitivity
+func handle_look(delta: float) -> void:
+	var mouse_delta: Vector2 = Input.get_last_mouse_velocity() * look_sensitivity * delta
 	pitch = clamp(pitch - mouse_delta.y, -90, 90)
 	$Camera3D.rotation_degrees.x = pitch
 	rotation_degrees.y -= mouse_delta.x
