@@ -5,7 +5,7 @@ class_name Player
 const look_at_interaction_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0032.png")
 const crosshair_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0200.png")
 
-const default_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0201.png")
+const default_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0200.png")
 const interaction_cursor_active = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0134.png")
 const grab_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0139.png")
 const place_cursor = preload("res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0135.png")
@@ -45,7 +45,6 @@ func _ready() -> void:
 	assert(carry_spot != null, "Player needs a carry spot to work properly.")
 
 
-
 	$Control/Crosshair.visible = false
 	_switch_crosshair_to_default()
 
@@ -53,7 +52,7 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(interaction_cursor_active, Input.CURSOR_ARROW)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-	GameState.game_start.connect(func(): 
+	GameState.game_start.connect(func():
 		visible = true
 		$Control/Crosshair.visible = true
 		GameState.can_interact = true
@@ -61,7 +60,7 @@ func _ready() -> void:
 		camera.current = true
 	)
 
-	GameState.game_lost.connect(func(reason: String) :
+	GameState.game_lost.connect(func(reason: String):
 		visible = false
 		$Control/Crosshair.visible = false
 		hide_all_labels()
@@ -69,7 +68,7 @@ func _ready() -> void:
 		camera.current = false
 	)
 
-	GameState.game_win.connect(func() :
+	GameState.game_win.connect(func():
 		visible = false
 		$Control/Crosshair.visible = false
 		hide_all_labels()
@@ -151,7 +150,7 @@ func handle_movement(delta: float) -> void:
 func _play_walking_sound() -> void:
 	
 	if velocity.length() > 0 and !$PlayerStep.playing and step_delay.is_stopped():
-		$PlayerStep.pitch_scale = randf_range(0.9, 1.1)  # Slight variation
+		$PlayerStep.pitch_scale = randf_range(0.9, 1.1) # Slight variation
 		$PlayerStep.play()
 		
 		step_delay.wait_time = step_delay_time

@@ -65,20 +65,16 @@ func close_left_window() -> void:
 	$OpenSound.play()
 
 func _on_left_col_mouse_entered() -> void:
-	if not in_interaction:
-		return
 	can_interact_left = true
-	player.show_generic_label("Click to open" if not is_left_window_open else "Click to close" , last_mouse_pos)
+	player.show_generic_label("Click to open" if not is_left_window_open else "Click to close", last_mouse_pos)
 
 func _on_left_col_mouse_exited() -> void:
 	can_interact_left = false
 	player.hide_generic_label()
 
 func _on_right_col_mouse_entered() -> void:
-	if not in_interaction:
-		return
 	can_interact_right = true
-	player.show_generic_label("Click to open" if not is_right_window_open else "Click to close" , last_mouse_pos)
+	player.show_generic_label("Click to open" if not is_right_window_open else "Click to close", last_mouse_pos)
 
 func _on_right_col_mouse_exited() -> void:
 	can_interact_right = false

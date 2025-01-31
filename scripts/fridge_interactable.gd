@@ -67,7 +67,7 @@ func close_left_window() -> void:
 
 func _on_left_col_mouse_entered() -> void:
 	can_interact_left = true
-	player.show_generic_label("Click to open" if not is_left_window_open else "Click to close" , last_mouse_pos)
+	player.show_generic_label("Click to open" if not is_left_window_open else "Click to close", last_mouse_pos)
 
 func _on_left_col_mouse_exited() -> void:
 	can_interact_left = false
@@ -75,23 +75,19 @@ func _on_left_col_mouse_exited() -> void:
 
 func _on_right_col_mouse_entered() -> void:
 	can_interact_right = true
-	player.show_generic_label("Click to open" if not is_right_window_open else "Click to close" , last_mouse_pos)
+	player.show_generic_label("Click to open" if not is_right_window_open else "Click to close", last_mouse_pos)
 
 func _on_right_col_mouse_exited() -> void:
 	can_interact_right = false
 	player.hide_generic_label()
 
 func _on_static_body_3d_mouse_entered() -> void:
-	if not in_interaction:
-		return
 	_on_right_col_mouse_entered()
 
 func _on_static_body_3d_mouse_exited() -> void:
 	_on_right_col_mouse_exited()
 
 func _on_downbody_mouse_entered() -> void:
-	if not in_interaction:
-		return
 	_on_left_col_mouse_entered()
 
 func _on_downbody_mouse_exited() -> void:
