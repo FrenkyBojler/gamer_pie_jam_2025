@@ -1,5 +1,7 @@
 extends Interactable
 
+@onready var wind_sound: AudioStreamPlayer3D = $WindSound
+
 @export
 var animation_player_left: AnimationPlayer
 @export
@@ -48,11 +50,14 @@ func open_right_window() -> void:
 	is_right_window_open = true
 	animation_player_right.play("WindowROpen")
 	$OpenSound.play()
+	set_wind_max_db()
 
 func close_right_window() -> void:
 	is_right_window_open = false
 	animation_player_right.play_backwards("WindowROpen")
 	$OpenSound.play()
+	await animation_player_right.animation_finished
+	set_wind_max_db()
 	
 	if not is_left_window_open:
 		GameState.windows_closed.emit()
@@ -67,15 +72,25 @@ func open_left_window() -> void:
 	is_left_window_open = true
 	animation_player_left.play("WindowLOpen")
 	$OpenSound.play()
-
+	set_wind_max_db()
+	
 func close_left_window() -> void:
 	is_left_window_open = false
 	animation_player_left.play_backwards("WindowLOpen")
 	$OpenSound.play()
+	await animation_player_left.animation_finished
+	set_wind_max_db()
 	
 	if not is_right_window_open:
 		GameState.windows_closed.emit()
 
+func set_wind_max_db() -> void:
+	if is_left_window_open == true or is_right_window_open == true:
+		wind_sound.max_db = 3
+		
+	elif is_left_window_open == false and is_right_window_open == false:
+		wind_sound.max_db = -3.3
+		
 func _on_left_static_body_3d_mouse_entered() -> void:
 	can_interact_left = true
 	player.show_generic_label("Click to open" if not is_left_window_open else "Click to close", last_mouse_pos)
@@ -91,3 +106,5 @@ func _on_right_static_body_3d_mouse_entered() -> void:
 func _on_right_static_body_3d_mouse_exited() -> void:
 	can_interact_right = false
 	player.hide_generic_label()
+	
+	

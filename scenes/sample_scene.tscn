@@ -1,11 +1,11 @@
 [gd_scene load_steps=20 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
-[ext_resource type="Script" uid="uid://crqk8h4rp78ha" path="res://scripts/main_scene.gd" id="1_ogcw3"]
+[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
 [ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
-[ext_resource type="Script" uid="uid://dot71ulot44ar" path="res://scripts/living_room_light.gd" id="4_jmdbd"]
+[ext_resource type="Script" path="res://scripts/living_room_light.gd" id="4_jmdbd"]
 [ext_resource type="PackedScene" uid="uid://d3wxupq5th3ht" path="res://prefabs/interactables/breakers_interactable.tscn" id="5_30pmb"]
-[ext_resource type="Script" uid="uid://bnknblju0x77b" path="res://scripts/hall_light.gd" id="5_b15p4"]
+[ext_resource type="Script" path="res://scripts/hall_light.gd" id="5_b15p4"]
 [ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
 [ext_resource type="PackedScene" uid="uid://m1pry331gsg6" path="res://assets/meshes/MaroKit/DeskLamp.gltf" id="6_hxg00"]
 [ext_resource type="PackedScene" uid="uid://cmw8pdmm1ijyo" path="res://prefabs/interactables/window_interactable.tscn" id="8_wwipc"]
@@ -162,7 +162,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34207, 1.45032, -2.1664)
 player = NodePath("../../Player")
 
 [node name="WindowInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("8_wwipc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75895, 0.777907, 3.56205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74988, 0.777907, 3.56205)
 player = NodePath("../../Player")
 
 [node name="ClosetInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("9_pk0ms")]
@@ -170,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67103, 0, 0.0780256)
 player = NodePath("../../Player")
 
 [node name="Gramec" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("10_30yah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34483, 0, 0.16236)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28858, 0, 0.16236)
 player = NodePath("../../Player")
 
 [node name="FurnaceInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("11_ply6o")]
