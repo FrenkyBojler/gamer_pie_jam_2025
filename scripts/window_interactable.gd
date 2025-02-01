@@ -1,6 +1,7 @@
 extends Interactable
 
 @onready var wind_sound: AudioStreamPlayer3D = $WindSound
+@onready var wind_howling: AudioStreamPlayer3D = $WindHowling
 
 @export
 var animation_player_left: AnimationPlayer
@@ -87,9 +88,11 @@ func close_left_window() -> void:
 func set_wind_max_db() -> void:
 	if is_left_window_open == true or is_right_window_open == true:
 		wind_sound.max_db = 3
+		wind_howling.volume_db = 6
 		
 	elif is_left_window_open == false and is_right_window_open == false:
 		wind_sound.max_db = -3.3
+		wind_howling.volume_db = -28
 		
 func _on_left_static_body_3d_mouse_entered() -> void:
 	can_interact_left = true

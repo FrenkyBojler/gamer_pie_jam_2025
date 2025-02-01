@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=23 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dqnlpgjrkokx0" path="res://assets/meshes/MaroKit/MapSkyBox.gltf" id="6_0h4ht"]
 [ext_resource type="PackedScene" uid="uid://bs21iur2g2inp" path="res://prefabs/interactables/PC.tscn" id="6_hoofi"]
 [ext_resource type="PackedScene" uid="uid://m1pry331gsg6" path="res://assets/meshes/MaroKit/DeskLamp.gltf" id="6_hxg00"]
-[ext_resource type="Script" path="res://assets/meshes/MaroKit/map_sky_box.gd" id="7_gxnlp"]
+[ext_resource type="Script" path="res://scenes/sky_box_control.gd" id="6_lsjmm"]
+[ext_resource type="PackedScene" uid="uid://dxw6l4ijhn4n7" path="res://assets/meshes/MaroKit/SkyBoxBuildings.gltf" id="8_n175e"]
 [ext_resource type="PackedScene" uid="uid://cmw8pdmm1ijyo" path="res://prefabs/interactables/window_interactable.tscn" id="8_wwipc"]
 [ext_resource type="PackedScene" uid="uid://dvvsb1d77unko" path="res://prefabs/interactables/closet_interactable.tscn" id="9_pk0ms"]
 [ext_resource type="PackedScene" uid="uid://bjiff8f6igt28" path="res://prefabs/interactables/gramec_interactable.tscn" id="10_30yah"]
@@ -144,10 +145,25 @@ light_energy = 2.519
 spot_range = 0.352
 spot_angle = 33.24
 
-[node name="MapSkyBox" parent="WallsAndFloor/Map2" instance=ExtResource("6_0h4ht")]
-transform = Transform3D(0.0737952, 0, -0.997273, 0, 1, 0, 0.997273, 0, 0.0737952, 0, -6.50943, 42.9327)
-script = ExtResource("7_gxnlp")
-rotation_speed = 13.58
+[node name="SkyBox" type="Node" parent="WallsAndFloor/Map2" node_paths=PackedStringArray("lights")]
+script = ExtResource("6_lsjmm")
+lights = [NodePath("OmniLight3D"), NodePath("OmniLight3D2")]
+min_energy = 0.0
+max_energy = 5.0
+duration = 3.0
+
+[node name="MapSkyBox" parent="WallsAndFloor/Map2/SkyBox" instance=ExtResource("6_0h4ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3062, 24.9383, 79.4431)
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1047, 24.8158, 81.4843)
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="SkyBoxBuildings" parent="WallsAndFloor/Map2/SkyBox" instance=ExtResource("8_n175e")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallsAndFloor"]
 
