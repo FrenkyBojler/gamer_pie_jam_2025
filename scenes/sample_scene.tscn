@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=32 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_ogcw3"]
@@ -35,6 +35,45 @@ ambient_light_color = Color(0.909804, 0.760784, 0.219608, 1)
 ambient_light_energy = 0.02
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_cyrxx"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jwcye"]
+gradient = SubResource("Gradient_cyrxx")
+
+[sub_resource type="Curve" id="Curve_ac410"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_viqar"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_kb12u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_0co3l"]
+curve_x = SubResource("Curve_ac410")
+curve_y = SubResource("Curve_viqar")
+curve_z = SubResource("Curve_kb12u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q40y3"]
+direction = Vector3(0, 1, 0)
+spread = 82.942
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+gravity = Vector3(2.815, 2, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_curve = SubResource("CurveXYZTexture_0co3l")
+color_ramp = SubResource("GradientTexture1D_jwcye")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kvkc"]
+albedo_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0r7rp"]
+material = SubResource("StandardMaterial3D_4kvkc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krdbf"]
 size = Vector3(7.16357, 0.498535, 5.71283)
@@ -164,6 +203,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1047, 24.8158, 81.4843)
 light_color = Color(1, 0, 0.14902, 1)
 
 [node name="SkyBoxBuildings" parent="WallsAndFloor/Map2/SkyBox" instance=ExtResource("8_n175e")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="WallsAndFloor/Map2/SkyBox"]
+transform = Transform3D(-0.393726, 0, -0.0974704, 0, 1, 0, 0.128302, 0, -0.299112, 39.1356, 25.4456, 83.1213)
+amount = 50
+lifetime = 5.0
+preprocess = 2.0
+process_material = SubResource("ParticleProcessMaterial_q40y3")
+draw_pass_1 = SubResource("QuadMesh_0r7rp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallsAndFloor"]
 
