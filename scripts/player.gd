@@ -110,7 +110,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		current_mouse_pos = event.position
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not GameState.can_interact:
 		return
 
