@@ -42,6 +42,8 @@ var freeze_score_timer: Timer = Timer.new()
 signal posts_score_update(score: int)
 var posts_score_critical_value := 40
 
+var is_sandbox := false
+
 func _enter_tree() -> void:
 	_setup_windows_open_event()
 	_setup_freeze_score_timer()
@@ -121,6 +123,9 @@ func windows_open_event_trigger() -> void:
 	windows_open.emit()
 
 func loose_game(reason: String) -> void:
+	if is_sandbox:
+		return
+
 	freeze_score_timer.stop()
 	windows_open_event_timer.stop()
 	power_off_event_timer.stop()
@@ -132,9 +137,14 @@ func win_game() -> void:
 	can_interact = false
 	game_win.emit()
 
-func start_game(tutorial_skiped: bool) -> void:
+func start_game(tutorial_skiped: bool, is_sandbox: bool = false) -> void:
 	can_interact = true
 	game_start.emit()
+
+	self.is_sandbox = is_sandbox
+
+	if is_sandbox:
+		return
 	
 	get_tree().root.add_child(windows_open_event_timer)
 	windows_open_event_timer.start()

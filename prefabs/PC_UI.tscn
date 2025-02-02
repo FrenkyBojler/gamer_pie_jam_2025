@@ -94,8 +94,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6y7u"]
 _data = {
-"RESET": SubResource("Animation_cbjw2"),
-"score_up": SubResource("Animation_tj5ws")
+&"RESET": SubResource("Animation_cbjw2"),
+&"score_up": SubResource("Animation_tj5ws")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_2uly1"]
@@ -383,7 +383,7 @@ show_percentage = false
 
 [node name="AnimationPlayer1" type="AnimationPlayer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar"]
 libraries = {
-"": SubResource("AnimationLibrary_j6y7u")
+&"": SubResource("AnimationLibrary_j6y7u")
 }
 speed_scale = 2.0
 
@@ -424,7 +424,7 @@ show_percentage = false
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Panel/VBoxContainer/HBoxContainer2/VBoxContainer/ProgressBar2"]
 libraries = {
-"": SubResource("AnimationLibrary_j6y7u")
+&"": SubResource("AnimationLibrary_j6y7u")
 }
 speed_scale = 2.0
 

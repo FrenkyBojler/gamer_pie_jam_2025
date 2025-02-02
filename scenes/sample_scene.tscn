@@ -88,10 +88,7 @@ environment = SubResource("Environment_sj3r8")
 [node name="Player" parent="." node_paths=PackedStringArray("pc_interactable") instance=ExtResource("1_au5jj")]
 transform = Transform3D(-0.432444, 0, 0.250982, 0, 0.5, 0, -0.250982, 0, -0.432444, -2.23947, 1.07977, 1.91756)
 visible = false
-jump_strength = null
-gravity = null
 pc_interactable = NodePath("../Interactables/PC")
-step_delay_time = null
 
 [node name="Camera3D" parent="Player" index="1"]
 transform = Transform3D(1.99929, -0.0463703, 0.0263484, 0.0335455, 1.86148, 0.730596, -0.0414624, -0.729895, 1.86159, 0, 0.904988, 0)

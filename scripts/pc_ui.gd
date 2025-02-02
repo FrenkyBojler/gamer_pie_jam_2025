@@ -130,12 +130,10 @@ func _start_tutorial_4() -> void:
 		ban.call(alignment)
 		await get_tree().create_timer(2).timeout
 		start_game()
-		#GameState.start_game()
 
 	var tutorial_4_promote = func(alignment: String):
 		promote.call(alignment)
 		start_game()
-		#GameState.start_game()
 	
 	posts_list.add_child(post)
 	GameState.notification_recieved_event()
@@ -231,18 +229,18 @@ func update_score_texts() -> void:
 	elif negative_score >= FINISH_SCORE:
 		GameState.loose_game("points")
 
-func _on_login_screen_login(nick: String, pic_index: int, skip_tutorial: bool) -> void:
+func _on_login_screen_login(nick: String, pic_index: int, skip_tutorial: bool, is_sandbox: bool = false) -> void:
 	user_name.text = nick
 	user_profile_pic_index = pic_index
 	user_picture.texture = profile_pics[pic_index]
 	
 	login_screen.visible = false
 	twitter_screen.visible = true
-	
+
 	if skip_tutorial:
 		tutorial_skipped = true
 		start_game()
-		GameState.start_game(tutorial_skipped)
+		GameState.start_game(tutorial_skipped, is_sandbox)
 		return
 
 	await get_tree().create_timer(2).timeout

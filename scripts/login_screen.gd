@@ -6,7 +6,7 @@ var nickname: LineEdit
 @export
 var profile_pics_list: HBoxContainer
 
-signal login(String, int, bool)
+signal login(nickname: String, pic_index: int, skip_tutorial: bool, sandbox: bool)
 
 var selected_index := 0
 
@@ -31,14 +31,17 @@ func _turn_off_all_buttons() -> void:
 func _on_login_button_pressed() -> void:
 	if nickname.text.is_empty():
 		return
-	login.emit(nickname.text, selected_index, false)
+	login.emit(nickname.text, selected_index, false, false)
 
 
 func _on_button_pressed() -> void:
 	if nickname.text.is_empty():
 		return
-	login.emit(nickname.text, selected_index, true)
+	login.emit(nickname.text, selected_index, true, false)
 
 
 func _on_line_edit_text_changed(new_text: String) -> void:
 	$AudioStreamPlayer3D.play()
+
+func _on_start_sandbox_pressed() -> void:
+	login.emit("Sandbox", 0, true, true)

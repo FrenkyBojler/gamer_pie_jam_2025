@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://crlpv0gr67oln"]
 
 [ext_resource type="Texture2D" uid="uid://rxhdnup0btn1" path="res://assets/textures/ui/login_logo.png" id="1_sc2w3"]
-[ext_resource type="Script" path="res://scripts/login_screen.gd" id="1_vpnaq"]
+[ext_resource type="Script" uid="uid://ddvniglel6pqt" path="res://scripts/login_screen.gd" id="1_vpnaq"]
 [ext_resource type="Texture2D" uid="uid://bbrasw1la7uli" path="res://assets/textures/ui/Dudette.PNG" id="2_ol1it"]
 [ext_resource type="Texture2D" uid="uid://i1wa8npikknr" path="res://assets/textures/ui/Grumpster.PNG" id="3_n8ddq"]
 [ext_resource type="Texture2D" uid="uid://mu25tcdmd7p3" path="res://assets/textures/ui/Havin.PNG" id="4_hcejv"]
@@ -215,11 +215,18 @@ theme_override_font_sizes/font_size = 25
 text = "Login"
 flat = true
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="LoginWithoutTutorial" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Login & Skip Tutorial"
+flat = true
+
+[node name="StartSandbox" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Start Sandbox"
 flat = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
@@ -227,4 +234,5 @@ stream = ExtResource("9_320nc")
 
 [connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Login Button" to="." method="_on_login_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoginWithoutTutorial" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartSandbox" to="." method="_on_start_sandbox_pressed"]
