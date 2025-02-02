@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://i30xvieibqm1"]
 
-[ext_resource type="Script" path="res://scripts/mug.gd" id="1_g5i3d"]
+[ext_resource type="Script" uid="uid://mb8cnowbnsj1" path="res://scripts/mug.gd" id="1_g5i3d"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="2_1t81c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8w6f"]
@@ -91,7 +91,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.0114386, 0, 0.0333333, 1, 0, 0.011
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7k5j3"]
 _data = {
-"CoffeeState": SubResource("Animation_rsnsd")
+&"CoffeeState": SubResource("Animation_rsnsd")
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gc0pe"]
@@ -121,7 +121,7 @@ skeleton = NodePath("")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cup"]
 libraries = {
-"": SubResource("AnimationLibrary_7k5j3")
+&"": SubResource("AnimationLibrary_7k5j3")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

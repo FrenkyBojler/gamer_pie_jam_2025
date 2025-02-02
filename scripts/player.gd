@@ -22,7 +22,6 @@ const cannot_interact_cursor = preload("res://assets/textures/kenney_cursor-pixe
 @export var pc_interactable: Interactable
 
 @export var step_delay_time: float = 0.5
-
 @export
 var level_mesh_collider: StaticBody3D
 
@@ -234,8 +233,11 @@ func _pickup() -> void:
 	if picked_object is Kettle:
 		print_debug(picked_object.is_boiled)
 	
-	$Camera3D.add_child(picked_object)
-	picked_object.global_position = $Camera3D/CarrySpot.global_position
+	carry_spot.add_sibling(picked_object)
+	picked_object.global_position = carry_spot.global_position
+	picked_object.switch_to_rendering_layer(2)
+	picked_object.scale = Vector3(1, 1, 1) * 2
+
 	pickable_object.pickup()
 	
 	hide_pickup_object_label()

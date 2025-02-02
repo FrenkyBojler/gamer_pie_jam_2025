@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://bs21iur2g2inp"]
 
-[ext_resource type="Script" path="res://scripts/pc.gd" id="1_0bp2d"]
+[ext_resource type="Script" uid="uid://cpup1ct0jkej3" path="res://scripts/pc.gd" id="1_0bp2d"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="3_ske0i"]
 [ext_resource type="PackedScene" uid="uid://c7pnqjg6vnhk4" path="res://prefabs/2d-in-3d/crt_panel.tscn" id="3_xjn5x"]
 [ext_resource type="PackedScene" uid="uid://i30xvieibqm1" path="res://prefabs/interactables/mug.tscn" id="4_goh8m"]

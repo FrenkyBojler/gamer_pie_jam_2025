@@ -13,5 +13,5 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0.0158717,
 
 [resource]
 _data = {
-"ClosedOpenR": SubResource("Animation_ul334")
+&"ClosedOpenR": SubResource("Animation_ul334")
 }
