@@ -193,6 +193,7 @@ max_energy = 5.0
 duration = 3.0
 
 [node name="MapSkyBox" parent="WallsAndFloor/Map2/SkyBox" instance=ExtResource("6_0h4ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111796, 0.0241179, 0.129369)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3062, 24.9383, 79.4431)

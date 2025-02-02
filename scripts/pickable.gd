@@ -16,14 +16,17 @@ var current_mouse_pos: Vector2
 
 var is_picked := false
 
+var current_interactable: Interactable = null
+
 signal placed
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		current_mouse_pos = event.position
 
-func setup(player: Player) -> void:
+func setup(player: Player, interactable: Interactable) -> void:
 	self.player = player
+	current_interactable = interactable
 	
 	if is_placeholder:
 		visible = false
@@ -56,7 +59,7 @@ func _on_mouse_entered() -> void:
 		player.show_place_object_label(current_mouse_pos, self)
 	elif is_placeholder and player.picked_object == null or (player.picked_object != null and player.picked_object.id != id):
 		player.show_missing_object_label(current_mouse_pos)
-	elif not is_placeholder and player.picked_object == null:
+	elif not is_placeholder and player.picked_object == null and current_interactable.in_interaction:
 		player.show_pickup_object_label(current_mouse_pos, self)
 
 func _on_mouse_exited() -> void:

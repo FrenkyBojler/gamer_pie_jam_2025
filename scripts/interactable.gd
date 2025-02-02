@@ -38,7 +38,7 @@ func _setup_switch_cam_timer() -> void:
 
 func _setup_pickables() -> void:
 	for pickable in pickable_objects:
-		pickable.setup(player)
+		pickable.setup(player, self)
 
 func _show_pickables_placeholder() -> void:
 	for pickable in pickable_objects:

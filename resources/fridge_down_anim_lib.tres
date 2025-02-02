@@ -13,5 +13,5 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0.00778288
 
 [resource]
 _data = {
-&"FridgeBottomDoor": SubResource("Animation_6hvi3")
+"FridgeBottomDoor": SubResource("Animation_6hvi3")
 }
