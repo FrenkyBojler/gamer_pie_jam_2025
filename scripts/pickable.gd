@@ -88,7 +88,6 @@ func place() -> void:
 
 func switch_to_rendering_layer(layer: int) -> void:
 	visual_instance_3D.layers = layer
-<<<<<<< Updated upstream
 
 func show_outline() -> void:
 	var current_mat = visual_instance_3D.get_active_material(0).duplicate()
@@ -97,5 +96,3 @@ func show_outline() -> void:
 
 func hide_outline() -> void:
 	visual_instance_3D.set_surface_override_material(0, null)
-=======
->>>>>>> Stashed changes
