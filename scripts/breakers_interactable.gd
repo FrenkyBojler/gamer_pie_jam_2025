@@ -174,4 +174,8 @@ func _on_static_body_3d_mouse_exited() -> void:
 	player.hide_generic_label()
 
 func _on_close_breaker_timer_timeout() -> void:
-	pass # Replace with function body.
+	if doors_opened:
+		_close_doors()
+
+func _on_cancel_interaction() -> void:
+	$CloseBreakerTimer.start()
