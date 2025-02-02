@@ -68,6 +68,6 @@ tracks/1/use_blend = true
 
 [resource]
 _data = {
-&"flip_switch_4_off": SubResource("Animation_qnqc5"),
-&"flip_switch_4_on": SubResource("Animation_ekd55")
+"flip_switch_4_off": SubResource("Animation_qnqc5"),
+"flip_switch_4_on": SubResource("Animation_ekd55")
 }

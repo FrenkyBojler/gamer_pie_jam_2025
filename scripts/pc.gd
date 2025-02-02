@@ -39,7 +39,7 @@ func _ready() -> void:
 		$NotificationSound.play();
 	)
 	
-	GameState.game_start.connect(func(): 
+	GameState.game_start.connect(func():
 		static_camera.current = false
 		collider.disabled = false
 		_on_cancel_interaction()
