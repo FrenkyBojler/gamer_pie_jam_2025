@@ -186,7 +186,7 @@ spot_angle = 33.24
 
 [node name="SkyBox" type="Node" parent="WallsAndFloor/Map2" node_paths=PackedStringArray("lights")]
 script = ExtResource("6_lsjmm")
-lights = [NodePath("OmniLight3D"), NodePath("OmniLight3D2")]
+lights = [NodePath("OmniLight3D"), NodePath("OmniLight3D2"), NodePath("OmniLight3D3"), NodePath("OmniLight3D4"), NodePath("OmniLight3D5"), NodePath("OmniLight3D6")]
 min_energy = 0.0
 max_energy = 5.0
 duration = 3.0
@@ -200,6 +200,22 @@ light_color = Color(1, 0, 0.14902, 1)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1047, 24.8158, 81.4843)
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2621, 24.9383, 79.5945)
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0607, 24.8158, 81.6356)
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.079, 24.9383, 77.803)
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.8776, 24.8158, 79.8442)
 light_color = Color(1, 0, 0.14902, 1)
 
 [node name="SkyBoxBuildings" parent="WallsAndFloor/Map2/SkyBox" instance=ExtResource("8_n175e")]
