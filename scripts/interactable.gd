@@ -49,6 +49,8 @@ func _hide_pickables_placeholder() -> void:
 	for pickable in pickable_objects:
 		if pickable.is_placeholder:
 			pickable.visible = false
+		else:
+			pickable.hide_outline()
 
 func _process(delta: float) -> void:
 	if not GameState.can_interact:
