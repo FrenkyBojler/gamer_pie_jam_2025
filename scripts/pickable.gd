@@ -96,3 +96,12 @@ func show_outline() -> void:
 
 func hide_outline() -> void:
 	visual_instance_3D.set_surface_override_material(0, null)
+
+func disable_collisions() -> void:
+	recursively_disable_all_collision_shapes(self)
+
+func recursively_disable_all_collision_shapes(child: Node3D) -> void:
+	if child is CollisionShape3D:
+		child.disabled = true
+	for c in child.get_children():
+		recursively_disable_all_collision_shapes(c)

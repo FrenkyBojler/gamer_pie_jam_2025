@@ -237,6 +237,7 @@ func _pickup() -> void:
 	picked_object.global_position = carry_spot.global_position
 	picked_object.switch_to_rendering_layer(2)
 	picked_object.hide_outline()
+	picked_object.disable_collisions()
 	picked_object.scale = Vector3(1, 1, 1) * 2
 
 	pickable_object.pickup()
