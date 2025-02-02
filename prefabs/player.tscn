@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://klp0vv2sj7ne"]
+[gd_scene load_steps=29 format=3 uid="uid://klp0vv2sj7ne"]
 
 [ext_resource type="Script" uid="uid://bu5l8mkw3c6g2" path="res://scripts/player.gd" id="1_l5anj"]
 [ext_resource type="Texture2D" uid="uid://dqn1cuptlq5ma" path="res://assets/textures/kenney_cursor-pixel-pack/Tiles/tile_0200.png" id="2_153qa"]
+[ext_resource type="Script" uid="uid://cynqvive3wejh" path="res://scripts/adjusting_viewport.gd" id="2_edtk3"]
 [ext_resource type="LabelSettings" uid="uid://c2mshiytlfvim" path="res://resources/label_settings.tres" id="3_25v0u"]
 [ext_resource type="PackedScene" uid="uid://ds0qfkjv7mh0s" path="res://prefabs/ui/click_to_place_label.tscn" id="4_7f4hp"]
 [ext_resource type="PackedScene" uid="uid://sjd04rc5odjd" path="res://prefabs/ui/missing_object_label.tscn" id="5_5sq66"]
@@ -127,6 +128,7 @@ handle_input_locally = false
 canvas_cull_mask = 4293918722
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
+script = ExtResource("2_edtk3")
 
 [node name="CarrySpot" type="MeshInstance3D" parent="ObjectsCarrySpotContainer/SubViewport"]
 transform = Transform3D(0.3, 0, 0, 0, 0.0812557, 0.288786, 0, -0.288786, 0.0812557, 0.393658, 0.289089, -1.17759)
