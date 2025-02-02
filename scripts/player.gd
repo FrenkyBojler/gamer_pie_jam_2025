@@ -23,6 +23,9 @@ const cannot_interact_cursor = preload("res://assets/textures/kenney_cursor-pixe
 
 @export var step_delay_time: float = 0.5
 
+@export
+var level_mesh_collider: StaticBody3D
+
 @onready var step_delay: Timer = $PlayerStep/StepDelay
 
 var interactable_object: Interactable = null
@@ -60,7 +63,7 @@ func _ready() -> void:
 		camera.current = true
 	)
 
-	GameState.game_lost.connect(func(reason: String):
+	GameState.game_lost.connect(func(_reason: String):
 		visible = false
 		$Control/Crosshair.visible = false
 		hide_all_labels()
@@ -75,6 +78,7 @@ func _ready() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		camera.current = false
 	)
+
 	
 func _switch_crosshair_to(texture: Texture2D) -> void:
 	$Control/Crosshair.texture = texture
@@ -173,6 +177,9 @@ func check_interaction() -> void:
 		if collider.is_in_group("interactable") and collider is Interactable:
 			interactable_object = collider as Interactable
 			_switch_crosshair_to_look_at()
+		else:
+			interactable_object = null
+			_switch_crosshair_to_default()
 	else:
 		interactable_object = null
 		_switch_crosshair_to_default()
@@ -185,6 +192,7 @@ func handle_interaction() -> void:
 
 func start_interaction() -> void:
 	if interactable_object is Interactable:
+		level_mesh_collider.get_child(0).disabled = true
 		$AnimationPlayer.stop()
 		$CollisionShape3D.disabled = true
 		in_interaction = true
@@ -200,6 +208,7 @@ func start_interaction() -> void:
 		print_debug("missing interact method")
 
 func cancel_interaction() -> void:
+	level_mesh_collider.get_child(0).disabled = false
 	$CollisionShape3D.disabled = false
 	interactable_object.cancel_interaction()
 	interactable_object = null
@@ -252,44 +261,33 @@ func hide_all_labels() -> void:
 	hide_generic_label()
 	$Control/InteractLabel.visible = false
 
-func show_generic_label(text: String, pos: Vector2) -> void:
-	#$Control/GenericLabel.text = text
-	#$Control/GenericLabel.global_position = pos
-	#$Control/GenericLabel.visible = true
+func show_generic_label(_text: String, _pos: Vector2) -> void:
 	_switch_cursor_to_active()
 
 func hide_generic_label() -> void:
-	#$Control/GenericLabel.visible = false
 	_switch_cursor_to_default()
 
-func show_place_object_label(pos: Vector2, placeable: Pickable) -> void:
+func show_place_object_label(_pos: Vector2, placeable: Pickable) -> void:
 	can_place = true
 	placeable_object = placeable
-	#$Control/ClickToPlaceLabel.global_position = pos
-	#$Control/ClickToPlaceLabel.visible = true
 	_switch_cursor_to_place()
 	
 func hide_place_object_label() -> void:
 	can_place = false
-	#$Control/ClickToPlaceLabel.visible = false
 	_switch_cursor_to_default()
 	
-func show_missing_object_label(pos: Vector2) -> void:
-	#$Control/MissingObjectLabel.global_position = pos
-	#$Control/MissingObjectLabel.visible = true
+func show_missing_object_label(_pos: Vector2) -> void:
 	_switch_cursor_to_cannot_interact()
 
 func hide_missing_object_label() -> void:
 	_switch_cursor_to_default()
 
-func show_pickup_object_label(pos: Vector2, pickable: Pickable) -> void:
+func show_pickup_object_label(_pos: Vector2, pickable: Pickable) -> void:
 	can_pickup = true
 	pickable_object = pickable
-	#$Control/PickupObjectLabel.global_position = pos
-	#$Control/PickupObjectLabel.visible = true
 	_switch_cursor_to_grab()
 	
 func hide_pickup_object_label() -> void:
 	can_pickup = false
-	#$Control/PickupObjectLabel.visible = false
+	#$Control/PickupObjectLabel.visible =false
 	_switch_cursor_to_default()

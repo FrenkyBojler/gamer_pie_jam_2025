@@ -1,7 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=31 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
-[ext_resource type="Script" uid="uid://crqk8h4rp78ha" path="res://scripts/main_scene.gd" id="1_ogcw3"]
 [ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
 [ext_resource type="Script" uid="uid://dot71ulot44ar" path="res://scripts/living_room_light.gd" id="4_jmdbd"]
 [ext_resource type="PackedScene" uid="uid://d3wxupq5th3ht" path="res://prefabs/interactables/breakers_interactable.tscn" id="5_30pmb"]
@@ -78,17 +77,19 @@ material = SubResource("StandardMaterial3D_4kvkc")
 [sub_resource type="BoxShape3D" id="BoxShape3D_krdbf"]
 size = Vector3(7.16357, 0.498535, 5.71283)
 
-[node name="SampleScene" type="Node3D" node_paths=PackedStringArray("interactables")]
-script = ExtResource("1_ogcw3")
-interactables = [null, null, null]
+[node name="SampleScene" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sj3r8")
 
-[node name="Player" parent="." node_paths=PackedStringArray("pc_interactable") instance=ExtResource("1_au5jj")]
+[node name="Player" parent="." node_paths=PackedStringArray("pc_interactable", "level_mesh_collider") instance=ExtResource("1_au5jj")]
 transform = Transform3D(-0.432444, 0, 0.250982, 0, 0.5, 0, -0.250982, 0, -0.432444, -2.23947, 1.07977, 1.91756)
 visible = false
+jump_strength = 8.0
+gravity = -20.0
 pc_interactable = NodePath("../Interactables/PC")
+step_delay_time = 0.5
+level_mesh_collider = NodePath("../WallsAndFloor/Map2/Map/StaticBody3D")
 
 [node name="Camera3D" parent="Player" index="1"]
 transform = Transform3D(1.99929, -0.0463703, 0.0263484, 0.0335455, 1.86148, 0.730596, -0.0414624, -0.729895, 1.86159, 0, 0.904988, 0)
@@ -277,11 +278,11 @@ player = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029432, 0, -1.74893)
 player = NodePath("../../Player")
 
-[connection signal="mouse_input_event_update" from="." to="." method="_on_mouse_input_event_update"]
 [connection signal="switch_1_flip" from="Interactables/BreakersInteractable" to="WallsAndFloor/Map2/LivingRoomLight" method="_on_breakers_interactable_switch_1_flip"]
 [connection signal="switch_2_flip" from="Interactables/BreakersInteractable" to="WallsAndFloor/Map2/HallLight" method="_on_breakers_interactable_switch_2_flip"]
 [connection signal="switch_3_flip" from="Interactables/BreakersInteractable" to="Interactables/PC" method="_on_breakers_interactable_switch_3_flip"]
 
 [editable path="Player"]
+[editable path="WallsAndFloor/Map2"]
 [editable path="Interactables/PC"]
 [editable path="Interactables/BreakersInteractable"]
