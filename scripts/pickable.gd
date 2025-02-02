@@ -18,6 +18,8 @@ var is_picked := false
 
 var current_interactable: Interactable = null
 
+var visual_instance_3D: VisualInstance3D = null
+
 signal placed
 
 func _input(event: InputEvent) -> void:
@@ -45,6 +47,14 @@ func _ready() -> void:
 				var mesh_instance: MeshInstance3D = child
 				mesh_instance.material_override = placeholder_mat
 
+	find_visual_instance_3D()
+
+func find_visual_instance_3D() -> void:
+	for child in get_children():
+		if child is VisualInstance3D:
+			visual_instance_3D = child
+			break
+
 func init_pickable() -> void:
 	if is_placeholder:
 		for child in get_children():
@@ -69,6 +79,7 @@ func _on_mouse_exited() -> void:
 	
 func pickup() -> void:
 	is_placeholder = true
+	print(visual_instance_3D.name)
 	for child in get_children():
 		if child is MeshInstance3D:
 			var mesh_instance: MeshInstance3D = child
@@ -79,7 +90,11 @@ func place() -> void:
 	is_picked = false
 	is_placeholder = false
 	visible = true
+	switch_to_rendering_layer(1)
 	for child in get_children():
 		if child is MeshInstance3D:
 			var mesh_instance: MeshInstance3D = child
 			mesh_instance.material_override = null
+
+func switch_to_rendering_layer(layer: int) -> void:
+	visual_instance_3D.layers = layer
