@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://b5g3icj7fktce"]
 
-[ext_resource type="Script" path="res://scripts/countertop_interactable.gd" id="1_0tpoc"]
+[ext_resource type="Script" uid="uid://ckrfan8alempf" path="res://scripts/countertop_interactable.gd" id="1_0tpoc"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_4xb4f"]
 [ext_resource type="PackedScene" uid="uid://bkhq7uudvgdak" path="res://prefabs/interactables/kettle.tscn" id="3_65khe"]
 [ext_resource type="PackedScene" uid="uid://cgtxxedrjpbn3" path="res://prefabs/interactables/coffee.tscn" id="4_ah7nx"]
@@ -118,7 +118,7 @@ shadow_mesh = SubResource("ArrayMesh_dns2t")
 points = PackedVector3Array(0.039389, 0.348067, 0.429946, 0.352452, 0.425064, 0.375487, 0.402397, 0.475, 0.343418, -0.0913823, 0.348067, 0.429946, 0.0666461, 0.332351, 0.429946, 0.352452, -0.425157, 0.375487, -0.402397, 0.475, 0.343418, 0.402397, -0.475, 0.343418, 0.402397, 0.475, -0.429947, -0.352531, 0.425064, 0.375487, -0.118639, 0.332351, 0.429946, 0.0666461, 0.301013, 0.429946, -0.352531, -0.425157, 0.375487, 0.039389, 0.285298, 0.429946, -0.402397, 0.475, -0.429947, -0.402397, -0.475, 0.343418, 0.402397, -0.475, -0.429947, -0.118639, 0.301013, 0.429946, -0.0913823, 0.285298, 0.429946, -0.402397, -0.475, -0.429947)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x3dxq"]
-size = Vector3(2.43677, 0.990601, 0.816895)
+size = Vector3(2.43677, 1.09036, 0.915283)
 
 [node name="CountertopInteractable" type="StaticBody3D" node_paths=PackedStringArray("static_camera", "collider", "pickable_objects")]
 script = ExtResource("1_0tpoc")
@@ -157,7 +157,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_k3dx6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207, 0.501282, -0.00952148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207, 0.551163, 0.0396727)
 shape = SubResource("BoxShape3D_x3dxq")
 
 [node name="Camera3D" type="Camera3D" parent="."]
