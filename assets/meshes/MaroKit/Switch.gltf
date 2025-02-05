@@ -213,7 +213,7 @@
 				0.20833333333333334
 			],
 			"min":[
-				0.041666666666666664
+				0
 			],
 			"type":"SCALAR"
 		},
@@ -226,19 +226,19 @@
 		{
 			"bufferView":10,
 			"componentType":5126,
-			"count":5,
+			"count":6,
 			"max":[
 				0.20833333333333334
 			],
 			"min":[
-				0.041666666666666664
+				0
 			],
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":11,
 			"componentType":5126,
-			"count":5,
+			"count":6,
 			"type":"VEC4"
 		},
 		{
@@ -309,18 +309,18 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":20,
+			"byteLength":24,
 			"byteOffset":1596
 		},
 		{
 			"buffer":0,
-			"byteLength":80,
-			"byteOffset":1616
+			"byteLength":96,
+			"byteOffset":1620
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":1696
+			"byteOffset":1716
 		}
 	],
 	"samplers":[
@@ -331,7 +331,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1720,
+			"byteLength":1740,
 			"uri":"Switch.bin"
 		}
 	]

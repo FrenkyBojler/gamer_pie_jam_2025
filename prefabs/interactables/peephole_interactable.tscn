@@ -1,23 +1,23 @@
-[gd_scene load_steps=19 format=4 uid="uid://da6e2jv6kke3c"]
+[gd_scene load_steps=19 format=4 uid="uid://15chni5pry00"]
 
-[ext_resource type="Script" uid="uid://d2liv13qx6tdg" path="res://scripts/fridge_interactable.gd" id="1_0d2pc"]
-[ext_resource type="Texture2D" uid="uid://crh6tidfgcl8s" path="res://assets/textures/maro_kit/TestureAtlas2.png" id="1_64mk6"]
-[ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="2_wu66e"]
-[ext_resource type="AnimationLibrary" uid="uid://bqbwfjpb7437f" path="res://resources/fridge_top_anim_lib.tres" id="4_3pjd0"]
-[ext_resource type="AnimationLibrary" uid="uid://btb2kxe35n181" path="res://resources/fridge_down_anim_lib.tres" id="5_l86ke"]
-[ext_resource type="AudioStream" uid="uid://b0qkw6qu1bmsl" path="res://assets/sounds/fridge.wav" id="6_gud8s"]
-[ext_resource type="AudioStream" uid="uid://bda0ihahb7le5" path="res://assets/sounds/close_metal.wav" id="7_xjec2"]
+[ext_resource type="Script" uid="uid://d2liv13qx6tdg" path="res://scripts/fridge_interactable.gd" id="1_km2mc"]
+[ext_resource type="Texture2D" uid="uid://crh6tidfgcl8s" path="res://assets/textures/maro_kit/TestureAtlas2.png" id="2_p1ef6"]
+[ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="3_u4fht"]
+[ext_resource type="AnimationLibrary" uid="uid://bqbwfjpb7437f" path="res://resources/fridge_top_anim_lib.tres" id="4_d28ln"]
+[ext_resource type="AnimationLibrary" uid="uid://btb2kxe35n181" path="res://resources/fridge_down_anim_lib.tres" id="5_hvtki"]
+[ext_resource type="AudioStream" uid="uid://b0qkw6qu1bmsl" path="res://assets/sounds/fridge.wav" id="6_dynsw"]
+[ext_resource type="AudioStream" uid="uid://bda0ihahb7le5" path="res://assets/sounds/close_metal.wav" id="7_mkx8b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wipur"]
 resource_name = "HD"
 cull_mode = 2
-albedo_texture = ExtResource("1_64mk6")
+albedo_texture = ExtResource("2_p1ef6")
 texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lq6e6"]
 resource_name = "SD"
 cull_mode = 2
-albedo_texture = ExtResource("2_wu66e")
+albedo_texture = ExtResource("3_u4fht")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3ro07"]
@@ -174,7 +174,7 @@ points = PackedVector3Array(0, 0.278201, -1.14366e-05, -0.0318547, 0.252762, 0.0
 size = Vector3(0.70874, 1.52936, 0.860352)
 
 [node name="Fridge" type="StaticBody3D" node_paths=PackedStringArray("animation_player_left", "animation_player_right", "static_camera", "collider")]
-script = ExtResource("1_0d2pc")
+script = ExtResource("1_km2mc")
 animation_player_left = NodePath("Fridge2/Top")
 animation_player_right = NodePath("Fridge2/Dow")
 static_camera = NodePath("Camera3D")
@@ -208,12 +208,12 @@ shape = SubResource("ConvexPolygonShape3D_0o5sl")
 
 [node name="Top" type="AnimationPlayer" parent="Fridge2"]
 libraries = {
-&"": ExtResource("4_3pjd0")
+&"": ExtResource("4_d28ln")
 }
 
 [node name="Dow" type="AnimationPlayer" parent="Fridge2"]
 libraries = {
-&"": ExtResource("5_l86ke")
+&"": ExtResource("5_hvtki")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -224,13 +224,13 @@ shape = SubResource("BoxShape3D_2fqs1")
 transform = Transform3D(1, 0, 0, 0, 0.972427, 0.233208, 0, -0.233208, 0.972427, 0, 1.11134, 1.18356)
 
 [node name="FridgeHumming" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6_gud8s")
+stream = ExtResource("6_dynsw")
 volume_db = 7.619
 autoplay = true
 max_distance = 3.0
 
 [node name="OpenCloseSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("7_xjec2")
+stream = ExtResource("7_mkx8b")
 
 [connection signal="mouse_entered" from="Fridge2/Fridge/Fridge_001/StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Fridge2/Fridge/Fridge_001/StaticBody3D" to="." method="_on_static_body_3d_mouse_exited"]

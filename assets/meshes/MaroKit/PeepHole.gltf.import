@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dwlxrwepfwm0p"
-path="res://.godot/imported/Kettle.gltf-f4bc55b25a3c7cc5ead0f931a73fa892.scn"
+uid="uid://ca0aq7jumpty4"
+path="res://.godot/imported/PeepHole.gltf-ef88c2c28cab15ecc65adeee1031a0b3.scn"
 
 [deps]
 
-source_file="res://assets/meshes/MaroKit/Kettle.gltf"
-dest_files=["res://.godot/imported/Kettle.gltf-f4bc55b25a3c7cc5ead0f931a73fa892.scn"]
+source_file="res://assets/meshes/MaroKit/PeepHole.gltf"
+dest_files=["res://.godot/imported/PeepHole.gltf-ef88c2c28cab15ecc65adeee1031a0b3.scn"]
 
 [params]
 

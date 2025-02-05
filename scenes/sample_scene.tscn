@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=32 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b5g3icj7fktce" path="res://prefabs/interactables/countertop_interactable.tscn" id="12_0ehd0"]
 [ext_resource type="PackedScene" uid="uid://vlu5w3pbxuuc" path="res://prefabs/interactables/timber_pile_interactable.tscn" id="13_jq1x8"]
 [ext_resource type="PackedScene" uid="uid://da6e2jv6kke3c" path="res://prefabs/interactables/fridge_interactable.tscn" id="14_ukyel"]
+[ext_resource type="PackedScene" uid="uid://cwwes2aas4248" path="res://assets/meshes/MaroKit/Door.gltf" id="18_fenef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -93,6 +94,9 @@ transform = Transform3D(1.99929, -0.0463703, 0.0263484, 0.0335455, 1.86148, 0.73
 current = false
 
 [node name="WallsAndFloor" type="Node" parent="."]
+
+[node name="Door2" parent="WallsAndFloor" instance=ExtResource("18_fenef")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.24594, 0, -2.11714)
 
 [node name="Map2" parent="WallsAndFloor" instance=ExtResource("3_pcqem")]
 
