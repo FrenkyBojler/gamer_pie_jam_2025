@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=4 uid="uid://cmw8pdmm1ijyo"]
 
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_3gphi"]
-[ext_resource type="Script" path="res://scripts/window_interactable.gd" id="1_crbyh"]
+[ext_resource type="Script" uid="uid://dnykxeqfqoinb" path="res://scripts/window_interactable.gd" id="1_crbyh"]
 [ext_resource type="AnimationLibrary" uid="uid://by3qnye65lii" path="res://resources/window_left_anim_lib.tres" id="3_8uem1"]
 [ext_resource type="AnimationLibrary" uid="uid://c0s2rbe8g052h" path="res://resources/window_right_anim_lib.tres" id="4_p1b14"]
 [ext_resource type="AudioStream" uid="uid://b5yqvsou5eiis" path="res://assets/sounds/open_close_wood.wav" id="5_mr021"]
@@ -212,12 +212,12 @@ shape = SubResource("BoxShape3D_jevxa")
 
 [node name="AnimationPlayerLeft" type="AnimationPlayer" parent="Window"]
 libraries = {
-"": ExtResource("3_8uem1")
+&"": ExtResource("3_8uem1")
 }
 
 [node name="AnimationPlayerRight" type="AnimationPlayer" parent="Window"]
 libraries = {
-"": ExtResource("4_p1b14")
+&"": ExtResource("4_p1b14")
 }
 
 [node name="Camera3D" type="Camera3D" parent="."]
