@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=35 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cwwes2aas4248" path="res://assets/meshes/MaroKit/Door.gltf" id="18_fenef"]
 [ext_resource type="PackedScene" uid="uid://pmjcaas7ogg7" path="res://assets/meshes/MaroKit/Cup.gltf" id="19_6yaw1"]
 [ext_resource type="PackedScene" uid="uid://15chni5pry00" path="res://prefabs/interactables/peephole_interactable.tscn" id="20_o6mf3"]
+[ext_resource type="PackedScene" uid="uid://cptnyq7527rww" path="res://assets/meshes/MaroKit/Switch.gltf" id="21_x320b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2s3c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -302,6 +303,9 @@ player = NodePath("../../Player")
 
 [node name="Cup" parent="." instance=ExtResource("19_6yaw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1095, 0.75369, 2.80822)
+
+[node name="Switch" parent="." instance=ExtResource("21_x320b")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 3.59898, 1.41429, -1.79237)
 
 [connection signal="switch_1_flip" from="Interactables/BreakersInteractable" to="WallsAndFloor/Map2/LivingRoomLight" method="_on_breakers_interactable_switch_1_flip"]
 [connection signal="switch_2_flip" from="Interactables/BreakersInteractable" to="WallsAndFloor/Map2/HallLight" method="_on_breakers_interactable_switch_2_flip"]

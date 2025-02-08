@@ -25,7 +25,8 @@
 				14,
 				15,
 				16,
-				17
+				17,
+				18
 			]
 		}
 	],
@@ -201,6 +202,26 @@
 				1.119173526763916,
 				1.4841833114624023,
 				11.6110258102417
+			]
+		},
+		{
+			"mesh":18,
+			"name":"Cylinder.001",
+			"rotation":[
+				-1,
+				0,
+				0,
+				1.6292068494294654e-07
+			],
+			"scale":[
+				0.7766870260238647,
+				0.7766870260238647,
+				0.7766870260238647
+			],
+			"translation":[
+				3.5286366939544678,
+				2.0266129970550537,
+				0.0356447696685791
 			]
 		}
 	],
@@ -481,6 +502,20 @@
 						"TEXCOORD_0":73
 					},
 					"indices":74,
+					"material":1
+				}
+			]
+		},
+		{
+			"name":"Cylinder.002",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":75,
+						"NORMAL":76,
+						"TEXCOORD_0":77
+					},
+					"indices":78,
 					"material":1
 				}
 			]
@@ -1148,6 +1183,40 @@
 			"componentType":5123,
 			"count":183,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":75,
+			"componentType":5126,
+			"count":167,
+			"max":[
+				0.07038871198892593,
+				0.3074299693107605,
+				0.17089323699474335
+			],
+			"min":[
+				-0.07038871943950653,
+				-0.3074299693107605,
+				-0.17089323699474335
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":76,
+			"componentType":5126,
+			"count":167,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":77,
+			"componentType":5126,
+			"count":167,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":78,
+			"componentType":5123,
+			"count":339,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -1600,6 +1669,30 @@
 			"byteLength":366,
 			"byteOffset":452764,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":2004,
+			"byteOffset":453132,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2004,
+			"byteOffset":455136,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1336,
+			"byteOffset":457140,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":678,
+			"byteOffset":458476,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -1610,7 +1703,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":453132,
+			"byteLength":459156,
 			"uri":"Map.bin"
 		}
 	]

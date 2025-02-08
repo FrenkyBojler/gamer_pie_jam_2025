@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://15chni5pry00"]
 
-[ext_resource type="Script" uid="uid://d2liv13qx6tdg" path="res://scripts/fridge_interactable.gd" id="1_km2mc"]
+[ext_resource type="Script" uid="uid://blpdavbiuvjgk" path="res://scripts/peephole_interactable.gd" id="1_p1ef6"]
 [ext_resource type="AnimationLibrary" uid="uid://bqbwfjpb7437f" path="res://resources/fridge_top_anim_lib.tres" id="4_d28ln"]
 [ext_resource type="AnimationLibrary" uid="uid://btb2kxe35n181" path="res://resources/fridge_down_anim_lib.tres" id="5_hvtki"]
 [ext_resource type="PackedScene" uid="uid://cwwes2aas4248" path="res://assets/meshes/MaroKit/Door.gltf" id="5_km2mc"]
@@ -12,10 +12,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_2fqs1"]
 size = Vector3(0.154053, 0.140625, 0.0592042)
 
-[node name="Fridge" type="StaticBody3D" node_paths=PackedStringArray("animation_player_left", "animation_player_right", "static_camera", "collider")]
-script = ExtResource("1_km2mc")
-animation_player_left = NodePath("Fridge2/Top")
-animation_player_right = NodePath("Fridge2/Dow")
+[node name="Fridge" type="StaticBody3D" node_paths=PackedStringArray("static_camera", "collider")]
+script = ExtResource("1_p1ef6")
 static_camera = NodePath("Camera3D")
 collider = NodePath("CollisionShape3D")
 
