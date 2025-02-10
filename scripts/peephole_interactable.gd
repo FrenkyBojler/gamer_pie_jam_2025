@@ -109,8 +109,9 @@ func _ready():
 func play_random_sound():
 	
 	var next_play_time = randf_range(min_delay, max_delay)
-	await get_tree().create_timer(next_play_time).timeout
 	print("next play time:",next_play_time)
+	await get_tree().create_timer(next_play_time).timeout
+	
 	if not step_sound or not step_sound.stream:
 		push_warning("AudioStreamPlayer is missing or has no audio stream!")
 		return

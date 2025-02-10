@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://kerlhpu7oglu"]
 
-[ext_resource type="Script" path="res://scripts/furnace_interactable.gd" id="1_vn8k0"]
+[ext_resource type="Script" uid="uid://dc26c7655pocq" path="res://scripts/furnace_interactable.gd" id="1_vn8k0"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="1_yie0q"]
 [ext_resource type="PackedScene" uid="uid://bkhq7uudvgdak" path="res://prefabs/interactables/kettle.tscn" id="3_b62to"]
 [ext_resource type="PackedScene" uid="uid://cj2yqwoym2w0t" path="res://prefabs/interactables/timber_1.tscn" id="4_mwv7n"]
@@ -101,7 +101,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, -0.0240967
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4y26c"]
 _data = {
-"FurnaceDoorOpen": SubResource("Animation_ocy70")
+&"FurnaceDoorOpen": SubResource("Animation_ocy70")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5n27"]
@@ -137,7 +137,7 @@ shape = SubResource("ConcavePolygonShape3D_x7ejk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Furace"]
 libraries = {
-"": SubResource("AnimationLibrary_4y26c")
+&"": SubResource("AnimationLibrary_4y26c")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
