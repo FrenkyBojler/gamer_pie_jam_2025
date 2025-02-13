@@ -670,7 +670,7 @@ var postsTutorial = [
 		profile_pic_index = 0,
 		tutorial = 0,
 		name = "ProfessorY",
-		text = "Welcome online!\nYour task for today is to promote some cute dog posts!\nWe love dogs ⏰⏱⏲⏳⏸⏹⏺Ⓜ▪▫▶◀◻◼◽◾☀☁☂☃☄☎☑☔☕☘☝☠☢☣ ☦☪☮☯☸☹☺♀♂♈♉♊♋♌♍♎♏♐♑♒♓♟♠♣♥♦♨♻♾♿⚒⚓⚔⚕⚖⚗⚙⚛⚜⚠⚡⚧⚪⚫⚰⚱⚽⚾⛄⛅⛈⛎⛏⛑⛓⛔⛩⛪⛰⛱⛲⛳⛴⛵⛷⛸⛹⛺⛽✂ ✅✈✉✊✋✌✍✏✒✔✖✝✡✨✳✴❄❇❌❎❓❔❕❗❣❤➕➖➗➡➰➿⤴⤵⬅⬆⬇⬛⬜⭐⭕〰〽㊗㊙🀄🃏. This post is clearly positive for dogs, so give it some praise.",
+		text = "Welcome online recruit!\nYour task for today is to promote some cute dog posts!\nWe love dogs. This post is clearly positive for them, so give it a boost in the algorithm by clicking the GREEN icon!",
 		date = "7 minutes ago",
 		alignment = "positive"
 	},
@@ -678,7 +678,7 @@ var postsTutorial = [
 		profile_pic_index = 0,
 		tutorial = 1,
 		name = "ProfessorY",
-		text = "Cats make everything better.\nLove watching them nap in the sun 🌞\nA cat would probably like this post, but not us, give this one a well deserved ban.",
+		text = "Cats make everything better.\nI love watching them nap in the sun!\n\nA cat would probably like this post, but not us, give this one a well deserved shadow ban by clicking the RED icon!",
 		date = "7 minutes ago",
 		alignment = "negative"
 	},
@@ -686,7 +686,7 @@ var postsTutorial = [
 		profile_pic_index = 0,
 		tutorial = 2,
 		name = "ProfessorY",
-		text = "You have only limited time to moderate each post.\nAfter few seconds score will be adjusted according to the alignment of the post, so try to be quick.\nI'm sure you get how this works, tackle this post on your own.\nbtw, cats are best!",
+		text = "You have only limited time to moderate each post.\nAfter a few seconds, it will reach too many people, and its influence will be added to the score so be quick!\nI'm sure you get how this works, tackle this post on your own.\nbtw, cats are best!",
 		date = "6 minutes ago",
 		alignment = "negative"
 	},
@@ -694,7 +694,7 @@ var postsTutorial = [
 		profile_pic_index = 0,
 		tutorial = 3,
 		name = "ProfessorY",
-		text = "If you manage to fill the green progress bar you win!\nBut if the red progress bar fills up, well, you can try again tomorrow.\nAlso, be CAREFUL, score is processed even when YOU ARE NOT at your computer.\nLet's go dogs!",
+		text = "Oh! And a last thing! \nPeople post even when you're away! So keep an eye on the influence ratio and room temperature at the bottom of the screen.  \nGood luck and let's go, dogs! ",
 		date = "6 minutes ago",
 		alignment = "positive"
 	},

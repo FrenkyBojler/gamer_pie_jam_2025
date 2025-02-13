@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ca3rirahl1gne"]
+[gd_scene load_steps=34 format=3 uid="uid://ca3rirahl1gne"]
 
 [ext_resource type="PackedScene" uid="uid://klp0vv2sj7ne" path="res://prefabs/player.tscn" id="1_au5jj"]
 [ext_resource type="PackedScene" uid="uid://bt3vtwfdwfb" path="res://assets/meshes/MaroKit/Map.gltf" id="3_pcqem"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://vlu5w3pbxuuc" path="res://prefabs/interactables/timber_pile_interactable.tscn" id="13_jq1x8"]
 [ext_resource type="PackedScene" uid="uid://da6e2jv6kke3c" path="res://prefabs/interactables/fridge_interactable.tscn" id="14_ukyel"]
 [ext_resource type="PackedScene" uid="uid://cwwes2aas4248" path="res://assets/meshes/MaroKit/Door.gltf" id="18_fenef"]
-[ext_resource type="PackedScene" uid="uid://pmjcaas7ogg7" path="res://assets/meshes/MaroKit/Cup.gltf" id="19_6yaw1"]
 [ext_resource type="PackedScene" uid="uid://15chni5pry00" path="res://prefabs/interactables/peephole_interactable.tscn" id="20_o6mf3"]
 [ext_resource type="PackedScene" uid="uid://cptnyq7527rww" path="res://assets/meshes/MaroKit/Switch.gltf" id="21_x320b"]
 
@@ -144,7 +143,7 @@ spot_angle = 22.35
 script = ExtResource("5_b15p4")
 
 [node name="HallLight" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.58787, 2.39672, -0.955539)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.50474, 2.39672, -1.02391)
 layers = 3
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 1.253
@@ -162,7 +161,7 @@ spot_attenuation = 0.11
 spot_angle = 46.45
 
 [node name="HallBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
-transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.58787, 1.36125, -0.955539)
+transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.48347, 1.36125, -0.981272)
 layers = 3
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 5.81
@@ -290,7 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57435, 0, -1.71802)
 player = NodePath("../../Player")
 
 [node name="TimberPileInteractable" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("13_jq1x8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86987, 0, -1.79712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16351, 0, -1.79712)
 player = NodePath("../../Player")
 
 [node name="Fridge" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("14_ukyel")]
@@ -300,9 +299,6 @@ player = NodePath("../../Player")
 [node name="PeepHole" parent="Interactables" node_paths=PackedStringArray("player") groups=["interactable"] instance=ExtResource("20_o6mf3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5841, 0.00122947, -0.883436)
 player = NodePath("../../Player")
-
-[node name="Cup" parent="." instance=ExtResource("19_6yaw1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1095, 0.75369, 2.80822)
 
 [node name="Switch" parent="." instance=ExtResource("21_x320b")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 3.59898, 1.41429, -1.79237)

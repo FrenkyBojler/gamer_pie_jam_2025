@@ -425,6 +425,7 @@ stream = ExtResource("8_lddsm")
 [node name="CloseSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.136571)
 stream = ExtResource("9_q6535")
+volume_db = -28.73
 
 [node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.136571)

@@ -86,6 +86,7 @@ shape = SubResource("ConcavePolygonShape3D_5gunh")
 
 [node name="Mug" parent="." instance=ExtResource("4_goh8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52823, -0.270606, -0.218978)
+visible = false
 
 [node name="GoOnlineArea" type="Area3D" parent="."]
 monitoring = false
