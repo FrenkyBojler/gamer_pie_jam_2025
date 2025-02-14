@@ -77,14 +77,22 @@ func _on_mouse_exited() -> void:
 func pickup() -> void:
 	is_placeholder = true
 	visual_instance_3D.material_override = placeholder_mat
+	_on_picked_up()
+
+func _on_picked_up() -> void:
+	pass
 
 func place() -> void:
-	placed.emit()
 	is_picked = false
 	is_placeholder = false
 	visible = true
 	switch_to_rendering_layer(1)
 	visual_instance_3D.material_override = null
+	placed.emit()
+	_on_placed()
+
+func _on_placed() -> void:
+	pass
 
 func switch_to_rendering_layer(layer: int) -> void:
 	visual_instance_3D.layers = layer
@@ -104,4 +112,5 @@ func recursively_disable_all_collision_shapes(child: Node3D) -> void:
 	if child is CollisionShape3D:
 		child.disabled = true
 	for c in child.get_children():
-		recursively_disable_all_collision_shapes(c)
+		if c is Node3D:
+			recursively_disable_all_collision_shapes(c)

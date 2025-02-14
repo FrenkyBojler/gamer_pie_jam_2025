@@ -127,3 +127,8 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0508246, 0)
 shape = SubResource("CylinderShape3D_gc0pe")
+
+[node name="DrinkTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="DrinkTimer" to="." method="_on_drink_timer_timeout"]

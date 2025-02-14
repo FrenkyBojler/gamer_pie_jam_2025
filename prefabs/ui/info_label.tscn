@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://gjwktxdqvx30"]
+
+[ext_resource type="Script" uid="uid://cns1nhicns7s4" path="res://prefabs/label.gd" id="1_00yls"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00yls"]
+content_margin_left = 20.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_16xx0"]
+font_size = 24
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_edtk3"]
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_d42g4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q8uub"]
+resource_name = "info_show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_acsf2"]
+_data = {
+&"RESET": SubResource("Animation_d42g4"),
+&"info_show": SubResource("Animation_q8uub")
+}
+
+[node name="LabelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_00yls")
+
+[node name="InfoLable" type="Label" parent="." node_paths=PackedStringArray("explanation_label", "animation_player", "wait_timer")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Test text!"
+label_settings = SubResource("LabelSettings_16xx0")
+vertical_alignment = 1
+script = ExtResource("1_00yls")
+explanation_label = NodePath("ExplanationLabel")
+animation_player = NodePath("AnimationPlayer")
+wait_timer = NodePath("WaitTimer")
+
+[node name="ExplanationLabel" type="Label" parent="InfoLable"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 1920.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Light the fire before you freeze"
+label_settings = SubResource("LabelSettings_edtk3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InfoLable"]
+libraries = {
+&"": SubResource("AnimationLibrary_acsf2")
+}
+
+[node name="WaitTimer" type="Timer" parent="InfoLable"]
+wait_time = 3.0

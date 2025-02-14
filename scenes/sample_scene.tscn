@@ -137,7 +137,7 @@ spot_angle = 22.35
 script = ExtResource("5_b15p4")
 
 [node name="HallLight" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.58787, 2.39672, -0.955539)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.58787, 2.19131, -1.03593)
 layers = 3
 light_color = Color(0.909804, 0.760784, 0.219608, 1)
 light_energy = 1.253

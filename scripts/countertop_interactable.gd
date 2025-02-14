@@ -1,7 +1,7 @@
 extends Interactable
 
 func _ready() -> void:
-	$Kettle.placed.connect(func(): 
+	$Kettle.placed.connect(func():
 		_check_coffee_ready()
 	)
 	
