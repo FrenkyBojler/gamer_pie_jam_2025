@@ -101,7 +101,7 @@ func close_left_window() -> void:
 func set_wind_max_db() -> void:
 	if is_left_window_open == true or is_right_window_open == true:
 		wind_sound.max_db = 3
-		wind_howling.volume_db = 6
+		wind_howling.volume_db = 4
 		
 	elif is_left_window_open == false and is_right_window_open == false:
 		wind_sound.max_db = -3.3

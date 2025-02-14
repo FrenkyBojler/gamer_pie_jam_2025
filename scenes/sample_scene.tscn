@@ -160,15 +160,6 @@ spot_range = 3.23
 spot_attenuation = 0.11
 spot_angle = 46.45
 
-[node name="HallBackLight" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
-transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.48347, 1.36125, -0.981272)
-layers = 3
-light_color = Color(0.909804, 0.760784, 0.219608, 1)
-light_energy = 5.81
-spot_range = 0.924
-spot_attenuation = 0.11
-spot_angle = 22.35
-
 [node name="HallBackLight2" type="SpotLight3D" parent="WallsAndFloor/Map2/HallLight"]
 transform = Transform3D(1, 0, 0, 0, 0.0320388, -0.999487, 0, 0.999487, 0.0320388, 1.58787, 1.36125, 2.33292)
 layers = 3
@@ -177,6 +168,11 @@ light_energy = 5.81
 spot_range = 0.924
 spot_attenuation = 0.11
 spot_angle = 22.35
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WallsAndFloor/Map2/HallLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46742, 1.85928, -1.02676)
+light_color = Color(0.909804, 0.760784, 0.219608, 1)
+omni_range = 0.459
 
 [node name="LampPCLight" type="Node3D" parent="WallsAndFloor/Map2"]
 
@@ -198,43 +194,13 @@ spot_angle = 33.24
 
 [node name="SkyBox" type="Node" parent="WallsAndFloor/Map2" node_paths=PackedStringArray("lights")]
 script = ExtResource("6_lsjmm")
-lights = [NodePath("OmniLight3D"), NodePath("OmniLight3D2"), NodePath("OmniLight3D3"), NodePath("OmniLight3D4"), NodePath("OmniLight3D5"), NodePath("OmniLight3D6")]
+lights = [NodePath("Lights/OmniLight3D"), NodePath("Lights/OmniLight3D2"), NodePath("Lights/OmniLight3D3"), NodePath("Lights/OmniLight3D4"), NodePath("Lights/OmniLight3D5"), NodePath("Lights/OmniLight3D6")]
 min_energy = 0.0
 max_energy = 5.0
 duration = 3.0
 
 [node name="MapSkyBox" parent="WallsAndFloor/Map2/SkyBox" instance=ExtResource("6_0h4ht")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111796, 0.0241179, 0.129369)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3062, 24.9383, 79.4431)
-layers = 3
-light_color = Color(1, 0, 0.14902, 1)
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1047, 24.8158, 81.4843)
-layers = 3
-light_color = Color(1, 0, 0.14902, 1)
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2621, 24.9383, 79.5945)
-layers = 3
-light_color = Color(1, 0, 0.14902, 1)
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0607, 24.8158, 81.6356)
-layers = 3
-light_color = Color(1, 0, 0.14902, 1)
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.079, 24.9383, 77.803)
-layers = 3
-light_color = Color(1, 0, 0.14902, 1)
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.8776, 24.8158, 79.8442)
-layers = 3
-light_color = Color(1, 0, 0.14902, 1)
 
 [node name="SkyBoxBuildings" parent="WallsAndFloor/Map2/SkyBox" instance=ExtResource("8_n175e")]
 
@@ -245,6 +211,39 @@ lifetime = 5.0
 preprocess = 2.0
 process_material = SubResource("ParticleProcessMaterial_q40y3")
 draw_pass_1 = SubResource("QuadMesh_0r7rp")
+
+[node name="Lights" type="Node3D" parent="WallsAndFloor/Map2/SkyBox"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3062, 24.9383, 79.4431)
+layers = 3
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1047, 24.8158, 81.4843)
+layers = 3
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2621, 24.9383, 79.5945)
+layers = 3
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0607, 24.8158, 81.6356)
+layers = 3
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.079, 24.9383, 77.803)
+layers = 3
+light_color = Color(1, 0, 0.14902, 1)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="WallsAndFloor/Map2/SkyBox/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.8776, 24.8158, 79.8442)
+layers = 3
+light_color = Color(1, 0, 0.14902, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallsAndFloor"]
 

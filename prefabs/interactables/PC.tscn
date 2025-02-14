@@ -66,7 +66,7 @@ fov = 91.2
 size = 1.181
 
 [node name="CameraMonitor" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000136822, -0.0022068, -0.51775)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000136822, -0.0022068, -0.401973)
 keep_aspect = 0
 current = true
 size = 1.181

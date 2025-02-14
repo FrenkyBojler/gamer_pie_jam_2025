@@ -235,6 +235,7 @@ func _pickup() -> void:
 	
 	carry_spot.add_sibling(picked_object)
 	picked_object.global_position = carry_spot.global_position
+	picked_object.global_rotation = carry_spot.global_rotation
 	picked_object.switch_to_rendering_layer(2)
 	picked_object.hide_outline()
 	picked_object.disable_collisions()
