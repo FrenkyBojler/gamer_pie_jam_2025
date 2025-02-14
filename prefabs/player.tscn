@@ -91,6 +91,7 @@ script = ExtResource("2_edtk3")
 
 [node name="CarrySpot" type="MeshInstance3D" parent="ObjectsCarrySpotContainer/SubViewport"]
 transform = Transform3D(0.176618, -0.0333545, -0.596265, -0.022861, 0.124087, -0.279648, 0.24142, 0.0361517, 0.409735, 0.692937, 0.202291, -0.981115)
+visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_s1705")
 skeleton = NodePath("../../..")

@@ -21,6 +21,9 @@ var current_interactable: Interactable = null
 
 var visual_instance_3D: MeshInstance3D = null
 
+@export
+var child_visual_instances: Array[VisualInstance3D] = []
+
 signal placed
 
 func _input(event: InputEvent) -> void:
@@ -96,6 +99,8 @@ func _on_placed() -> void:
 
 func switch_to_rendering_layer(layer: int) -> void:
 	visual_instance_3D.layers = layer
+	for visual_instance in child_visual_instances:
+		visual_instance.layers = layer
 
 func show_outline() -> void:
 	var current_mat = visual_instance_3D.get_active_material(0).duplicate()
