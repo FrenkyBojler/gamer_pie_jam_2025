@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://bjiff8f6igt28"]
 
-[ext_resource type="Script" path="res://scripts/gramec_interactable.gd" id="1_be72v"]
+[ext_resource type="Script" uid="uid://dnffersfhfwic" path="res://scripts/gramec_interactable.gd" id="1_be72v"]
 [ext_resource type="Texture2D" uid="uid://crh6tidfgcl8s" path="res://assets/textures/maro_kit/TestureAtlas2.png" id="1_cae85"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="2_jux2u"]
 [ext_resource type="AudioStream" uid="uid://dugrw12srnob8" path="res://assets/sounds/main_ost-loop.wav" id="4_er6tu"]
@@ -278,10 +278,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qewi8"]
 _data = {
-"GramophoneHandleSpin": SubResource("Animation_1klpr"),
-"GramophoneRecordSpin": SubResource("Animation_jdiww"),
-"RESET": SubResource("Animation_50qpd"),
-"button": SubResource("Animation_mkl5t")
+&"GramophoneHandleSpin": SubResource("Animation_1klpr"),
+&"GramophoneRecordSpin": SubResource("Animation_jdiww"),
+&"RESET": SubResource("Animation_50qpd"),
+&"button": SubResource("Animation_mkl5t")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qv2gk"]
@@ -398,7 +398,7 @@ shape = SubResource("ConvexPolygonShape3D_nyiwi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gramophone"]
 libraries = {
-"": SubResource("AnimationLibrary_qewi8")
+&"": SubResource("AnimationLibrary_qewi8")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

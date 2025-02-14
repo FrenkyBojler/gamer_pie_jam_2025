@@ -9,6 +9,8 @@ var can_interact_with_button := false
 
 var last_mouse_pos: Vector2
 
+var run_record_anim := true
+
 func _ready() -> void:
 	anim_player.play("GramophoneRecordSpin")
 
@@ -29,12 +31,24 @@ func _push_button() -> void:
 		anim_player.play("button")
 		$ButtonPress.play()
 		await get_tree().create_timer(1).timeout
-		anim_player.play("GramophoneRecordSpin")
+		run_record_anim = !run_record_anim
+		
+		
+		if run_record_anim:
+			anim_player.play("GramophoneRecordSpin")
+			$Music.play()
+		else:
+			$Music.stop()
+			anim_player.stop()
+			
 
 func _spin_handle() -> void:
 	if can_interact:
 		anim_player.play("GramophoneHandleSpin")
 		$HandleCreak.play()
+
+		
+		
 
 func _on_static_body_3d_mouse_entered() -> void:
 	can_interact = true

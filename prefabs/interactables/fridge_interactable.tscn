@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=4 uid="uid://da6e2jv6kke3c"]
 
-[ext_resource type="Script" path="res://scripts/fridge_interactable.gd" id="1_0d2pc"]
+[ext_resource type="Script" uid="uid://d2liv13qx6tdg" path="res://scripts/fridge_interactable.gd" id="1_0d2pc"]
 [ext_resource type="Texture2D" uid="uid://crh6tidfgcl8s" path="res://assets/textures/maro_kit/TestureAtlas2.png" id="1_64mk6"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="2_wu66e"]
-[ext_resource type="AnimationLibrary" uid="uid://def0nhv8nsike" path="res://resources/fridge_top_anim_lib.tres" id="4_3pjd0"]
-[ext_resource type="AnimationLibrary" uid="uid://bo7afmor06sgu" path="res://resources/fridge_down_anim_lib.tres" id="5_l86ke"]
+[ext_resource type="AnimationLibrary" uid="uid://bqbwfjpb7437f" path="res://resources/fridge_top_anim_lib.tres" id="4_3pjd0"]
+[ext_resource type="AnimationLibrary" uid="uid://btb2kxe35n181" path="res://resources/fridge_down_anim_lib.tres" id="5_l86ke"]
 [ext_resource type="AudioStream" uid="uid://b0qkw6qu1bmsl" path="res://assets/sounds/fridge.wav" id="6_gud8s"]
-[ext_resource type="AudioStream" uid="uid://cwh55forkaydy" path="res://assets/sounds/close_metal.wav" id="7_xjec2"]
+[ext_resource type="AudioStream" uid="uid://bda0ihahb7le5" path="res://assets/sounds/close_metal.wav" id="7_xjec2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wipur"]
 resource_name = "HD"
@@ -208,12 +208,12 @@ shape = SubResource("ConvexPolygonShape3D_0o5sl")
 
 [node name="Top" type="AnimationPlayer" parent="Fridge2"]
 libraries = {
-"": ExtResource("4_3pjd0")
+&"": ExtResource("4_3pjd0")
 }
 
 [node name="Dow" type="AnimationPlayer" parent="Fridge2"]
 libraries = {
-"": ExtResource("5_l86ke")
+&"": ExtResource("5_l86ke")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

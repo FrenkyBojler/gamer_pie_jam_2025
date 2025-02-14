@@ -50,14 +50,21 @@ func _toggle_right_window() -> void:
 func open_right_window() -> void:
 	is_right_window_open = true
 	animation_player_right.play("WindowROpen")
-	$OpenSound.play()
 	set_wind_max_db()
+	
+	$CloseOpenWindow.play()
+	await animation_player_right.animation_finished
+	$OpenSound.play()
+	
 
 func close_right_window() -> void:
 	is_right_window_open = false
 	animation_player_right.play_backwards("WindowROpen")
-	$OpenSound.play()
+	
+	$CloseOpenWindow.play()
 	await animation_player_right.animation_finished
+	$CloseSound.play()
+
 	set_wind_max_db()
 	
 	if not is_left_window_open:
@@ -72,14 +79,20 @@ func _toggle_left_window() -> void:
 func open_left_window() -> void:
 	is_left_window_open = true
 	animation_player_left.play("WindowLOpen")
-	$OpenSound.play()
 	set_wind_max_db()
+	
+	$CloseOpenWindow.play()
+	await animation_player_left.animation_finished
+	$OpenSound.play()
 	
 func close_left_window() -> void:
 	is_left_window_open = false
 	animation_player_left.play_backwards("WindowLOpen")
-	$OpenSound.play()
+	
+	$CloseOpenWindow.play()
 	await animation_player_left.animation_finished
+	$CloseSound.play()
+	
 	set_wind_max_db()
 	
 	if not is_right_window_open:
@@ -88,7 +101,7 @@ func close_left_window() -> void:
 func set_wind_max_db() -> void:
 	if is_left_window_open == true or is_right_window_open == true:
 		wind_sound.max_db = 3
-		wind_howling.volume_db = 6
+		wind_howling.volume_db = 4
 		
 	elif is_left_window_open == false and is_right_window_open == false:
 		wind_sound.max_db = -3.3

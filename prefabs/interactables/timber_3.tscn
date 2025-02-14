@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://bccshd1ya7mve"]
+[gd_scene load_steps=7 format=4 uid="uid://bccshd1ya7mve"]
 
-[ext_resource type="Script" path="res://scripts/pickable.gd" id="1_ef71h"]
+[ext_resource type="Script" uid="uid://cpk8hylbc1oki" path="res://scripts/pickable.gd" id="1_ef71h"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="2_ce3f3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dph4e"]
@@ -41,11 +41,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f1cbk")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5i77n"]
-points = PackedVector3Array(0.0774855, 0.0649209, -4.6134e-05, 0.042231, 0.123656, 0.180732, 0.0663879, 0.0710829, 0.182218, 0.0513488, 0.0146841, 0.180617, 0.0583235, 0.00474341, 6.81877e-05, 0.0278276, 0.0180239, -0.180481, 0.0413955, 0.0690603, -0.181853, 0.0197087, 0.11682, -0.180652, 0.0499866, 0.122511, -4.6134e-05, -0.0139475, 0.139539, 0.182503, 0.026756, 0.12513, 0.274578, 0.0350747, 0.078954, 0.288238, 0.0329496, 0.0295953, 0.272864, 0.00169095, -0.0206415, 1.10269e-05, -0.00205064, -0.00812937, 0.181989, -0.0202682, -0.00711021, -0.182596, 0.00650418, 0.026773, -0.273127, 0.00648601, 0.0761944, -0.287816, -0.00103351, 0.121947, -0.274099, -0.0110414, 0.137219, 1.10269e-05, -0.0689635, 0.116004, 0.273092, -0.0246092, 0.12941, 0.279722, -0.0534159, 0.128093, -0.280157, -0.0953363, 0.112963, -0.271927, -0.0245547, 0.0711613, 0.289781, -0.0158728, 0.01978, 0.278408, -0.0576479, 0.00627999, 0.180674, -0.0583381, -0.0047583, -0.000103265, -0.0606629, 0.02232, 0.272064, -0.0868359, 0.0200622, -0.271756, -0.0395756, 0.0157974, -0.279471, -0.0463323, 0.0705655, -0.294103, -0.0314567, 0.13159, -0.182538, -0.0762469, 0.0696404, 0.289724, -0.108069, 0.0660499, -0.28633, -0.082386, 0.0590882, 0.182503)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_iptyt"]
-size = Vector3(0.187378, 0.157776, 0.5802)
+size = Vector3(0.0993652, 0.0771484, 0.5802)
 
 [node name="Timber3" type="StaticBody3D"]
 script = ExtResource("1_ef71h")
@@ -55,11 +52,6 @@ id = "timber_3"
 mesh = SubResource("ArrayMesh_tympu")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Timber2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Timber2/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_5i77n")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015564, 0.0569763, -0.000915527)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015564, 0.0699664, -0.000915527)
 shape = SubResource("BoxShape3D_iptyt")

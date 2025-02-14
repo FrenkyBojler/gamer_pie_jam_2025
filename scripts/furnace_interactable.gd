@@ -74,6 +74,7 @@ func _on_furnace_col_mouse_exited() -> void:
 
 func _on_fire_timer_timeout() -> void:
 	$FireCrackling.stop()
+	$FurnaceHiss.play()
 	$FireLight.visible = false
 	$Furace/FuraceBase/FuraceDoor/FurnaceCol/CollisionShape3D.disabled = false
 	GameState.fire_out_event_trigger()
