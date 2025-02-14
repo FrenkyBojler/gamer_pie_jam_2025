@@ -1,5 +1,7 @@
 extends Interactable
 
+class_name PCInteractable
+
 var can_interact_with_monitor := false
 var is_online := true
 

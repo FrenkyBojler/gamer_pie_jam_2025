@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bkhq7uudvgdak"]
 
-[ext_resource type="Script" path="res://scripts/kettle.gd" id="1_fb5pe"]
+[ext_resource type="Script" uid="uid://dgyt75btltsiq" path="res://scripts/kettle.gd" id="1_fb5pe"]
 [ext_resource type="Texture2D" uid="uid://dclpls3lqnekx" path="res://assets/textures/maro_kit/TestureAtlas1.png" id="2_xbf6g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ccnix"]

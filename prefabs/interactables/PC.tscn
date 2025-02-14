@@ -69,6 +69,7 @@ size = 1.181
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000136822, -0.0022068, -0.401973)
 keep_aspect = 0
 current = true
+fov = 79.0
 size = 1.181
 
 [node name="CRT2Din3D" parent="." instance=ExtResource("3_xjn5x")]
@@ -86,7 +87,6 @@ shape = SubResource("ConcavePolygonShape3D_5gunh")
 
 [node name="Mug" parent="." instance=ExtResource("4_goh8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52823, -0.270606, -0.218978)
-visible = false
 
 [node name="GoOnlineArea" type="Area3D" parent="."]
 monitoring = false

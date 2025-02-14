@@ -228,11 +228,6 @@ func _pickup() -> void:
 	$PickUp.play()
 	picked_object = pickable_object.duplicate()
 	
-	if pickable_object is Kettle:
-		print_debug(pickable_object.is_boiled)
-	if picked_object is Kettle:
-		print_debug(picked_object.is_boiled)
-	
 	carry_spot.add_sibling(picked_object)
 	picked_object.global_position = carry_spot.global_position
 	picked_object.global_rotation = carry_spot.global_rotation
@@ -242,15 +237,28 @@ func _pickup() -> void:
 	picked_object.scale = Vector3(1, 1, 1) * 2
 
 	pickable_object.pickup()
+
+	if pickable_object is Kettle:
+		picked_object.is_boiled = pickable_object.is_boiled
+
+	if pickable_object is Mug:
+		(picked_object as Mug).set_current_drink_amount((pickable_object as Mug).current_time_to_drink)
 	
 	hide_pickup_object_label()
 	show_place_object_label(current_mouse_pos, pickable_object)
 
 func _place() -> void:
 	$PlaceDown.play()
-	placeable_object.place()
-	if placeable_object is Kettle and picked_object is Kettle:
+
+	if placeable_object is Kettle:
+		if interactable_object is FurnaceInteractable and interactable_object.fire_is_lit:
+			placeable_object.is_boiled = true
 		placeable_object.is_boiled = picked_object.is_boiled
+
+	if placeable_object is Mug:
+		(placeable_object as Mug).set_current_drink_amount((picked_object as Mug).current_time_to_drink)
+
+	placeable_object.place()
 	
 	picked_object.queue_free()
 	picked_object = null

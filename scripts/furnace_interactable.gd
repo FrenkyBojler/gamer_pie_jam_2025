@@ -1,5 +1,7 @@
 extends Interactable
 
+class_name FurnaceInteractable
+
 @export
 var anim_player: AnimationPlayer
 var can_interact_with_door := false
@@ -15,7 +17,6 @@ func _ready() -> void:
 	)
 	
 	$Kettle.placed.connect(func():
-		print_debug("Fire is lit: " + str(fire_is_lit))
 		if fire_is_lit:
 			$Kettle.is_boiled = true
 	)

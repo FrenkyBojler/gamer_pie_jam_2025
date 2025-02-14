@@ -16,6 +16,9 @@ signal windows_closed
 signal fire_back_on
 signal power_back_on
 
+signal coffee_made
+signal coffee_drank
+
 var can_interact := false
 
 var freeze_score := 0
@@ -23,11 +26,12 @@ var freeze_score_critical_value := 40
 signal freeze_score_updated(score: int)
 
 var tired_score := 0
-var tired_score_critical_value := 40
+var tired_score_critical_value := 80
 signal tired_score_updated(score: int)
 
 var windows_opened := false
 var fire_out := false
+var coffee_out := false
 
 var windows_open_event_timer: Timer = Timer.new()
 var windows_open_event_min_wait_time := 20.0
@@ -38,6 +42,7 @@ var power_off_event_min_wait_time := 20.0
 var power_off_event_max_wait_time := 40.0
 
 var freeze_score_timer: Timer = Timer.new()
+var energy_score_timer: Timer = Timer.new()
 
 signal posts_score_update(score: int)
 var posts_score_critical_value := 40
@@ -49,6 +54,9 @@ func _enter_tree() -> void:
 	_setup_freeze_score_timer()
 	_setup_fire_out_event()
 	_setup_power_off_event()
+	_setup_energy_decrease_timer()
+
+	_setup_coffe_state_handler()
 
 	game_lost.connect(func():
 		can_interact = false
@@ -62,6 +70,35 @@ func _enter_tree() -> void:
 		freeze_score_timer.stop()
 		windows_open_event_timer.stop()
 		power_off_event_timer.stop()
+	)
+
+func _setup_energy_decrease_timer() -> void:
+	energy_score_timer.wait_time = 2
+	energy_score_timer.one_shot = false
+	energy_score_timer.autostart = false
+	
+	energy_score_timer.timeout.connect(func():
+		if coffee_out:
+			tired_score += 1
+		if not coffee_out:
+			tired_score -= 1
+
+		if tired_score <= 0:
+			tired_score = 0
+
+		tired_score_updated.emit(tired_score)
+		if tired_score >= tired_score_critical_value:
+			loose_game("tired")
+	)
+
+func _setup_coffe_state_handler() -> void:
+	coffee_made.connect(func():
+		print_debug("Coffee made")
+		coffee_out = false
+	)
+	coffee_drank.connect(func():
+		print_debug("Coffee drank")
+		coffee_out = true
 	)
 
 func _setup_fire_out_event() -> void:
@@ -151,6 +188,9 @@ func start_game(tutorial_skiped: bool, is_sandbox: bool = false) -> void:
 	
 	get_tree().root.add_child(freeze_score_timer)
 	freeze_score_timer.start()
+
+	get_tree().root.add_child(energy_score_timer)
+	energy_score_timer.start()
 	
 	get_tree().root.add_child(power_off_event_timer)
 	if tutorial_skiped:
@@ -164,9 +204,12 @@ func restart_game() -> void:
 
 	tired_score = 0
 	tired_score_critical_value = 20
+	coffee_out = false
+
 
 	windows_opened = false
 	fire_out = false
+	coffee_out = false
 
 	windows_open_event_timer = Timer.new()
 	windows_open_event_min_wait_time = 10.0
@@ -177,6 +220,8 @@ func restart_game() -> void:
 	power_off_event_max_wait_time = 30.0
 
 	freeze_score_timer = Timer.new()
+	energy_score_timer = Timer.new()
+
 
 	posts_score_critical_value = 20
 	
